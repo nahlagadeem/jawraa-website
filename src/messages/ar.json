@@ -1,0 +1,42 @@
+{
+  "site": {
+    "name": "جوراء",
+    "placeholder": "صفحة تأسيسية مؤقتة"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "about": "عن جوراء",
+    "services": "الخدمات",
+    "partners": "الشركاء",
+    "clients": "العملاء",
+    "media": "المركز الإعلامي",
+    "contact": "اتصل بنا",
+    "language": "English"
+  },
+  "pages": {
+    "home": "الرئيسية",
+    "about": "عن جوراء",
+    "services": "الخدمات",
+    "managedServices": "الخدمات المدارة",
+    "infrastructure": "البنية التحتية",
+    "systemsCloud": "الأنظمة والسحابة",
+    "cybersecurity": "الأمن السيبراني",
+    "appleEducation": "Apple Education",
+    "partners": "الشركاء",
+    "clients": "العملاء",
+    "mediaCenter": "المركز الإعلامي",
+    "contact": "اتصل بنا"
+  },
+  "admin": {
+    "dashboard": "لوحة التحكم",
+    "login": "تسجيل دخول الإدارة",
+    "homeSections": "أقسام الصفحة الرئيسية",
+    "services": "محتوى الخدمات",
+    "partners": "الشركاء",
+    "clients": "العملاء",
+    "successStories": "قصص النجاح",
+    "media": "المركز الإعلامي / الأخبار",
+    "seo": "بيانات SEO",
+    "assets": "الصور والشعارات"
+  }
+}

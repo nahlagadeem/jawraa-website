@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Locale {
+  en
+  ar
+}
+
+model AdminUser {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ContentEntry {
+  id          String   @id @default(cuid())
+  type        String
+  slug        String
+  locale      Locale
+  title       String?
+  body        Json?
+  imageUrl    String?
+  seoTitle    String?
+  seoDesc     String?
+  isPublished Boolean  @default(false)
+  sortOrder   Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([type, slug, locale])
+}
+
+model Asset {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  url       String
+  altEn     String?
+  altAr     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

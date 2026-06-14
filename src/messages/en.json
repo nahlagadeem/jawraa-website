@@ -1,0 +1,42 @@
+{
+  "site": {
+    "name": "Jawraa",
+    "placeholder": "Foundation placeholder"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Jawraa",
+    "services": "Services",
+    "partners": "Partners",
+    "clients": "Clients",
+    "media": "Media Center",
+    "contact": "Contact Us",
+    "language": "العربية"
+  },
+  "pages": {
+    "home": "Home",
+    "about": "About Jawraa",
+    "services": "Services",
+    "managedServices": "Managed Services",
+    "infrastructure": "Infrastructure",
+    "systemsCloud": "Systems & Cloud",
+    "cybersecurity": "Cybersecurity",
+    "appleEducation": "Apple Education",
+    "partners": "Partners",
+    "clients": "Clients",
+    "mediaCenter": "Media Center",
+    "contact": "Contact Us"
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "login": "Admin Login",
+    "homeSections": "Homepage Sections",
+    "services": "Services Content",
+    "partners": "Partners",
+    "clients": "Clients",
+    "successStories": "Success Stories",
+    "media": "Media Center / News",
+    "seo": "SEO Metadata",
+    "assets": "Images & Logos"
+  }
+}

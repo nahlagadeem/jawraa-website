@@ -1,13 +1,26 @@
 import type { Locale } from "@/config/site";
 import { FadeIn } from "@/components/motion/fade-in";
 import { aboutPage } from "@/data/public-pages";
+import { Link } from "@/i18n/navigation";
+import {
+  BarChart3,
+  Cog,
+  Eye,
+  Globe2,
+  Handshake,
+  Lightbulb,
+  Search,
+  ShieldCheck,
+  Target,
+  type LucideIcon,
+} from "lucide-react";
 import { PageShell } from "./page-shell";
 
 export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <PageShell locale={locale} active={aboutPage.active}>
-      <section className="bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_55%,#fff9e8_100%)] pb-[88px] pt-[126px]">
-        <div className="jawraa-container md:pl-[190px]">
+      <section className="bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_55%,#fff9e8_100%)] pb-[88px] pt-[112px]">
+        <div className="mx-auto w-[min(calc(100%_-_2rem),720px)]">
           <FadeIn>
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-8 bg-[#f6be15]" />
@@ -15,21 +28,35 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 {aboutPage.eyebrow[locale]}
               </span>
             </div>
-            <h1 className="max-w-[590px] text-[50px] font-black leading-[0.92] tracking-[-0.05em] md:text-[72px]">
+            <h1 className="max-w-[590px] text-[34px] font-black leading-[1.06] tracking-[-0.05em] sm:text-[50px] md:text-[72px] md:leading-[0.92]">
               {aboutPage.title[locale]}
             </h1>
-            <p className="mt-6 max-w-[570px] text-[27px] font-medium leading-tight tracking-[-0.035em] text-[#626a75]">
+            <p className="mt-6 max-w-[570px] text-[20px] font-medium leading-tight tracking-[-0.035em] text-[#626a75] sm:text-[27px]">
               {aboutPage.lead[locale]}
             </p>
             <p className="mt-5 max-w-[640px] text-[15px] leading-7 text-[#717782]">
               {aboutPage.body[locale]}
             </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href="#jawraa-journey"
+                className="inline-flex h-11 items-center justify-center rounded-full bg-[#f6be15] px-6 text-[12px] font-black text-black"
+              >
+                {aboutPage.heroCta[locale]}
+              </a>
+              <a
+                href="#jawraa-identity"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-[#e4e7eb] bg-white px-6 text-[12px] font-black text-[#17191f]"
+              >
+                {aboutPage.visionLabel[locale]}
+              </a>
+            </div>
           </FadeIn>
           <div className="mt-9 grid max-w-[620px] gap-4 sm:grid-cols-3">
             {aboutPage.stats.map((stat, index) => (
               <FadeIn key={stat.value} delay={index * 0.04}>
                 <div className="rounded-[14px] border border-[#eee7cb] bg-white p-5 shadow-[0_18px_38px_rgb(17_17_17_/_8%)]">
-                  <p className="text-[26px] font-black tracking-[-0.04em]">
+                  <p dir="ltr" className="text-[26px] font-black tracking-[-0.04em]">
                     {stat.value}
                   </p>
                   <p className="mt-2 text-[11px] text-[#6f7681]">
@@ -42,20 +69,59 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="py-[88px]">
+      <section id="jawraa-journey" className="scroll-mt-28 py-[88px]">
         <div className="jawraa-container">
-          <div className="rounded-[18px] border border-[#f6be15] bg-white p-8 shadow-[0_24px_52px_rgb(17_17_17_/_10%)]">
-            <div className="grid gap-8 md:grid-cols-5">
-              {aboutPage.timeline.map((item) => (
-                <div key={item.year} className="text-center">
-                  <span className="mx-auto mb-5 block size-2 rounded-full bg-[#f6be15]" />
-                  <p className="text-[14px] font-black">{item.year}</p>
-                  <p className="mt-2 text-[12px] leading-5 text-[#737a85]">
-                    {item.label[locale]}
-                  </p>
-                </div>
+          <FadeIn>
+            <div className="mb-10 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#f6be15]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
+                {aboutPage.timelineEyebrow[locale]}
+              </span>
+            </div>
+          </FadeIn>
+          <div className="overflow-x-auto rounded-[18px] border border-[#f6be15] bg-white p-8 shadow-[0_24px_52px_rgb(17_17_17_/_10%)]">
+            <div className="flex min-w-max gap-0">
+              {aboutPage.timeline.map((item, index) => (
+                <FadeIn key={item.year} delay={index * 0.02}>
+                  <div className="relative w-[156px] px-4 pt-7 text-center">
+                    <span className="absolute left-0 right-0 top-[10px] h-px bg-[#eee7cb]" />
+                    <span className="relative z-10 mx-auto mb-4 block size-3 rounded-full bg-[#f6be15]" />
+                    <p className="text-[13px] font-black text-[#161922]">{item.year}</p>
+                    <p className="mt-3 text-[10px] leading-4 text-[#737a85]">
+                      {item.label[locale]}
+                    </p>
+                  </div>
+                </FadeIn>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="jawraa-identity" className="scroll-mt-28 py-[84px]">
+        <div className="jawraa-container">
+          <FadeIn>
+            <div className="mb-12 flex items-center gap-3">
+              <span className="h-px w-8 bg-[#f6be15]" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
+                {aboutPage.identityEyebrow[locale]}
+              </span>
+            </div>
+          </FadeIn>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {aboutPage.identity.map((item, index) => (
+              <FadeIn key={item.title.en} delay={index * 0.04}>
+                <article className="h-full rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
+                  <AboutIcon icon={identityIcons[index]} />
+                  <h2 className="text-[21px] font-black leading-tight tracking-[-0.03em]">
+                    {item.title[locale]}
+                  </h2>
+                  <p className="mt-4 text-[13px] leading-6 text-[#68707c]">
+                    {item.description[locale]}
+                  </p>
+                </article>
+              </FadeIn>
+            ))}
           </div>
         </div>
       </section>
@@ -64,18 +130,22 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <div className="jawraa-container max-w-[760px]">
           <FadeIn>
             <div className="mx-auto mb-12 max-w-[420px] rounded-[16px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
+              <div className="mb-4 flex items-center justify-center gap-3">
+                <span className="h-px w-8 bg-[#f6be15]" />
+                <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
+                  {aboutPage.valuesEyebrow[locale]}
+                </span>
+              </div>
               <h2 className="text-[24px] font-black leading-tight tracking-[-0.03em]">
-                {locale === "ar"
-                  ? "ست قيم تشكل ثقافة جوراء وقراراتها."
-                  : "Six core values shape Jawraa's culture and decision-making."}
+                {aboutPage.valuesTitle[locale]}
               </h2>
             </div>
           </FadeIn>
           <div className="grid gap-5 md:grid-cols-2">
             {aboutPage.values.map((item, index) => (
               <FadeIn key={item.title.en} delay={index * 0.03}>
-                <div className="rounded-[15px] border border-[#eee7cb] bg-white p-6 shadow-[0_16px_34px_rgb(17_17_17_/_7%)]">
-                  <span className="mb-4 block size-3 rounded-full bg-[#f6be15]" />
+                <div className="rounded-[15px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_7%)]">
+                  <AboutIcon icon={valueIcons[index]} compact centered />
                   <h3 className="text-[16px] font-black">{item.title[locale]}</h3>
                   <p className="mt-2 text-[12px] leading-5 text-[#737a85]">
                     {item.description[locale]}
@@ -91,23 +161,56 @@ export function AboutPage({ locale }: { locale: Locale }) {
         <div className="jawraa-container">
           <div className="flex flex-col gap-8 rounded-[24px] bg-[#14171c] px-9 py-9 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)] md:flex-row md:items-center md:justify-between md:px-12">
             <div>
-              <h2 className="text-[30px] font-black leading-tight tracking-[-0.04em] md:text-[38px]">
-                {locale === "ar"
-                  ? "Ready to explore Jawraa's next chapter?"
-                  : "Ready to explore Jawraa's next chapter?"}
+              <h2 className="text-[26px] font-black leading-tight tracking-[-0.04em] md:text-[38px]">
+                {aboutPage.ctaTitle[locale]}
               </h2>
               <p className="mt-3 max-w-[680px] text-[13px] leading-6 text-[#d6dae0]">
-                {locale === "ar"
-                  ? aboutPage.body.ar
-                  : "Let's transform this company story into a stronger digital experience that reflects leadership, trust, and future-ready ambition."}
+                {aboutPage.ctaBody[locale]}
               </p>
             </div>
-            <div className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[12px] font-black text-black">
-              Contact Jawraa
-            </div>
+            <Link
+              href="/media-center#contact-center"
+              locale={locale}
+              className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[12px] font-black text-black"
+            >
+              {aboutPage.ctaButton[locale]}
+            </Link>
           </div>
         </div>
       </section>
     </PageShell>
+  );
+}
+
+const identityIcons: LucideIcon[] = [Search, Target, Eye];
+
+const valueIcons: LucideIcon[] = [
+  Handshake,
+  Lightbulb,
+  ShieldCheck,
+  BarChart3,
+  Cog,
+  Globe2,
+];
+
+function AboutIcon({
+  icon: Icon = Search,
+  compact = false,
+  centered = false,
+}: {
+  icon?: LucideIcon;
+  compact?: boolean;
+  centered?: boolean;
+}) {
+  return (
+    <span
+      className={[
+        "mb-5 flex items-center justify-center rounded-[10px] bg-[#fff8df] text-[#7c8794]",
+        compact ? "size-9" : "size-12",
+        centered ? "mx-auto" : "",
+      ].join(" ")}
+    >
+      <Icon className={compact ? "size-4" : "size-5"} strokeWidth={1.9} />
+    </span>
   );
 }

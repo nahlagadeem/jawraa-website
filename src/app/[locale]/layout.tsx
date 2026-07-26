@@ -3,6 +3,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { localeDirections } from "@/config/site";
+import { HtmlLocaleSync } from "@/components/layout/html-locale-sync";
 import { routing } from "@/i18n/routing";
 
 type LocaleLayoutProps = {
@@ -28,7 +29,8 @@ export default async function LocaleLayout({
   const direction = localeDirections[locale as keyof typeof localeDirections];
 
   return (
-    <NextIntlClientProvider messages={messages}>
+    <NextIntlClientProvider locale={locale} messages={messages}>
+      <HtmlLocaleSync locale={locale as keyof typeof localeDirections} direction={direction} />
       <div lang={locale} dir={direction} className="min-h-screen">
         {children}
       </div>

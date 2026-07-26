@@ -60,7 +60,7 @@ export function InnerHero({
         </div>
         <h1
           className={[
-            "text-[38px] font-black leading-[1.02] tracking-[-0.04em] text-[#17191f]",
+            "text-[30px] font-black leading-[1.12] tracking-[-0.04em] text-[#17191f] sm:text-[38px] md:leading-[1.02]",
             compact ? "max-w-[760px] md:text-[52px]" : "max-w-[720px] md:text-[54px]",
           ].join(" ")}
         >

@@ -1,13 +1,22 @@
 import Image from "next/image";
-import { Apple } from "lucide-react";
+import {
+  Apple,
+  Cloud,
+  Network,
+  Settings,
+  ShieldCheck,
+  type LucideIcon,
+} from "lucide-react";
 import type { Locale } from "@/config/site";
 import {
-  clients,
-  homeCopy,
-  identityCards,
-  partners,
-  services,
-  stats,
+  type CardItem,
+  homeClients,
+  homeIdentityCards,
+  homePageCopy,
+  homePartners,
+  homeServices,
+  homeStats,
+  homeSuccessStories,
 } from "@/data/home";
 import { FadeIn } from "@/components/motion/fade-in";
 import { SiteFooter } from "@/components/layout/site-footer";
@@ -16,6 +25,21 @@ import { Link } from "@/i18n/navigation";
 import { SectionHeading } from "./section-heading";
 
 const text = (value: Record<Locale, string>, locale: Locale) => value[locale];
+
+const storyCarouselStyles = homeSuccessStories
+  .map(
+    (_, index) => `
+      .home-stories-carousel #home-story-${index}:checked ~ .story-panels .story-panel-${index} {
+        display: grid;
+      }
+
+      .home-stories-carousel #home-story-${index}:checked ~ .story-panels .story-dot-${index} {
+        background: #f6be15;
+        transform: scale(1.25);
+      }
+    `,
+  )
+  .join("\n");
 
 export function HomePage({ locale }: { locale: Locale }) {
   return (
@@ -35,64 +59,81 @@ export function HomePage({ locale }: { locale: Locale }) {
 
 function HeroSection({ locale }: { locale: Locale }) {
   return (
-    <section className="relative overflow-hidden bg-white pb-24 pt-[188px] md:pb-[150px]">
-      <div className="jawraa-container grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr]">
-        <FadeIn>
-          <div>
+    <section className="relative overflow-hidden bg-white pb-24 pt-[158px] md:pb-[126px]">
+      <div className="jawraa-container grid items-start gap-x-8 gap-y-6 lg:grid-cols-[0.94fr_1.06fr] lg:gap-y-0">
+        <FadeIn className="min-w-0">
+          <header className="min-w-0">
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-8 bg-[#f6be15]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#858c96]">
-                {homeCopy.eyebrow[locale]}
+                {homePageCopy.eyebrow[locale]}
               </span>
             </div>
-            <h1 className="max-w-[520px] text-[54px] font-black leading-[0.88] tracking-[-0.055em] text-[#15171c] md:text-[82px]">
-              {homeCopy.heroTitle[locale]}
+            <h1 className="max-w-full text-[36px] font-black leading-[0.96] tracking-[-0.045em] text-[#15171c] sm:max-w-[520px] sm:text-[52px] md:text-[76px] md:leading-[0.9]">
+              {homePageCopy.heroTitle[locale]}
             </h1>
-            <p className="mt-7 max-w-[520px] text-[30px] font-semibold leading-[1.03] tracking-[-0.035em] text-[#666d79] md:text-[37px]">
-              {homeCopy.heroLead[locale]}
+            <p className="mt-6 max-w-full text-[21px] font-semibold leading-[1.18] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.05]">
+              {homePageCopy.heroLead[locale]}
             </p>
-            <p className="mt-7 max-w-[555px] text-[15px] leading-7 text-[#777d88]">
-              {homeCopy.heroBody[locale]}
+            <p className="mt-6 max-w-full text-[14px] leading-7 text-[#777d88] sm:max-w-[555px]">
+              {homePageCopy.heroBody[locale]}
             </p>
-          </div>
+          </header>
         </FadeIn>
 
-        <FadeIn delay={0.08} className="relative">
-          <div className="relative mx-auto aspect-[1.28] w-full max-w-[600px]">
+        <FadeIn delay={0.08} className="relative min-w-0">
+          <figure className="relative mx-auto aspect-[1.48] w-full max-w-[610px]">
             <Image
               src="/assets/home/hero-building.webp"
-              alt="Jawraa corporate building"
+              alt={locale === "ar" ? "مبنى جوراء" : "Jawraa corporate building"}
               fill
               sizes="(min-width: 1024px) 600px, 90vw"
               className="object-contain"
+              style={{
+                WebkitMaskImage:
+                  "linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%), linear-gradient(180deg, black 0%, black 82%, transparent 100%)",
+                WebkitMaskComposite: "source-in",
+                maskImage:
+                  "linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%), linear-gradient(180deg, black 0%, black 82%, transparent 100%)",
+                maskComposite: "intersect",
+              }}
               priority
             />
+          </figure>
+        </FadeIn>
+
+        <FadeIn delay={0.1} className="relative z-10 min-w-0 lg:col-span-2 lg:-mt-5">
+          <div
+            className="grid gap-3 sm:grid-cols-3 lg:grid-cols-[160px_160px_160px_minmax(0,1fr)] xl:grid-cols-[180px_180px_180px_minmax(0,1fr)]"
+            aria-label={locale === "ar" ? "إحصاءات جوراء" : "Jawraa statistics"}
+          >
+            {homeStats.map((stat) => (
+              <article
+                key={stat.value}
+                className="min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white px-4 py-3 shadow-[0_16px_32px_rgb(17_17_17_/_7%)]"
+                aria-label={`${stat.value} ${stat.label[locale]}`}
+              >
+                <p dir="ltr" className="text-[24px] font-extrabold leading-none tracking-[-0.025em]">
+                  {stat.value}
+                </p>
+                <p className="mt-1.5 text-[10px] leading-4 text-[#68707c]">
+                  {stat.label[locale]}
+                </p>
+              </article>
+            ))}
+            <aside
+              className="min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm sm:col-span-3 lg:col-span-1"
+              aria-label={homePageCopy.impactLabel[locale]}
+            >
+              <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8d949e]">
+                {homePageCopy.impactLabel[locale]}
+              </p>
+              <p className="text-[13px] font-extrabold leading-5 text-[#16191e] xl:whitespace-nowrap">
+                {homePageCopy.impactText[locale]}
+              </p>
+            </aside>
           </div>
         </FadeIn>
-      </div>
-
-      <div className="jawraa-container mt-5 grid gap-4 lg:grid-cols-[auto_1fr]">
-        <div className="grid gap-4 sm:grid-cols-3">
-          {stats.map((stat) => (
-            <div
-              key={stat.value}
-              className="min-h-[94px] rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_7%)]"
-            >
-              <p className="text-[30px] font-black leading-none tracking-[-0.04em]">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-[11px] text-[#68707c]">{stat.label[locale]}</p>
-            </div>
-          ))}
-        </div>
-        <div className="min-h-[94px] rounded-[16px] border border-[#f6be15] bg-white px-6 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_7%)]">
-          <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#8d949e]">
-            {homeCopy.impactLabel[locale]}
-          </p>
-          <p className="max-w-[610px] text-[15px] font-black leading-5 text-[#16191e]">
-            {homeCopy.impactText[locale]}
-          </p>
-        </div>
       </div>
     </section>
   );
@@ -111,7 +152,7 @@ function IdentitySection({ locale }: { locale: Locale }) {
           />
         </FadeIn>
         <div className="mt-16 grid gap-6 lg:grid-cols-3">
-          {identityCards.map((card, index) => (
+          {homeIdentityCards.map((card, index) => (
             <FadeIn key={card.title.en} delay={index * 0.04}>
               <InfoCard item={card} locale={locale} large />
             </FadeIn>
@@ -135,9 +176,9 @@ function ServicesSection({ locale }: { locale: Locale }) {
           />
         </FadeIn>
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-          {services.map((service, index) => (
+          {homeServices.map((service, index) => (
             <FadeIn key={service.title.en} delay={index * 0.035}>
-              <InfoCard item={service} locale={locale} />
+              <ServiceCard item={service} locale={locale} index={index} />
             </FadeIn>
           ))}
         </div>
@@ -159,11 +200,11 @@ function PartnersSection({ locale }: { locale: Locale }) {
           />
         </FadeIn>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {partners.map((partner, index) => (
+          {homePartners.map((partner, index) => (
             <FadeIn
               key={partner.title.en}
               delay={index * 0.035}
-              className={index === partners.length - 1 ? "lg:col-start-2" : ""}
+              className={index === homePartners.length - 1 ? "lg:col-start-2" : ""}
             >
               <LogoTextCard item={partner} locale={locale} />
             </FadeIn>
@@ -188,45 +229,63 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
           <div className="mb-14 flex items-center gap-3">
             <span className="h-px w-8 bg-[#f6be15]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
-              {homeCopy.storiesEyebrow[locale]}
+              {homePageCopy.storiesEyebrow[locale]}
             </span>
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="grid gap-10 rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] md:grid-cols-[330px_1fr] md:p-9">
-            <div className="flex min-h-[290px] items-center justify-center rounded-[22px] bg-[#eef2f6] p-7">
-              <div className="relative aspect-[1.05] w-full max-w-[230px] rounded-[20px] bg-white shadow-[0_24px_42px_rgb(34_48_67_/_11%)]">
-                <Image
-                  src="/assets/home/client-nwc.webp"
-                  alt="National Water Company"
-                  fill
-                  sizes="230px"
-                  className="object-contain p-7"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col justify-center">
-              <StoryText locale={locale} />
-              <div className="mt-7 flex items-center justify-between gap-4">
-                <div className="flex gap-2">
-                  {[0, 1, 2, 3].map((dot) => (
-                    <span
-                      key={dot}
-                      className={[
-                        "size-2 rounded-full",
-                        dot === 0 ? "bg-[#f6be15]" : "bg-[#d8dde5]",
-                      ].join(" ")}
-                    />
-                  ))}
-                </div>
-                <Link
-                  href="/clients"
-                  className="rounded-full border border-[#e4e7eb] px-6 py-3 text-[13px] font-bold text-[#17191f]"
+          <div className="home-stories-carousel rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] md:p-9">
+            {homeSuccessStories.map((story, index) => (
+              <input
+                key={story.title.en}
+                id={`home-story-${index}`}
+                type="radio"
+                name="home-success-story"
+                className="sr-only"
+                defaultChecked={index === 0}
+              />
+            ))}
+
+            <div className="story-panels">
+              {homeSuccessStories.map((story, index) => (
+                <article
+                  key={story.title.en}
+                  className={`story-panel story-panel-${index} hidden gap-10 md:grid-cols-[320px_1fr]`}
                 >
-                  {locale === "ar" ? "اقرأ المزيد" : "Read more"}
-                </Link>
-              </div>
+                  <StoryVisual story={story} locale={locale} />
+                  <div className="flex min-h-[290px] flex-col justify-center">
+                    <StoryText story={story} locale={locale} />
+                    <div className="story-controls mt-7 flex items-center justify-between gap-4">
+                      <div className="flex gap-2">
+                        {homeSuccessStories.map((dotStory, dotIndex) => (
+                          <label
+                            key={dotStory.title.en}
+                            htmlFor={`home-story-${dotIndex}`}
+                            aria-label={`${homePageCopy.storiesEyebrow[locale]} ${dotIndex + 1}`}
+                            className={`story-dot story-dot-${dotIndex} size-2 cursor-pointer rounded-full bg-[#d8dde5] transition duration-200`}
+                          />
+                        ))}
+                      </div>
+                      <Link
+                        href="/clients"
+                        locale={locale}
+                        className="rounded-full border border-[#e4e7eb] px-6 py-3 text-[12px] font-bold text-[#17191f] transition-colors hover:border-[#f6be15]"
+                      >
+                        {homePageCopy.readMore[locale]}
+                      </Link>
+                    </div>
+                  </div>
+                </article>
+              ))}
             </div>
+
+            <style>{`
+              .home-stories-carousel .story-panel {
+                display: none;
+              }
+
+              ${storyCarouselStyles}
+            `}</style>
           </div>
         </FadeIn>
       </div>
@@ -247,11 +306,11 @@ function ClientsSection({ locale }: { locale: Locale }) {
           />
         </FadeIn>
         <div className="mt-14 grid gap-6 lg:grid-cols-2">
-          {clients.map((client, index) => (
+          {homeClients.map((client, index) => (
             <FadeIn
               key={client.title.en}
               delay={index * 0.035}
-              className={index === clients.length - 1 ? "lg:col-span-1" : ""}
+              className={index === homeClients.length - 1 ? "lg:col-span-1" : ""}
             >
               <LogoTextCard item={client} locale={locale} />
             </FadeIn>
@@ -269,18 +328,19 @@ function CtaSection({ locale }: { locale: Locale }) {
         <FadeIn>
           <div className="flex flex-col gap-8 rounded-[28px] bg-[#14171c] px-9 py-10 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)] md:flex-row md:items-center md:justify-between md:px-14">
             <div>
-              <h2 className="text-[34px] font-black leading-tight tracking-[-0.04em] md:text-[43px]">
-                {homeCopy.ctaTitle[locale]}
+              <h2 className="text-[28px] font-black leading-tight tracking-[-0.04em] sm:text-[34px] md:text-[43px]">
+                {homePageCopy.ctaTitle[locale]}
               </h2>
               <p className="mt-3 max-w-[760px] text-[15px] leading-7 text-[#d6dae0]">
-                {homeCopy.ctaBody[locale]}
+                {homePageCopy.ctaBody[locale]}
               </p>
             </div>
             <Link
-              href="/contact"
+              href="/media-center#contact-center"
+              locale={locale}
               className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-black"
             >
-              {homeCopy.ctaButton[locale]}
+              {homePageCopy.ctaButton[locale]}
             </Link>
           </div>
         </FadeIn>
@@ -294,7 +354,7 @@ function InfoCard({
   locale,
   large = false,
 }: {
-  item: (typeof identityCards)[number];
+  item: CardItem;
   locale: Locale;
   large?: boolean;
 }) {
@@ -322,11 +382,62 @@ function InfoCard({
   );
 }
 
+const serviceIcons: LucideIcon[] = [
+  Settings,
+  Network,
+  Cloud,
+  ShieldCheck,
+];
+
+function ServiceCard({
+  item,
+  locale,
+  index,
+}: {
+  item: CardItem;
+  locale: Locale;
+  index: number;
+}) {
+  const Icon = serviceIcons[index] ?? Settings;
+
+  return (
+    <article className="h-full min-h-[248px] rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_18px_38px_rgb(17_17_17_/_7%)]">
+      <div className="mb-6 flex size-11 items-center justify-center rounded-[14px] bg-[#fff6df] text-[#8f949c]">
+        {index === 4 ? (
+          <AppleCompanyLogo className="size-6 text-black" />
+        ) : (
+          <Icon className="size-5" strokeWidth={1.9} />
+        )}
+      </div>
+      <h3 className="text-[16px] font-extrabold leading-tight tracking-[-0.015em] text-[#17191f]">
+        {text(item.title, locale)}
+      </h3>
+      <p className="mt-3 text-[12px] leading-5 text-[#68707c]">
+        {text(item.description, locale)}
+      </p>
+    </article>
+  );
+}
+
+function AppleCompanyLogo({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 384 512"
+      className={className}
+      fill="currentColor"
+      focusable="false"
+    >
+      <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5c0 26.2 4.8 53.3 14.4 81.2 12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zM262.1 104.5c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 20.3-27.8 45.5-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
+    </svg>
+  );
+}
+
 function LogoTextCard({
   item,
   locale,
 }: {
-  item: (typeof partners)[number];
+  item: CardItem;
   locale: Locale;
 }) {
   return (
@@ -354,71 +465,68 @@ function LogoTextCard({
   );
 }
 
-function StoryText({ locale }: { locale: Locale }) {
-  if (locale === "ar") {
-    return (
-      <div className="space-y-7">
-        <div>
-          <h3 className="text-[21px] font-black tracking-[-0.025em]">
-            تعزيز كفاءات تقنية المعلومات في شركة المياه الوطنية
-          </h3>
-          <p className="mt-3 text-[13px] font-bold text-[#5f6671]">
-            نطاق المشروع: خدمات إسناد كوادر تقنية المعلومات
-          </p>
-          <p className="mt-2 text-[13px] font-bold text-[#5f6671]">
-            المدة: ثلاث سنوات
-          </p>
-          <p className="mt-3 text-[13px] leading-6 text-[#68707c]">
-            نجحت جوراء في توفير مختصين مؤهلين لشركة المياه الوطنية لضمان استمرارية العمليات ودعم التنفيذ ومتابعة أداء الكوادر التقنية طوال فترة المشروع.
-          </p>
-        </div>
-        <div>
-          <h3 className="text-[21px] font-black tracking-[-0.025em]">
-            تمكين التحول المؤسسي في حياة المياه الوطنية
-          </h3>
-          <p className="mt-3 text-[13px] font-bold text-[#5f6671]">
-            نطاق المشروع: برنامج إدارة التغيير للعمليات الموحدة
-          </p>
-          <p className="mt-2 text-[13px] font-bold text-[#5f6671]">
-            المدة: سنة واحدة
-          </p>
-          <p className="mt-3 text-[13px] leading-6 text-[#68707c]">
-            لعبت جوراء دورا محوريا في تطبيق برنامج تحول استراتيجي وتحسين تجربة المستخدم عبر إدارات متعددة.
-          </p>
-        </div>
-      </div>
-    );
-  }
+function StoryVisual({
+  story,
+  locale,
+}: {
+  story: (typeof homeSuccessStories)[number];
+  locale: Locale;
+}) {
+  const title = story.title.en.toLowerCase();
+  const visual =
+    title.includes("nwc") || title.includes("water")
+      ? { src: "/assets/home/client-nwc.webp", alt: "National Water Company" }
+      : title.includes("education") ||
+          title.includes("tetco") ||
+          title.includes("zain")
+        ? { src: "/assets/home/client-education.webp", alt: "Ministry of Education" }
+        : null;
 
   return (
-    <div className="space-y-7">
-      <div>
-        <h3 className="text-[21px] font-black tracking-[-0.025em]">
-          NWC IT Staff Augmentation
-        </h3>
-        <p className="mt-3 text-[13px] font-bold text-[#5f6671]">
-          Project Scope: Managed IT staff augmentation services
-        </p>
-        <p className="mt-2 text-[13px] font-bold text-[#5f6671]">
-          Duration: Three years (starting Q3 2019)
-        </p>
-        <p className="mt-3 text-[13px] leading-6 text-[#68707c]">
-          Jawraa successfully provided highly skilled IT professionals to NWC, ensuring seamless operations and project execution. Our comprehensive managed services ensured the effective management and supervision of IT staff throughout the project.
-        </p>
+    <div className="flex min-h-[290px] items-center justify-center rounded-[22px] bg-[#eef2f6] p-7">
+      <div className="relative flex aspect-[1.05] w-full max-w-[230px] items-center justify-center rounded-[20px] bg-white p-7 text-center shadow-[0_24px_42px_rgb(34_48_67_/_11%)]">
+        {visual ? (
+          <Image
+            src={visual.src}
+            alt={visual.alt}
+            fill
+            sizes="230px"
+            className="object-contain p-7"
+          />
+        ) : (
+          <span className="text-[18px] font-black leading-tight tracking-[-0.025em] text-[#17191f]">
+            {(story.organization ?? story.title)[locale]}
+          </span>
+        )}
       </div>
-      <div>
-        <h3 className="text-[21px] font-black tracking-[-0.025em]">
-          NWC Hayat Transformation Business Enablement
-        </h3>
-        <p className="mt-3 text-[13px] font-bold text-[#5f6671]">
-          Project Scope: Change management program for standardized processes across directorates
-        </p>
-        <p className="mt-2 text-[13px] font-bold text-[#5f6671]">
-          Duration: One year (starting Q3 2019)
-        </p>
-        <p className="mt-3 text-[13px] leading-6 text-[#68707c]">
-          Jawraa played a pivotal role in implementing a strategic transformation program at NWC, enabling standardized processes and enhancing user experience across multiple directorates.
-        </p>
+    </div>
+  );
+}
+
+function StoryText({
+  story,
+  locale,
+}: {
+  story: (typeof homeSuccessStories)[number];
+  locale: Locale;
+}) {
+  return (
+    <div>
+      <h3 className="text-[21px] font-black tracking-[-0.025em]">
+        {story.title[locale]}
+      </h3>
+      <p className="mt-3 text-[13px] font-bold text-[#5f6671]">
+        {story.scope[locale]}
+      </p>
+      <p className="mt-2 text-[13px] font-bold text-[#5f6671]">
+        {story.duration[locale]}
+      </p>
+      <div className="mt-3 space-y-2">
+        {story.body.map((paragraph) => (
+          <p key={paragraph.en} className="text-[13px] leading-6 text-[#68707c]">
+            {paragraph[locale]}
+          </p>
+        ))}
       </div>
     </div>
   );

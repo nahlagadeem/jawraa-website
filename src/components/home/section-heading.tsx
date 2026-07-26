@@ -1,11 +1,11 @@
 import type { Locale } from "@/config/site";
-import { homeCopy } from "@/data/home";
+import { homePageCopy } from "@/data/home";
 
 type SectionHeadingProps = {
   locale: Locale;
-  eyebrow: keyof typeof homeCopy;
-  title: keyof typeof homeCopy;
-  body?: keyof typeof homeCopy;
+  eyebrow: keyof typeof homePageCopy;
+  title: keyof typeof homePageCopy;
+  body?: keyof typeof homePageCopy;
   className?: string;
 };
 
@@ -21,15 +21,15 @@ export function SectionHeading({
       <div className="mb-5 flex items-center gap-3">
         <span className="h-px w-8 bg-[#f6be15]" />
         <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
-          {homeCopy[eyebrow][locale]}
+          {homePageCopy[eyebrow][locale]}
         </span>
       </div>
-      <h2 className="max-w-[850px] text-[34px] font-black leading-[0.98] tracking-[-0.04em] text-[#17191f] md:text-[46px]">
-        {homeCopy[title][locale]}
+      <h2 className="max-w-[850px] text-[30px] font-black leading-[1.08] tracking-[-0.04em] text-[#17191f] sm:text-[34px] md:text-[46px] md:leading-[0.98]">
+        {homePageCopy[title][locale]}
       </h2>
       {body ? (
         <p className="mt-5 max-w-[640px] text-[15px] leading-7 text-[#717782]">
-          {homeCopy[body][locale]}
+          {homePageCopy[body][locale]}
         </p>
       ) : null}
     </div>

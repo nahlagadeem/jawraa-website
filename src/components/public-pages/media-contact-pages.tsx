@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import { Mail, MapPin, Phone } from "lucide-react";
 import type { Locale } from "@/config/site";
 import { FadeIn } from "@/components/motion/fade-in";
 import { contactPage, mediaPage } from "@/data/public-pages";
 import { InnerHero, PageShell } from "./page-shell";
+
+type ContactFormStatus = "idle" | "sending" | "sent" | "error";
 
 export function MediaCenterPage({ locale }: { locale: Locale }) {
   const [query, setQuery] = useState("");
@@ -194,6 +197,47 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
 }
 
 export function ContactPage({ locale }: { locale: Locale }) {
+  const [status, setStatus] = useState<ContactFormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const result = (await response.json().catch(() => null)) as
+        | { error?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(result?.error ?? "Unable to send message.");
+      }
+
+      form.reset();
+      setStatus("sent");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "Unable to send message.",
+      );
+    }
+  }
+
   return (
     <PageShell locale={locale} active={contactPage.active}>
       <InnerHero
@@ -201,7 +245,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
         title={contactPage.title[locale]}
         description={contactPage.description[locale]}
       />
-      <section className="py-24">
+      <section id="contact-form" className="scroll-mt-28 py-24">
         <div className="jawraa-container grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <FadeIn>
             <div className="rounded-[24px] bg-[#14171c] p-9 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)]">
@@ -233,16 +277,17 @@ export function ContactPage({ locale }: { locale: Locale }) {
               <h2 className="text-[26px] font-bold tracking-[-0.025em]">
                 {locale === "ar" ? "أرسل طلبك" : "Send an inquiry"}
               </h2>
-              <form className="mt-8 grid gap-4">
+              <form className="mt-8 grid gap-4" onSubmit={handleContactSubmit}>
                 {[
-                  { en: "Name", ar: "الاسم", type: "text", name: "name" },
-                  { en: "Email", ar: "البريد الإلكتروني", type: "email", name: "email" },
-                  { en: "Organization", ar: "الجهة", type: "text", name: "organization" },
+                  { en: "Full name", ar: "الاسم الكامل", type: "text", name: "name" },
+                  { en: "Your email", ar: "بريدك الإلكتروني", type: "email", name: "email" },
+                  { en: "Your number", ar: "رقمك", type: "tel", name: "phone" },
                 ].map((field) => (
                   <input
                     key={field.name}
                     type={field.type}
                     name={field.name}
+                    required
                     aria-label={field[locale]}
                     placeholder={field[locale]}
                     className="h-12 rounded-[14px] border border-[#e8e5dc] bg-[#fbfbfa] px-5 text-[13px] text-[#15171c] outline-none placeholder:text-[#8a9099]"
@@ -251,16 +296,36 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 <textarea
                   name="message"
                   aria-label={locale === "ar" ? "الرسالة" : "Message"}
-                  placeholder={locale === "ar" ? "الرسالة" : "Message"}
+                  placeholder={locale === "ar" ? "اكتب رسالتك هنا ." : "Write your message here ."}
                   rows={5}
+                  required
                   className="min-h-[140px] resize-none rounded-[14px] border border-[#e8e5dc] bg-[#fbfbfa] px-5 py-5 text-[13px] text-[#15171c] outline-none placeholder:text-[#8a9099]"
                 />
                 <button
-                  type="button"
+                  type="submit"
+                  disabled={status === "sending"}
                   className="mt-2 inline-flex h-12 w-fit items-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-white"
                 >
-                  {locale === "ar" ? "إرسال" : "Submit"}
+                  {status === "sending"
+                    ? locale === "ar"
+                      ? "جاري الإرسال..."
+                      : "Sending..."
+                    : locale === "ar"
+                      ? "إرسال"
+                      : "send"}
                 </button>
+                {status === "sent" ? (
+                  <p className="text-[13px] font-bold text-[#1f7a43]">
+                    {locale === "ar"
+                      ? "تم إرسال رسالتك بنجاح."
+                      : "Your message has been sent."}
+                  </p>
+                ) : null}
+                {status === "error" ? (
+                  <p className="text-[13px] font-bold text-[#b42318]">
+                    {errorMessage}
+                  </p>
+                ) : null}
               </form>
             </div>
           </FadeIn>

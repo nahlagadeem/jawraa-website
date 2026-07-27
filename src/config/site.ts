@@ -16,7 +16,7 @@ export const publicPages = [
   { key: "partners", href: "/partners" },
   { key: "clients", href: "/clients" },
   { key: "media", href: "/media-center" },
-  { key: "contact", href: "/contact" },
+  { key: "contact", href: "/contact#contact-form" },
 ] as const;
 
 export const adminSections = [

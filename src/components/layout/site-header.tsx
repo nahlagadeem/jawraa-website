@@ -150,7 +150,7 @@ export function SiteHeader({
             size="sm"
             className="h-[30px] rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:bg-[#e9b40f] sm:px-5 sm:text-[12px]"
           >
-            <Link href="/media-center#contact-center" locale={locale}>
+            <Link href="/contact#contact-form" locale={locale}>
               {locale === "ar" ? "تواصل معنا" : "Contact us"}
             </Link>
           </Button>

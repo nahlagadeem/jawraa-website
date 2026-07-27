@@ -170,7 +170,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               </p>
             </div>
             <Link
-              href="/media-center#contact-center"
+              href="/contact#contact-form"
               locale={locale}
               className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[12px] font-black text-black"
             >

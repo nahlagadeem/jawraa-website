@@ -19,8 +19,8 @@ import { PageShell } from "./page-shell";
 export function AboutPage({ locale }: { locale: Locale }) {
   return (
     <PageShell locale={locale} active={aboutPage.active}>
-      <section className="bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_55%,#fff9e8_100%)] pb-[88px] pt-[112px]">
-        <div className="mx-auto w-[min(calc(100%_-_2rem),720px)]">
+      <section className="bg-[linear-gradient(115deg,#ffffff_0%,#ffffff_55%,#fff9e8_100%)] pb-[58px] pt-[104px]">
+        <div className="jawraa-container max-w-[720px]">
           <FadeIn>
             <div className="mb-5 flex items-center gap-3">
               <span className="h-px w-8 bg-[#f6be15]" />
@@ -28,12 +28,13 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 {aboutPage.eyebrow[locale]}
               </span>
             </div>
-            <h1 className="max-w-[590px] text-[34px] font-black leading-[1.06] tracking-[-0.05em] sm:text-[50px] md:text-[72px] md:leading-[0.92]">
+            <h1 className="max-w-[590px] text-[34px] font-bold leading-[0.98] tracking-[-0.035em] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
               {aboutPage.title[locale]}
             </h1>
             <p className="mt-6 max-w-[570px] text-[20px] font-medium leading-tight tracking-[-0.035em] text-[#626a75] sm:text-[27px]">
               {aboutPage.lead[locale]}
             </p>
+            <span className="mt-5 block h-[2px] w-12 bg-[#f6be15]" />
             <p className="mt-5 max-w-[640px] text-[15px] leading-7 text-[#717782]">
               {aboutPage.body[locale]}
             </p>
@@ -69,7 +70,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section id="jawraa-journey" className="scroll-mt-28 py-[88px]">
+      <section id="jawraa-journey" className="scroll-mt-28 py-[58px]">
         <div className="jawraa-container">
           <FadeIn>
             <div className="mb-10 flex items-center gap-3">
@@ -98,10 +99,10 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section id="jawraa-identity" className="scroll-mt-28 py-[84px]">
+      <section id="jawraa-identity" className="scroll-mt-28 py-[56px]">
         <div className="jawraa-container">
           <FadeIn>
-            <div className="mb-12 flex items-center gap-3">
+            <div className="mb-8 flex items-center gap-3">
               <span className="h-px w-8 bg-[#f6be15]" />
               <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
                 {aboutPage.identityEyebrow[locale]}
@@ -113,7 +114,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               <FadeIn key={item.title.en} delay={index * 0.04}>
                 <article className="h-full rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
                   <AboutIcon icon={identityIcons[index]} />
-                  <h2 className="text-[21px] font-black leading-tight tracking-[-0.03em]">
+                  <h2 className="text-[20px] font-bold leading-tight tracking-[-0.02em]">
                     {item.title[locale]}
                   </h2>
                   <p className="mt-4 text-[13px] leading-6 text-[#68707c]">
@@ -126,17 +127,17 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="py-[84px]">
+      <section className="py-[56px]">
         <div className="jawraa-container max-w-[760px]">
           <FadeIn>
-            <div className="mx-auto mb-12 max-w-[420px] rounded-[16px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
+            <div className="mx-auto mb-8 max-w-[420px] rounded-[16px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#f6be15]" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
                   {aboutPage.valuesEyebrow[locale]}
                 </span>
               </div>
-              <h2 className="text-[24px] font-black leading-tight tracking-[-0.03em]">
+              <h2 className="text-[22px] font-bold leading-tight tracking-[-0.02em]">
                 {aboutPage.valuesTitle[locale]}
               </h2>
             </div>
@@ -157,11 +158,11 @@ export function AboutPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="pb-[92px] pt-[38px]">
+      <section className="pb-[62px] pt-[28px]">
         <div className="jawraa-container">
           <div className="flex flex-col gap-8 rounded-[24px] bg-[#14171c] px-9 py-9 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)] md:flex-row md:items-center md:justify-between md:px-12">
             <div>
-              <h2 className="text-[26px] font-black leading-tight tracking-[-0.04em] md:text-[38px]">
+              <h2 className="text-[24px] font-bold leading-tight tracking-[-0.03em] md:text-[36px]">
                 {aboutPage.ctaTitle[locale]}
               </h2>
               <p className="mt-3 max-w-[680px] text-[13px] leading-6 text-[#d6dae0]">

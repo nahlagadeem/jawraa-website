@@ -104,6 +104,7 @@
   --jawraa-shadow-lg: 0 30px 70px rgb(17 17 17 / 16%);
   --jawraa-tracking-tight: -0.04em;
   --jawraa-leading-display: 0.98;
+  --jawraa-page-gutter: clamp(2rem, 7vw, 7.5rem);
 }
 
 @layer base {
@@ -193,7 +194,7 @@
 }
 
 @utility jawraa-container {
-  width: min(calc(100% - 2rem), 1180px);
+  width: min(calc(100% - var(--jawraa-page-gutter) - var(--jawraa-page-gutter)), 1180px);
   margin-inline: auto;
 }
 
@@ -236,4 +237,10 @@
   color: var(--jawraa-muted);
   font-family: var(--font-body), Arial, Helvetica, sans-serif;
   line-height: 1.7;
+}
+
+h1.font-black,
+h2.font-black,
+h3.font-black {
+  font-weight: 700;
 }

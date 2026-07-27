@@ -24,7 +24,7 @@ export function SectionHeading({
           {homePageCopy[eyebrow][locale]}
         </span>
       </div>
-      <h2 className="max-w-[850px] text-[30px] font-black leading-[1.08] tracking-[-0.04em] text-[#17191f] sm:text-[34px] md:text-[46px] md:leading-[0.98]">
+      <h2 className="max-w-[820px] text-[28px] font-bold leading-[1.12] tracking-[-0.03em] text-[#17191f] sm:text-[32px] md:text-[40px] md:leading-[1.04]">
         {homePageCopy[title][locale]}
       </h2>
       {body ? (

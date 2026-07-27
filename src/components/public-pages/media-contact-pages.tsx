@@ -31,11 +31,11 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
 
   return (
     <PageShell locale={locale} active={mediaPage.active}>
-      <section className="bg-[#f5f6f8] pb-[68px] pt-[120px] md:pb-[86px] md:pt-[145px]">
+      <section className="bg-[#f5f6f8] pb-[46px] pt-[108px] md:pb-[58px] md:pt-[132px]">
         <div className="jawraa-container">
           <div className="max-w-[710px] md:pl-[24px]">
             <FadeIn>
-              <h1 className="text-[30px] font-black leading-[1.12] tracking-[-0.045em] text-[#161922] sm:text-[38px] md:text-[52px] md:leading-[0.98]">
+              <h1 className="text-[28px] font-bold leading-[1.02] tracking-[-0.03em] text-[#161922] sm:text-[38px] md:text-[48px] md:leading-[0.98]">
                 {mediaPage.title[locale]}
               </h1>
               <p className="mt-7 max-w-[470px] text-[12px] leading-6 text-[#818894] md:text-[13px]">
@@ -46,7 +46,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      <section className="pb-[70px] pt-[74px] md:pb-[82px] md:pt-[92px]">
+      <section className="pb-[48px] pt-[50px] md:pb-[56px] md:pt-[62px]">
         <div className="jawraa-container max-w-[1100px]">
           <div className="mb-8 flex flex-col gap-4 px-4 md:flex-row md:items-center md:justify-between md:px-5">
             <label className="block min-w-0 md:w-[240px]">
@@ -103,7 +103,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     />
                   </div>
                   <div className="px-6 py-5 md:px-7 md:py-[18px]">
-                    <h2 className="text-[15px] font-black leading-tight tracking-[-0.02em] text-[#161922] md:text-[16px]">
+                    <h2 className="text-[15px] font-bold leading-tight tracking-[-0.01em] text-[#161922] md:text-[16px]">
                       {item.title[locale]}
                     </h2>
                     <p className="mt-3 max-w-[720px] text-[11px] leading-5 text-[#676f7c] md:text-[12px]">
@@ -133,7 +133,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
             <FadeIn className="h-full" delay={0.04}>
               <div className="flex h-full flex-col gap-4 md:min-h-[430px]">
                 <div className="flex flex-1 flex-col rounded-[16px] border border-[#f6be15] bg-white px-8 py-8 shadow-[0_16px_34px_rgb(17_17_17_/_7%)]">
-                  <h2 className="max-w-[390px] text-[24px] font-black leading-[1.08] tracking-[-0.035em] text-[#151922] md:text-[28px]">
+                  <h2 className="max-w-[390px] text-[22px] font-bold leading-[1.12] tracking-[-0.025em] text-[#151922] md:text-[26px]">
                     {mediaPage.contact.title[locale]}
                   </h2>
                   <form className="mt-6 grid w-full max-w-[320px] gap-3 self-center">
@@ -167,14 +167,14 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     />
                     <button
                       type="button"
-                      className="mt-1 h-9 rounded-[8px] bg-[#f6be15] text-center text-[10px] font-black leading-9 text-black"
+                      className="mt-1 h-9 rounded-[8px] bg-[#f6be15] text-center text-[10px] font-black leading-9 text-white"
                     >
                       {mediaPage.contact.send[locale]}
                     </button>
                   </form>
                 </div>
                 <div className="grid min-h-[72px] items-center gap-4 rounded-[16px] border border-[#f6be15] bg-white px-8 py-4 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] sm:grid-cols-[auto_1fr]">
-                  <p className="text-[24px] font-black leading-tight tracking-[-0.035em] text-[#151922]">
+                  <p className="text-[24px] font-semibold leading-tight tracking-[-0.025em] text-[#151922]">
                     {locale === "ar" ? "التواصل المباشر:" : "Direct contact:"}
                   </p>
                   <div className="text-[12px] leading-5 text-[#68707c] sm:justify-self-end">
@@ -205,13 +205,17 @@ export function ContactPage({ locale }: { locale: Locale }) {
         <div className="jawraa-container grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <FadeIn>
             <div className="rounded-[24px] bg-[#14171c] p-9 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)]">
-              <h2 className="text-[34px] font-black tracking-[-0.04em]">
+              <h2 className="text-[30px] font-bold tracking-[-0.03em]">
                 {locale === "ar" ? "معلومات التواصل" : "Contact information"}
               </h2>
               <div className="mt-9 space-y-7 text-[15px] leading-7 text-[#d8dce3]">
                 <p className="flex gap-4">
                   <MapPin className="mt-1 size-5 shrink-0 text-[#f6be15]" />
-                  <span>Uthman Ibn Affan Road, Al-Narjis, District 13328 Riyad, KSA</span>
+                  <span>
+                    {locale === "ar"
+                      ? "شارع عثمان بن عفان، حي النرجس، الرياض 13328، المملكة العربية السعودية"
+                      : "Uthman Ibn Affan Road, Al-Narjis, District 13328 Riyadh, KSA"}
+                  </span>
                 </p>
                 <p className="flex gap-4">
                   <Mail className="mt-1 size-5 shrink-0 text-[#f6be15]" />
@@ -226,7 +230,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
           </FadeIn>
           <FadeIn delay={0.05}>
             <div className="rounded-[24px] border border-[#f6be15] bg-white p-9 shadow-[0_22px_44px_rgb(17_17_17_/_8%)]">
-              <h2 className="text-[28px] font-black tracking-[-0.035em]">
+              <h2 className="text-[26px] font-bold tracking-[-0.025em]">
                 {locale === "ar" ? "أرسل طلبك" : "Send an inquiry"}
               </h2>
               <form className="mt-8 grid gap-4">
@@ -253,7 +257,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 />
                 <button
                   type="button"
-                  className="mt-2 inline-flex h-12 w-fit items-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-black"
+                  className="mt-2 inline-flex h-12 w-fit items-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-white"
                 >
                   {locale === "ar" ? "إرسال" : "Submit"}
                 </button>

@@ -86,7 +86,8 @@ export function SiteHeader({
           />
         </Link>
 
-        <nav className="hidden items-center gap-[14px] text-[10px] font-semibold text-[#15171b] min-[900px]:flex xl:gap-[18px] xl:text-[11px]">
+        <div className="flex items-center gap-4 min-[900px]:gap-5 xl:gap-6">
+        <nav className="hidden items-center gap-[10px] text-[11px] font-semibold text-[#15171b] min-[900px]:flex xl:gap-[13px] xl:text-[12px]">
           {primaryItems.map((item, index) => (
             <HeaderLink
               key={item.href}
@@ -117,7 +118,7 @@ export function SiteHeader({
                   href={item.href}
                   locale={locale}
                   className={[
-                    "block rounded-[10px] px-4 py-3 text-[11px] font-semibold hover:bg-[#fff7dc] hover:text-black",
+                    "block rounded-[10px] px-4 py-3 text-[12px] font-semibold hover:bg-[#fff7dc] hover:text-black",
                     currentPath === item.href ? "bg-[#fff7dc] text-black" : "text-[#59616d]",
                   ].join(" ")}
                 >
@@ -147,7 +148,7 @@ export function SiteHeader({
           <Button
             asChild
             size="sm"
-            className="h-[30px] rounded-full bg-[#f6be15] px-3 text-[10px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:bg-[#e9b40f] sm:px-5 sm:text-[11px]"
+            className="h-[30px] rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:bg-[#e9b40f] sm:px-5 sm:text-[12px]"
           >
             <Link href="/media-center#contact-center" locale={locale}>
               {locale === "ar" ? "تواصل معنا" : "Contact us"}
@@ -164,6 +165,7 @@ export function SiteHeader({
           >
             {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
           </Button>
+        </div>
         </div>
       </div>
 

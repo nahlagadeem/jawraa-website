@@ -59,7 +59,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
 function HeroSection({ locale }: { locale: Locale }) {
   return (
-    <section className="relative overflow-hidden bg-white pb-24 pt-[158px] md:pb-[126px]">
+    <section className="relative overflow-hidden bg-white pb-14 pt-[136px] md:pb-[72px]">
       <div className="jawraa-container grid items-start gap-x-8 gap-y-6 lg:grid-cols-[0.94fr_1.06fr] lg:gap-y-0">
         <FadeIn className="min-w-0">
           <header className="min-w-0">
@@ -69,7 +69,7 @@ function HeroSection({ locale }: { locale: Locale }) {
                 {homePageCopy.eyebrow[locale]}
               </span>
             </div>
-            <h1 className="max-w-full text-[36px] font-black leading-[0.96] tracking-[-0.045em] text-[#15171c] sm:max-w-[520px] sm:text-[52px] md:text-[76px] md:leading-[0.9]">
+            <h1 className="max-w-full text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#15171c] sm:max-w-[520px] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
               {homePageCopy.heroTitle[locale]}
             </h1>
             <p className="mt-6 max-w-full text-[21px] font-semibold leading-[1.18] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.05]">
@@ -91,10 +91,10 @@ function HeroSection({ locale }: { locale: Locale }) {
               className="object-contain"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%), linear-gradient(180deg, black 0%, black 82%, transparent 100%)",
+                  "linear-gradient(90deg, rgb(0 0 0 / 25%) 0%, black 8%, black 92%, rgb(0 0 0 / 25%) 100%), linear-gradient(180deg, black 0%, black 86%, rgb(0 0 0 / 35%) 96%, rgb(0 0 0 / 20%) 100%)",
                 WebkitMaskComposite: "source-in",
                 maskImage:
-                  "linear-gradient(90deg, transparent 0%, black 9%, black 91%, transparent 100%), linear-gradient(180deg, black 0%, black 82%, transparent 100%)",
+                  "linear-gradient(90deg, rgb(0 0 0 / 25%) 0%, black 8%, black 92%, rgb(0 0 0 / 25%) 100%), linear-gradient(180deg, black 0%, black 86%, rgb(0 0 0 / 35%) 96%, rgb(0 0 0 / 20%) 100%)",
                 maskComposite: "intersect",
               }}
               priority
@@ -104,31 +104,33 @@ function HeroSection({ locale }: { locale: Locale }) {
 
         <FadeIn delay={0.1} className="relative z-10 min-w-0 lg:col-span-2 lg:-mt-5">
           <div
-            className="grid gap-3 sm:grid-cols-3 lg:grid-cols-[160px_160px_160px_minmax(0,1fr)] xl:grid-cols-[180px_180px_180px_minmax(0,1fr)]"
+            className="grid gap-3 lg:grid-cols-[0.94fr_1.06fr]"
             aria-label={locale === "ar" ? "إحصاءات جوراء" : "Jawraa statistics"}
           >
-            {homeStats.map((stat) => (
-              <article
-                key={stat.value}
-                className="min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white px-4 py-3 shadow-[0_16px_32px_rgb(17_17_17_/_7%)]"
-                aria-label={`${stat.value} ${stat.label[locale]}`}
-              >
-                <p dir="ltr" className="text-[24px] font-extrabold leading-none tracking-[-0.025em]">
-                  {stat.value}
-                </p>
-                <p className="mt-1.5 text-[10px] leading-4 text-[#68707c]">
-                  {stat.label[locale]}
-                </p>
-              </article>
-            ))}
+            <div className="grid gap-3 sm:grid-cols-3">
+              {homeStats.map((stat) => (
+                <article
+                  key={stat.value}
+                  className="min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white px-4 py-3 shadow-[0_16px_32px_rgb(17_17_17_/_7%)]"
+                  aria-label={`${stat.value} ${stat.label[locale]}`}
+                >
+                  <p dir="ltr" className="text-[24px] font-extrabold leading-none tracking-[-0.025em]">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1.5 text-[10px] leading-4 text-[#68707c]">
+                    {stat.label[locale]}
+                  </p>
+                </article>
+              ))}
+            </div>
             <aside
-              className="min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm sm:col-span-3 lg:col-span-1"
+              className="min-h-[74px] w-full max-w-[610px] justify-self-center rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm"
               aria-label={homePageCopy.impactLabel[locale]}
             >
               <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8d949e]">
                 {homePageCopy.impactLabel[locale]}
               </p>
-              <p className="text-[13px] font-extrabold leading-5 text-[#16191e] xl:whitespace-nowrap">
+              <p className="max-w-[520px] text-[13px] font-extrabold leading-5 text-[#16191e]">
                 {homePageCopy.impactText[locale]}
               </p>
             </aside>
@@ -141,7 +143,7 @@ function HeroSection({ locale }: { locale: Locale }) {
 
 function IdentitySection({ locale }: { locale: Locale }) {
   return (
-    <section className="py-[34px] md:py-[78px]">
+    <section className="py-[28px] md:py-[52px]">
       <div className="jawraa-container">
         <FadeIn>
           <SectionHeading
@@ -151,7 +153,7 @@ function IdentitySection({ locale }: { locale: Locale }) {
             body="identityBody"
           />
         </FadeIn>
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 lg:grid-cols-3">
           {homeIdentityCards.map((card, index) => (
             <FadeIn key={card.title.en} delay={index * 0.04}>
               <InfoCard item={card} locale={locale} large />
@@ -165,7 +167,7 @@ function IdentitySection({ locale }: { locale: Locale }) {
 
 function ServicesSection({ locale }: { locale: Locale }) {
   return (
-    <section className="py-[70px] md:py-[92px]">
+    <section className="py-[48px] md:py-[62px]">
       <div className="jawraa-container">
         <FadeIn>
           <SectionHeading
@@ -175,7 +177,7 @@ function ServicesSection({ locale }: { locale: Locale }) {
             body="servicesBody"
           />
         </FadeIn>
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {homeServices.map((service, index) => (
             <FadeIn key={service.title.en} delay={index * 0.035}>
               <ServiceCard item={service} locale={locale} index={index} />
@@ -189,7 +191,7 @@ function ServicesSection({ locale }: { locale: Locale }) {
 
 function PartnersSection({ locale }: { locale: Locale }) {
   return (
-    <section className="py-[72px] md:py-[112px]">
+    <section className="py-[44px] md:py-[62px]">
       <div className="jawraa-container">
         <FadeIn>
           <SectionHeading
@@ -199,7 +201,7 @@ function PartnersSection({ locale }: { locale: Locale }) {
             body="partnersBody"
           />
         </FadeIn>
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {homePartners.map((partner, index) => (
             <FadeIn
               key={partner.title.en}
@@ -217,7 +219,7 @@ function PartnersSection({ locale }: { locale: Locale }) {
 
 function SuccessStoriesSection({ locale }: { locale: Locale }) {
   return (
-    <section className="py-[76px] md:py-[118px]">
+    <section className="py-[44px] md:py-[64px]">
       <div className="jawraa-container">
         <FadeIn>
           <SectionHeading
@@ -226,7 +228,7 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
             title="storiesEyebrow"
             className="sr-only"
           />
-          <div className="mb-14 flex items-center gap-3">
+          <div className="mb-10 flex items-center gap-3">
             <span className="h-px w-8 bg-[#f6be15]" />
             <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
               {homePageCopy.storiesEyebrow[locale]}
@@ -295,7 +297,7 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
 
 function ClientsSection({ locale }: { locale: Locale }) {
   return (
-    <section className="py-[72px] md:py-[116px]">
+    <section className="py-[44px] md:py-[62px]">
       <div className="jawraa-container">
         <FadeIn>
           <SectionHeading
@@ -305,7 +307,7 @@ function ClientsSection({ locale }: { locale: Locale }) {
             body="clientsBody"
           />
         </FadeIn>
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {homeClients.map((client, index) => (
             <FadeIn
               key={client.title.en}
@@ -323,12 +325,12 @@ function ClientsSection({ locale }: { locale: Locale }) {
 
 function CtaSection({ locale }: { locale: Locale }) {
   return (
-    <section className="pb-[118px] pt-[70px]">
+    <section className="pb-[76px] pt-[46px]">
       <div className="jawraa-container">
         <FadeIn>
           <div className="flex flex-col gap-8 rounded-[28px] bg-[#14171c] px-9 py-10 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)] md:flex-row md:items-center md:justify-between md:px-14">
             <div>
-              <h2 className="text-[28px] font-black leading-tight tracking-[-0.04em] sm:text-[34px] md:text-[43px]">
+              <h2 className="text-[26px] font-bold leading-tight tracking-[-0.03em] sm:text-[32px] md:text-[40px]">
                 {homePageCopy.ctaTitle[locale]}
               </h2>
               <p className="mt-3 max-w-[760px] text-[15px] leading-7 text-[#d6dae0]">

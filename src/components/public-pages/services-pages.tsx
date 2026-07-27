@@ -47,7 +47,7 @@ export function ServicesOverviewPage({ locale }: { locale: Locale }) {
         description={servicesOverview.description[locale]}
         compact
       />
-      <section className="py-[86px]">
+      <section className="py-[58px]">
         <div className="jawraa-container">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-5">
             {servicesOverview.items.map((item, index) => (
@@ -93,36 +93,36 @@ function ManagedServicesPage({
 }) {
   const strengths = page.strengths ?? [];
   const outcomeCards = page.outcomeCards ?? [];
-  const managedContentClass = "mx-auto w-[min(calc(100%_-_2rem),1200px)]";
+  const managedContentClass = "jawraa-container max-w-[1200px]";
 
   return (
     <PageShell locale={locale} active="/services">
-      <section className="pb-[72px] pt-[104px]">
-        <div className="mx-auto w-[min(calc(100%_-_2rem),820px)]">
+      <section className="pb-[48px] pt-[96px]">
+        <div className="jawraa-container max-w-[820px]">
           <Eyebrow text={page.eyebrow[locale]} />
           {locale === "en" ? (
-            <h1 className="mt-7 max-w-[660px] text-[30px] leading-[1.12] tracking-[-0.052em] text-[#161922] sm:text-[42px] md:text-[54px] md:leading-[0.99]">
-              <span className="block font-black">Managed services</span>
-              <span className="block font-normal">
+            <h1 className="mt-7 max-w-[660px] text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
+              <span className="block">Managed services</span>
+              <span className="block text-[28px] font-light leading-[1.08] tracking-[-0.025em] sm:text-[38px] md:text-[50px]">
                 built for continuity, speed,
               </span>
-              <span className="block font-normal">
+              <span className="block text-[28px] font-light leading-[1.08] tracking-[-0.025em] sm:text-[38px] md:text-[50px]">
                 and operational confidence.
               </span>
             </h1>
           ) : (
-            <h1 className="mt-7 max-w-[660px] text-[30px] font-black leading-[1.12] tracking-[-0.052em] text-[#161922] sm:text-[42px] md:text-[54px] md:leading-[0.99]">
+            <h1 className="mt-7 max-w-[660px] text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
               {page.title[locale]}
             </h1>
           )}
-          <span className="mt-5 block h-px w-12 bg-[#f6be15]" />
+          <span className="mt-5 block h-[2px] w-12 bg-[#f6be15]" />
           <p className="mt-4 max-w-[580px] text-[17px] font-medium leading-tight tracking-[-0.03em] text-[#66707d] sm:text-[19px] md:text-[22px]">
             {page.description[locale]}
           </p>
         </div>
       </section>
 
-      <section className="border-y border-[#f6be15] bg-[#f7f8fa] py-[76px]">
+      <section className="border-y border-[#f6be15] bg-[#f7f8fa] py-[50px]">
         <div className={managedContentClass}>
           <Eyebrow
             text={(page.overviewEyebrow ?? page.eyebrow)[locale]}
@@ -143,7 +143,7 @@ function ManagedServicesPage({
         </div>
       </section>
 
-      <section className="border-b border-[#f6be15] bg-[#f7f8fa] py-[68px]">
+      <section className="border-b border-[#f6be15] bg-[#f7f8fa] py-[46px]">
         <div className={managedContentClass}>
           <Eyebrow
             text={(page.strengthsEyebrow ?? page.eyebrow)[locale]}
@@ -159,7 +159,7 @@ function ManagedServicesPage({
         </div>
       </section>
 
-      <section className="border-b border-[#f6be15] bg-[#f7f8fa] py-[76px]">
+      <section className="border-b border-[#f6be15] bg-[#f7f8fa] py-[50px]">
         <div className={`${managedContentClass} space-y-10`}>
           {page.featureCards.slice(2, 3).map((item) => (
             <FadeIn key={item.title.en}>
@@ -174,7 +174,7 @@ function ManagedServicesPage({
         </div>
       </section>
 
-      <section className="bg-[#f7f8fa] py-[74px]">
+      <section className="bg-[#f7f8fa] py-[50px]">
         <div className={managedContentClass}>
           <div className="grid gap-5 md:grid-cols-4">
             {outcomeCards.map((item, index) => (
@@ -190,9 +190,9 @@ function ManagedServicesPage({
         </div>
       </section>
 
-      <section className="bg-[#f7f8fa] pb-[88px] pt-[38px]">
+      <section className="bg-[#f7f8fa] pb-[58px] pt-[28px]">
         <div className={managedContentClass}>
-          <h2 className="mb-8 flex items-center gap-3 text-[18px] font-black tracking-[-0.03em]">
+          <h2 className="mb-8 flex items-center gap-3 text-[18px] font-bold tracking-[-0.02em]">
             <span className="flex size-8 items-center justify-center rounded-full bg-[#fff4c7]">
               <Cog className="size-4 text-[#8d97a3]" />
             </span>
@@ -237,11 +237,12 @@ function InfrastructurePage({
         title={page.title[locale]}
         description={page.description[locale]}
         compact
+        titleClassName="!text-[30px] sm:!text-[42px] md:!text-[56px]"
       />
 
-      <section className="py-[66px]">
+      <section className="py-[44px]">
         <div className="jawraa-container max-w-[980px]">
-          <h2 className="mb-6 text-[20px] font-black">
+          <h2 className="mb-6 text-[20px] font-bold">
             {page.eyebrow[locale]}
           </h2>
           <div className="space-y-5">
@@ -258,7 +259,7 @@ function InfrastructurePage({
       </section>
 
       <InfrastructureBand items={page.featureCards.slice(0, 2)} locale={locale} />
-      <section className="py-[70px]">
+      <section className="py-[46px]">
         <div className="jawraa-container max-w-[980px] space-y-5">
           {page.featureCards.slice(2, 4).map((item) => (
             <InfrastructureRow
@@ -294,10 +295,11 @@ function SystemsCloudPage({
         title={page.title[locale]}
         description={page.description[locale]}
         compact
+        titleClassName="!text-[30px] sm:!text-[42px] md:!text-[56px]"
       />
-      <section className="py-[42px]">
+      <section className="py-[30px]">
         <div className="jawraa-container max-w-[980px]">
-          <h2 className="mb-5 text-[18px] font-black">
+          <h2 className="mb-5 text-[18px] font-bold">
             {(page.overviewEyebrow ?? page.eyebrow)[locale]}
           </h2>
           <div className="space-y-5">
@@ -335,9 +337,9 @@ function CybersecurityPage({
 }) {
   return (
     <PageShell locale={locale} active="/services">
-      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f5f7fa_100%)] pb-[70px] pt-[148px]">
+      <section className="bg-[linear-gradient(180deg,#ffffff_0%,#f5f7fa_100%)] pb-[48px] pt-[132px]">
         <div className="jawraa-container">
-          <h1 className="max-w-[760px] text-[30px] font-black leading-[1.12] tracking-[-0.04em] text-[#17191f] sm:text-[38px] md:text-[52px] md:leading-[1.02]">
+          <h1 className="max-w-[700px] text-[28px] font-bold leading-[1.02] tracking-[-0.03em] text-[#17191f] sm:text-[38px] md:text-[48px] md:leading-[0.98]">
             {page.title[locale]}
           </h1>
           <p className="mt-5 max-w-[540px] text-[13px] font-medium leading-6 text-[#68707c]">
@@ -345,9 +347,9 @@ function CybersecurityPage({
           </p>
         </div>
       </section>
-      <section className="py-[42px] text-center">
+      <section className="py-[30px] text-center">
         <div className="jawraa-container max-w-[920px]">
-          <h2 className="mb-9 text-[26px] font-black">
+          <h2 className="mb-9 text-[24px] font-bold">
             {page.eyebrow[locale]}
           </h2>
           <h3 className="text-[22px] font-black tracking-[-0.03em] sm:text-[24px]">
@@ -358,7 +360,7 @@ function CybersecurityPage({
           </p>
         </div>
       </section>
-      <section className="pb-[70px]">
+      <section className="pb-[46px]">
         <div className="jawraa-container max-w-[1060px]">
           <div className="rounded-[20px] border border-[#f6be15] bg-[#f8fafc] p-10 shadow-[0_20px_44px_rgb(17_17_17_/_7%)]">
             <div className="space-y-12">
@@ -501,7 +503,7 @@ function ManagedMiniCard({
 
 function InfrastructureBand({ items, locale }: { items: SimpleCard[]; locale: Locale }) {
   return (
-    <section className="bg-[#eef2f6] py-[70px]">
+    <section className="bg-[#eef2f6] py-[46px]">
       <div className="jawraa-container max-w-[980px] space-y-5">
         {items.map((item) => (
           <InfrastructureRow
@@ -574,9 +576,9 @@ function InfrastructureIncludedGrid({
   locale: Locale;
 }) {
   return (
-    <section className="py-[70px]">
+    <section className="py-[46px]">
       <div className="jawraa-container max-w-[980px]">
-        <h2 className="mb-8 flex items-center gap-3 text-[20px] font-black tracking-[-0.03em]">
+        <h2 className="mb-8 flex items-center gap-3 text-[20px] font-bold tracking-[-0.02em]">
           {title}
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
@@ -613,9 +615,9 @@ function SystemsCloudIncludedGrid({
   locale: Locale;
 }) {
   return (
-    <section className="pb-[78px] pt-[28px]">
+    <section className="pb-[52px] pt-[22px]">
       <div className="jawraa-container max-w-[980px]">
-        <h2 className="mb-8 flex items-center gap-3 text-[20px] font-black tracking-[-0.03em]">
+        <h2 className="mb-8 flex items-center gap-3 text-[20px] font-bold tracking-[-0.02em]">
           <span className="size-4 rounded-full bg-[#f6be15]" />
           {title}
         </h2>
@@ -659,9 +661,9 @@ function CybersecurityIncludedGrid({
   locale: Locale;
 }) {
   return (
-    <section className="pb-[78px] pt-[28px]">
+    <section className="pb-[52px] pt-[22px]">
       <div className="jawraa-container max-w-[820px]">
-        <h2 className="mb-8 flex items-center justify-center gap-3 text-center text-[24px] font-black tracking-[-0.03em]">
+        <h2 className="mb-8 flex items-center justify-center gap-3 text-center text-[22px] font-bold tracking-[-0.02em]">
           <FileText className="size-4 text-[#8b919b]" />
           {title}
         </h2>

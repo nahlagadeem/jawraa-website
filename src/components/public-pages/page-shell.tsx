@@ -26,18 +26,20 @@ export function InnerHero({
   description,
   centered = false,
   compact = false,
+  titleClassName,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   centered?: boolean;
   compact?: boolean;
+  titleClassName?: string;
 }) {
   return (
     <section
       className={[
         "bg-[linear-gradient(180deg,#ffffff_0%,#f5f7fa_100%)]",
-        compact ? "pb-[70px] pt-[148px]" : "pb-[92px] pt-[154px]",
+        compact ? "pb-[48px] pt-[132px]" : "pb-[62px] pt-[138px]",
       ].join(" ")}
     >
       <div
@@ -60,8 +62,9 @@ export function InnerHero({
         </div>
         <h1
           className={[
-            "text-[30px] font-black leading-[1.12] tracking-[-0.04em] text-[#17191f] sm:text-[38px] md:leading-[1.02]",
-            compact ? "max-w-[760px] md:text-[52px]" : "max-w-[720px] md:text-[54px]",
+            "text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#17191f] sm:text-[48px] md:text-[68px] md:leading-[0.94]",
+            compact ? "max-w-[760px]" : "max-w-[720px]",
+            titleClassName,
           ].join(" ")}
         >
           {title}

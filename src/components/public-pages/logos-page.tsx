@@ -42,11 +42,11 @@ export function ClientsPage({ locale }: { locale: Locale }) {
 
 function PartnersHero({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-[#f5f6f8] pb-[72px] pt-[126px] md:pb-[92px] md:pt-[152px]">
+    <section className="bg-[#f5f6f8] pb-[48px] pt-[112px] md:pb-[62px] md:pt-[136px]">
       <div className="jawraa-container">
         <FadeIn>
           <div className="max-w-[760px] md:pl-[8px]">
-            <h1 className="max-w-[720px] text-[30px] font-black leading-[1.12] tracking-[-0.045em] text-[#161922] sm:text-[40px] md:text-[54px] md:leading-[1.02]">
+            <h1 className="max-w-[720px] text-[28px] font-bold leading-[1.02] tracking-[-0.03em] text-[#161922] sm:text-[38px] md:text-[48px] md:leading-[0.98]">
               {partnerPage.title[locale]}
             </h1>
             <p className="mt-7 max-w-[490px] text-[12px] leading-6 text-[#818894] md:text-[13px]">
@@ -61,11 +61,11 @@ function PartnersHero({ locale }: { locale: Locale }) {
 
 function ClientsHero({ locale }: { locale: Locale }) {
   return (
-    <section className="bg-[#f5f6f8] pb-[72px] pt-[126px] md:pb-[92px] md:pt-[152px]">
+    <section className="bg-[#f5f6f8] pb-[48px] pt-[112px] md:pb-[62px] md:pt-[136px]">
       <div className="jawraa-container">
         <FadeIn>
           <div className="max-w-[820px] md:pl-[8px]">
-            <h1 className="max-w-[820px] text-[30px] font-black leading-[1.12] tracking-[-0.045em] text-[#161922] sm:text-[40px] md:text-[54px] md:leading-[1.02]">
+            <h1 className="max-w-[820px] text-[28px] font-bold leading-[1.02] tracking-[-0.03em] text-[#161922] sm:text-[38px] md:text-[48px] md:leading-[0.98]">
               {clientsPage.title[locale]}
             </h1>
             <p className="mt-7 max-w-[490px] text-[12px] leading-6 text-[#818894] md:text-[13px]">
@@ -92,7 +92,7 @@ function PartnerLogoGrid({
   description: string;
 }) {
   return (
-    <section className="pb-[88px] pt-[66px] md:pb-[110px] md:pt-[72px]">
+    <section className="pb-[58px] pt-[46px] md:pb-[72px] md:pt-[50px]">
       <div className="jawraa-container">
         <FadeIn>
           <div className="mx-auto mb-8 max-w-[700px] text-center">
@@ -102,7 +102,7 @@ function PartnerLogoGrid({
                 {eyebrow}
               </span>
             </div>
-            <h2 className="mx-auto max-w-[660px] text-[28px] font-black leading-[1.08] tracking-[-0.045em] text-[#151922] sm:text-[34px] md:text-[44px] md:leading-[0.98]">
+            <h2 className="mx-auto max-w-[660px] text-[26px] font-bold leading-[1.12] tracking-[-0.03em] text-[#151922] sm:text-[32px] md:text-[40px] md:leading-[1.04]">
               {title}
             </h2>
             <p className="mx-auto mt-6 max-w-[630px] text-[12px] leading-6 text-[#7a828e]">
@@ -193,7 +193,7 @@ function PartnerLogoStrip() {
   const logos = [...partnerStripLogos, ...partnerStripLogos];
 
   return (
-    <section className="pb-[92px]">
+    <section className="pb-[62px]">
       <div className="jawraa-container">
         <div className="relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_18px_42px_rgb(17_17_17_/_8%)]">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-white/0" />
@@ -272,7 +272,7 @@ function ClientLogoStrip() {
   const logos = [...clientStripLogos, ...clientStripLogos];
 
   return (
-    <section className="pb-[92px]">
+    <section className="pb-[62px]">
       <div className="jawraa-container">
         <div className="relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_18px_42px_rgb(17_17_17_/_8%)]">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-white/0" />

@@ -16,6 +16,11 @@ const footerLinks = [
   { href: "/clients", label: { en: "Clients", ar: "العملاء" } },
 ];
 
+const footerAddress = {
+  en: ["Uthman Ibn Affan Road,", "Al-Narjis", "District 13328 Riyadh, KSA"],
+  ar: ["شارع عثمان بن عفان", "حي النرجس", "الرياض 13328، المملكة العربية السعودية"],
+} satisfies Record<Locale, string[]>;
+
 export function SiteFooter({ locale }: { locale: Locale }) {
   return (
     <footer className="bg-[#f3f6fa] py-[58px] text-[#59616d]">
@@ -42,7 +47,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 ? "سياسة الخصوصية | الشروط والأحكام"
                 : "Privacy Policy | Terms and Conditions"}
             </p>
-            <p>© 2022 All Rights Reserved.</p>
+            <p>
+              {locale === "ar" ? "جميع الحقوق محفوظة 2026" : "© 2022 All Rights Reserved."}
+            </p>
           </div>
         </div>
         <div>
@@ -50,11 +57,11 @@ export function SiteFooter({ locale }: { locale: Locale }) {
             {locale === "ar" ? "العنوان" : "Address"}
           </p>
           <p className="max-w-[210px] text-[12px] leading-6">
-            Uthman Ibn Affan Road,
-            <br />
-            Al-Narjis
-            <br />
-            District 13328 Riyadh, KSA
+            {footerAddress[locale].map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </p>
         </div>
         <nav

@@ -75,7 +75,7 @@ function HeroSection({ locale }: { locale: Locale }) {
             <p className="mt-6 max-w-full text-[21px] font-semibold leading-[1.18] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.05]">
               {homePageCopy.heroLead[locale]}
             </p>
-            <p className="mt-6 max-w-full text-[14px] leading-7 text-[#777d88] sm:max-w-[555px]">
+            <p className="mt-6 max-w-full text-[13px] leading-6 text-[#777d88] sm:max-w-[555px]">
               {homePageCopy.heroBody[locale]}
             </p>
           </header>

@@ -435,6 +435,8 @@ function LogoTextCard({
   item: CardItem;
   locale: Locale;
 }) {
+  const isAppsWave = item.title.en.toLowerCase() === "appswave";
+
   return (
     <article className="jawraa-lift-card grid min-h-[150px] gap-5 rounded-[20px] border border-[#f6be15] bg-white p-7 shadow-[0_22px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover sm:grid-cols-[158px_1fr]">
       <div className="relative flex h-[92px] items-center justify-center rounded-[14px] border border-[#eceff3] bg-white p-5">
@@ -444,7 +446,7 @@ function LogoTextCard({
             alt={text(item.title, locale)}
             fill
             sizes="160px"
-            className="object-contain p-4"
+            className={isAppsWave ? "object-contain p-1" : "object-contain p-4"}
           />
         ) : null}
       </div>

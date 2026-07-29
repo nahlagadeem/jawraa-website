@@ -137,17 +137,24 @@ function PartnerLogoCard({
   item: SimpleCard;
   locale: Locale;
 }) {
+  const isAppsWave = item.title.en.toLowerCase() === "appswave";
+
   return (
     <article className="jawraa-lift-card relative flex min-h-[228px] flex-col items-center justify-center overflow-hidden rounded-[18px] border border-[#f6be15] bg-white px-9 py-7 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
       <span className="pointer-events-none absolute bottom-[-32px] right-[-28px] size-24 rounded-full bg-[#f6be15]/15 blur-2xl rtl:left-[-28px] rtl:right-auto" />
       {item.image ? (
-        <div className="relative mb-5 h-[76px] w-[214px] rounded-[14px] bg-white shadow-[0_12px_26px_rgb(17_17_17_/_10%)]">
+        <div
+          className={[
+            "relative mb-5 rounded-[14px] bg-white shadow-[0_12px_26px_rgb(17_17_17_/_10%)]",
+            isAppsWave ? "h-[88px] w-[250px]" : "h-[76px] w-[214px]",
+          ].join(" ")}
+        >
           <Image
             src={item.image}
             alt={item.title[locale]}
             fill
-            sizes="214px"
-            className="object-contain p-3"
+            sizes={isAppsWave ? "250px" : "214px"}
+            className={isAppsWave ? "object-contain p-1" : "object-contain p-3"}
           />
         </div>
       ) : null}

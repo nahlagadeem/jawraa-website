@@ -477,7 +477,7 @@ export const homePartners: CardItem[] = [
       en: "A technology company specializing in AI, automation, and cloud solutions to enable smarter, more agile digital work environments.",
       ar: "شركة تقنية متخصصة في الذكاء الاصطناعي، والأتمتة، والحلول السحابية لتمكين بيئات عمل رقمية أكثر ذكاءً ومرونة.",
     },
-    image: "/assets/home/partner-appswave.webp",
+    image: "/assets/logos/partner-appswave.svg",
   },
 ];
 

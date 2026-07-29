@@ -5,7 +5,8 @@ services:
     plan: free
     branch: main
     buildCommand: npm install && npx prisma generate && npm run build
-    startCommand: npm run start
+    startCommand: npm run start -- -H 0.0.0.0 -p $PORT
+    healthCheckPath: /en
     autoDeploy: true
     envVars:
       - key: NODE_ENV

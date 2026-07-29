@@ -255,7 +255,7 @@ const clientStripLogos = [
   },
   {
     name: "Ministry of Culture",
-    src: "/assets/home/client-culture.webp",
+    src: "/assets/logos/client-ministry-culture.svg",
     width: 152,
   },
   {
@@ -270,7 +270,7 @@ const clientStripLogos = [
   },
   {
     name: "Princess Nourah bint Abdulrahman University",
-    src: "/assets/home/client-pnu.webp",
+    src: "/assets/logos/client-pnu.svg",
     width: 142,
   },
 ];

@@ -240,7 +240,7 @@ export const clients: CardItem[] = [
       en: "Enabling digital experiences and institutional solutions aligned with cultural sector development.",
       ar: "تمكين تجارب رقمية وحلول مؤسسية مرتبطة بتطوير القطاع الثقافي.",
     },
-    image: "/assets/home/client-culture.webp",
+    image: "/assets/logos/client-ministry-culture.svg",
   },
   {
     title: { en: "Expo", ar: "إكسبو" },
@@ -256,7 +256,7 @@ export const clients: CardItem[] = [
       en: "Contributing to learning, technology, and institutional digital development within higher education.",
       ar: "المساهمة في التعلم والتقنية والتطوير الرقمي المؤسسي في التعليم العالي.",
     },
-    image: "/assets/home/client-pnu.webp",
+    image: "/assets/logos/client-pnu.svg",
   },
 ];
 
@@ -622,7 +622,7 @@ export const homeClients: CardItem[] = [
       en: "Enabling digital experiences and institutional solutions aligned with cultural sector development.",
       ar: "تمكين التجارب الرقمية والحلول المؤسسية المتوافقة مع تطوير القطاع الثقافي.",
     },
-    image: "/assets/home/client-culture.webp",
+    image: "/assets/logos/client-ministry-culture.svg",
   },
   {
     title: { en: "Expo", ar: "إكسبو" },
@@ -638,6 +638,6 @@ export const homeClients: CardItem[] = [
       en: "Contributing to learning, technology, and institutional digital development within higher education.",
       ar: "المساهمة في التعلم، والتقنية، والتطوير الرقمي المؤسسي ضمن التعليم العالي.",
     },
-    image: "/assets/home/client-pnu.webp",
+    image: "/assets/logos/client-pnu.svg",
   },
 ];

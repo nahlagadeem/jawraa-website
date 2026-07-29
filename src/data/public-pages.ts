@@ -374,7 +374,7 @@ const publicClientItems: SimpleCard[] = [
       en: "The Ministry of Culture leads initiatives that promote cultural development, creativity, and the preservation of Saudi Arabia’s rich cultural heritage.",
       ar: "تقود وزارة الثقافة مبادرات تعزز التنمية الثقافية والإبداع والحفاظ على التراث الثقافي الغني للمملكة العربية السعودية.",
     },
-    image: "/assets/home/client-culture.webp",
+    image: "/assets/logos/client-ministry-culture.svg",
   },
   {
     title: { en: "EXPRO", ar: "EXPRO" },
@@ -401,7 +401,7 @@ const publicClientItems: SimpleCard[] = [
       en: "Princess Nourah bint Abdulrahman University is the largest women’s university in the world, dedicated to advancing education, research, and leadership for women in Saudi Arabia.",
       ar: "جامعة الأميرة نورة بنت عبدالرحمن هي أكبر جامعة نسائية في العالم، ومكرسة لتعزيز التعليم والبحث والقيادة للنساء في المملكة العربية السعودية.",
     },
-    image: "/assets/home/client-pnu.webp",
+    image: "/assets/logos/client-pnu.svg",
   },
 ];
 

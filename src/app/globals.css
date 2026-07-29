@@ -270,6 +270,17 @@
   box-shadow: 0 10px 22px rgb(246 190 21 / 14%);
 }
 
+main :is(article, div):where([class*="border-[#f6be15]"]):not(nav *):not(header *):not(footer *) {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+main :is(article, div):where([class*="border-[#f6be15]"]):not(nav *):not(header *):not(footer *):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 54px rgb(17 17 17 / 12%);
+}
+
 h1.font-black,
 h2.font-black,
 h3.font-black {

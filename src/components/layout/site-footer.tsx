@@ -50,7 +50,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 : "Privacy Policy | Terms and Conditions"}
             </p>
             <p>
-              {locale === "ar" ? "جميع الحقوق محفوظة 2026" : "© 2022 All Rights Reserved."}
+              {locale === "ar" ? "جميع الحقوق محفوظة 2026" : "© 2026 All Rights Reserved."}
             </p>
           </div>
         </div>

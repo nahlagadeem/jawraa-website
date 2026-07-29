@@ -68,10 +68,10 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                 aria-pressed={activeFilter === "all"}
                 onClick={() => setActiveFilter("all")}
                 className={[
-                  "inline-flex h-9 min-w-10 items-center justify-center rounded-full px-4 text-[10px] font-bold transition-colors",
+                  "jawraa-outline-action inline-flex h-9 min-w-10 items-center justify-center rounded-full border px-4 text-[10px] font-bold",
                   activeFilter === "all"
-                    ? "bg-[#f6be15] text-black"
-                    : "bg-[#eef0f2] text-[#23262d]",
+                    ? "jawraa-gold-action border-[#f6be15] bg-[#f6be15] text-black hover:jawraa-gold-action-hover"
+                    : "border-transparent bg-[#eef0f2] text-[#23262d] hover:jawraa-outline-action-hover",
                 ].join(" ")}
               >
                 {mediaPage.filters.all[locale]}
@@ -81,10 +81,10 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                 aria-pressed={activeFilter === "latest"}
                 onClick={() => setActiveFilter("latest")}
                 className={[
-                  "inline-flex h-9 items-center justify-center rounded-full px-5 text-[10px] font-bold transition-colors",
+                  "jawraa-outline-action inline-flex h-9 items-center justify-center rounded-full border px-5 text-[10px] font-bold",
                   activeFilter === "latest"
-                    ? "bg-[#f6be15] text-black"
-                    : "bg-[#eef0f2] text-[#23262d]",
+                    ? "jawraa-gold-action border-[#f6be15] bg-[#f6be15] text-black hover:jawraa-gold-action-hover"
+                    : "border-transparent bg-[#eef0f2] text-[#23262d] hover:jawraa-outline-action-hover",
                 ].join(" ")}
               >
                 {mediaPage.filters.latest[locale]}
@@ -170,7 +170,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     />
                     <button
                       type="button"
-                      className="mt-1 h-9 rounded-[8px] bg-[#f6be15] text-center text-[10px] font-black leading-9 text-white"
+                      className="jawraa-gold-action mt-1 h-9 rounded-[8px] bg-[#f6be15] text-center text-[10px] font-black leading-9 text-white hover:jawraa-gold-action-hover"
                     >
                       {mediaPage.contact.send[locale]}
                     </button>
@@ -181,7 +181,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     {locale === "ar" ? "التواصل المباشر:" : "Direct contact:"}
                   </p>
                   <div className="text-[12px] leading-5 text-[#68707c] sm:justify-self-end">
-                    <a href="mailto:info@jawraa.com" className="block hover:text-[#151922]">
+                    <a href="mailto:info@jawraa.com" className="block transition-colors hover:text-[#b18408]">
                       info@jawraa.com
                     </a>
                     <p dir="ltr">0115250600 | 0115250622</p>
@@ -304,7 +304,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="mt-2 inline-flex h-12 w-fit items-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-white"
+                  className="jawraa-gold-action mt-2 inline-flex h-12 w-fit items-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-white hover:jawraa-gold-action-hover disabled:pointer-events-none disabled:opacity-70"
                 >
                   {status === "sending"
                     ? locale === "ar"

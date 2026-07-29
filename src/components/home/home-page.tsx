@@ -271,7 +271,7 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
                       <Link
                         href="/clients"
                         locale={locale}
-                        className="rounded-full border border-[#e4e7eb] px-6 py-3 text-[12px] font-bold text-[#17191f] transition-colors hover:border-[#f6be15]"
+                        className="jawraa-outline-action rounded-full border border-[#e4e7eb] px-6 py-3 text-[12px] font-bold text-[#17191f] hover:jawraa-outline-action-hover"
                       >
                         {homePageCopy.readMore[locale]}
                       </Link>
@@ -340,7 +340,7 @@ function CtaSection({ locale }: { locale: Locale }) {
             <Link
               href="/contact#contact-form"
               locale={locale}
-              className="inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-black"
+              className="jawraa-gold-action inline-flex h-12 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-black hover:jawraa-gold-action-hover"
             >
               {homePageCopy.ctaButton[locale]}
             </Link>

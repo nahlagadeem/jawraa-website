@@ -2,9 +2,9 @@ import type { Locale } from "@/config/site";
 import { Link } from "@/i18n/navigation";
 
 const socialLinks = [
-  { label: "LinkedIn", href: "#" },
-  { label: "X", href: "#" },
-  { label: "Facebook", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/jawraa/posts/?feedView=all" },
+  { label: "X", href: "https://x.com/jawraa" },
+  { label: "Facebook", href: "https://www.facebook.com/jawraa" },
 ];
 
 const footerLinks = [
@@ -35,7 +35,9 @@ export function SiteFooter({ locale }: { locale: Locale }) {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="hover:text-black"
+                  target={link.href === "#" ? undefined : "_blank"}
+                  rel={link.href === "#" ? undefined : "noopener noreferrer"}
+                  className="transition-colors hover:text-[#b18408]"
                   aria-label={link.label}
                 >
                   {link.label}
@@ -73,7 +75,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
               key={link.href}
               href={link.href}
               locale={locale}
-              className="hover:text-black"
+              className="transition-colors hover:text-[#b18408]"
             >
               {link.label[locale]}
             </Link>

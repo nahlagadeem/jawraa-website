@@ -41,13 +41,13 @@ export function AboutPage({ locale }: { locale: Locale }) {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#jawraa-journey"
-                className="inline-flex h-11 items-center justify-center rounded-full bg-[#f6be15] px-6 text-[12px] font-black text-black"
+                className="jawraa-gold-action inline-flex h-11 items-center justify-center rounded-full bg-[#f6be15] px-6 text-[12px] font-black text-black hover:jawraa-gold-action-hover"
               >
                 {aboutPage.heroCta[locale]}
               </a>
               <a
                 href="#jawraa-identity"
-                className="inline-flex h-11 items-center justify-center rounded-full border border-[#e4e7eb] bg-white px-6 text-[12px] font-black text-[#17191f]"
+                className="jawraa-outline-action inline-flex h-11 items-center justify-center rounded-full border border-[#e4e7eb] bg-white px-6 text-[12px] font-black text-[#17191f] hover:jawraa-outline-action-hover"
               >
                 {aboutPage.visionLabel[locale]}
               </a>
@@ -172,7 +172,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
             <Link
               href="/contact#contact-form"
               locale={locale}
-              className="inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[12px] font-black text-black"
+              className="jawraa-gold-action inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[12px] font-black text-black hover:jawraa-gold-action-hover"
             >
               {aboutPage.ctaButton[locale]}
             </Link>

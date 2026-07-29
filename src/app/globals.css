@@ -239,6 +239,37 @@
   line-height: 1.7;
 }
 
+@utility jawraa-gold-action {
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+@utility jawraa-gold-action-hover {
+  background-color: var(--jawraa-gold-hover);
+  box-shadow: 0 14px 28px rgb(246 190 21 / 30%);
+  transform: translateY(-1px) scale(1.025);
+}
+
+@utility jawraa-outline-action {
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+@utility jawraa-outline-action-hover {
+  border-color: var(--jawraa-gold);
+  background-color: #ffffff;
+  color: var(--jawraa-ink);
+  box-shadow: 0 10px 22px rgb(246 190 21 / 14%);
+}
+
 h1.font-black,
 h2.font-black,
 h3.font-black {

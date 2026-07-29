@@ -138,7 +138,7 @@ export function SiteHeader({
             asChild
             variant="outline"
             size="sm"
-            className="h-8 rounded-full border-[#e5e8ed] bg-white px-3 text-[12px] font-semibold shadow-none"
+            className="jawraa-outline-action h-8 rounded-full border-[#e5e8ed] bg-white px-3 text-[12px] font-semibold shadow-none hover:jawraa-outline-action-hover"
           >
             <Link href={pathname} locale={alternateLocale}>
               <span>{locale === "ar" ? "AR" : "EN"}</span>
@@ -148,7 +148,7 @@ export function SiteHeader({
           <Button
             asChild
             size="sm"
-            className="h-[30px] rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:bg-[#e9b40f] sm:px-5 sm:text-[12px]"
+            className="jawraa-gold-action h-[30px] rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:jawraa-gold-action-hover sm:px-5 sm:text-[12px]"
           >
             <Link href="/contact#contact-form" locale={locale}>
               {locale === "ar" ? "تواصل معنا" : "Contact us"}
@@ -160,7 +160,7 @@ export function SiteHeader({
             size="icon"
             aria-label={mobileMenuLabel}
             aria-expanded={mobileOpen}
-            className="size-8 rounded-full border-[#e5e8ed] bg-white text-[#15171b] shadow-none min-[900px]:hidden"
+            className="jawraa-outline-action size-8 rounded-full border-[#e5e8ed] bg-white text-[#15171b] shadow-none hover:jawraa-outline-action-hover min-[900px]:hidden"
             onClick={() => setMobileOpen((open) => !open)}
           >
             {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}

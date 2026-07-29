@@ -170,7 +170,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               </p>
             </div>
             <Link
-              href="/contact#contact-form"
+              href="/media-center#contact-center"
               locale={locale}
               className="jawraa-gold-action inline-flex h-11 shrink-0 items-center justify-center rounded-full bg-[#f6be15] px-7 text-[12px] font-black text-black hover:jawraa-gold-action-hover"
             >

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import type { MouseEvent } from "react";
 import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import type { Locale } from "@/config/site";
@@ -67,6 +68,18 @@ export function SiteHeader({
     ...serviceItems,
     ...secondaryItems,
   ];
+
+  function handleContactClick(event: MouseEvent<HTMLAnchorElement>) {
+    if (currentPath !== "/media-center") {
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", `/${locale}/media-center#contact-center`);
+    document
+      .getElementById("contact-center")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <header className="absolute inset-x-0 top-0 z-30 bg-transparent">
@@ -146,8 +159,9 @@ export function SiteHeader({
             </Link>
           </Button>
           <Link
-            href="/contact#contact-form"
+            href="/media-center#contact-center"
             locale={locale}
+            onClick={handleContactClick}
             className="jawraa-gold-action inline-flex h-[30px] items-center justify-center rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:jawraa-gold-action-hover sm:px-5 sm:text-[12px]"
           >
             {locale === "ar" ? "تواصل معنا" : "Contact us"}

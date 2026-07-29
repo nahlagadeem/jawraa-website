@@ -2,18 +2,31 @@
 
 import Image from "next/image";
 import type { FormEvent } from "react";
-import { useMemo, useState } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import type { Locale } from "@/config/site";
 import { FadeIn } from "@/components/motion/fade-in";
-import { contactPage, mediaPage } from "@/data/public-pages";
-import { InnerHero, PageShell } from "./page-shell";
+import { mediaPage } from "@/data/public-pages";
+import { PageShell } from "./page-shell";
 
 type ContactFormStatus = "idle" | "sending" | "sent" | "error";
 
 export function MediaCenterPage({ locale }: { locale: Locale }) {
   const [query, setQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState<"all" | "latest">("all");
+  const [status, setStatus] = useState<ContactFormStatus>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    if (window.location.hash !== "#contact-center") {
+      return;
+    }
+
+    window.setTimeout(() => {
+      document
+        .getElementById("contact-center")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 120);
+  }, []);
 
   const visibleNews = useMemo(() => {
     const source =
@@ -31,6 +44,44 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
         .includes(normalizedQuery),
     );
   }, [activeFilter, query]);
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setErrorMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const result = (await response.json().catch(() => null)) as
+        | { error?: string }
+        | null;
+
+      if (!response.ok) {
+        throw new Error(result?.error ?? "Unable to send message.");
+      }
+
+      form.reset();
+      setStatus("sent");
+    } catch (error) {
+      setStatus("error");
+      setErrorMessage(
+        error instanceof Error ? error.message : "Unable to send message.",
+      );
+    }
+  }
 
   return (
     <PageShell locale={locale} active={mediaPage.active}>
@@ -139,10 +190,14 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                   <h2 className="max-w-[390px] text-[22px] font-bold leading-[1.12] tracking-[-0.025em] text-[#151922] md:text-[26px]">
                     {mediaPage.contact.title[locale]}
                   </h2>
-                  <form className="mt-6 grid w-full max-w-[320px] gap-3 self-center">
+                  <form
+                    className="mt-6 grid w-full max-w-[320px] gap-3 self-center"
+                    onSubmit={handleContactSubmit}
+                  >
                     <input
                       type="text"
                       name="name"
+                      required
                       aria-label={mediaPage.contact.fields.name[locale]}
                       placeholder={mediaPage.contact.fields.name[locale]}
                       className="h-8 rounded-[8px] bg-[#eef0f2] px-4 text-[10px] text-[#23262d] outline-none placeholder:text-[#a1a6ad]"
@@ -150,6 +205,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     <input
                       type="email"
                       name="email"
+                      required
                       aria-label={mediaPage.contact.fields.email[locale]}
                       placeholder={mediaPage.contact.fields.email[locale]}
                       className="h-8 rounded-[8px] bg-[#eef0f2] px-4 text-[10px] text-[#23262d] outline-none placeholder:text-[#a1a6ad]"
@@ -157,6 +213,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     <input
                       type="tel"
                       name="phone"
+                      required
                       aria-label={mediaPage.contact.fields.phone[locale]}
                       placeholder={mediaPage.contact.fields.phone[locale]}
                       className="h-8 rounded-[8px] bg-[#eef0f2] px-4 text-[10px] text-[#23262d] outline-none placeholder:text-[#a1a6ad]"
@@ -166,14 +223,32 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                       aria-label={mediaPage.contact.fields.message[locale]}
                       placeholder={mediaPage.contact.fields.message[locale]}
                       rows={3}
+                      required
                       className="min-h-[72px] resize-none rounded-[8px] bg-[#eef0f2] px-4 py-3 text-[10px] text-[#23262d] outline-none placeholder:text-[#a1a6ad]"
                     />
                     <button
-                      type="button"
-                      className="jawraa-gold-action mt-1 h-9 rounded-[8px] bg-[#f6be15] text-center text-[10px] font-black leading-9 text-white hover:jawraa-gold-action-hover"
+                      type="submit"
+                      disabled={status === "sending"}
+                      className="jawraa-gold-action mt-1 h-9 rounded-[8px] bg-[#f6be15] text-center text-[10px] font-black leading-9 text-white hover:jawraa-gold-action-hover disabled:pointer-events-none disabled:opacity-70"
                     >
-                      {mediaPage.contact.send[locale]}
+                      {status === "sending"
+                        ? locale === "ar"
+                          ? "جاري الإرسال..."
+                          : "Sending..."
+                        : mediaPage.contact.send[locale]}
                     </button>
+                    {status === "sent" ? (
+                      <p className="text-[11px] font-bold text-[#1f7a43]">
+                        {locale === "ar"
+                          ? "تم إرسال رسالتك بنجاح."
+                          : "Your message has been sent."}
+                      </p>
+                    ) : null}
+                    {status === "error" ? (
+                      <p className="text-[11px] font-bold text-[#b42318]">
+                        {errorMessage}
+                      </p>
+                    ) : null}
                   </form>
                 </div>
                 <div className="jawraa-lift-card grid min-h-[72px] items-center gap-4 rounded-[16px] border border-[#f6be15] bg-white px-8 py-4 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover sm:grid-cols-[auto_1fr]">
@@ -190,145 +265,6 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
               </div>
             </FadeIn>
           </section>
-        </div>
-      </section>
-    </PageShell>
-  );
-}
-
-export function ContactPage({ locale }: { locale: Locale }) {
-  const [status, setStatus] = useState<ContactFormStatus>("idle");
-  const [errorMessage, setErrorMessage] = useState("");
-
-  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setStatus("sending");
-    setErrorMessage("");
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.get("name"),
-          email: formData.get("email"),
-          phone: formData.get("phone"),
-          message: formData.get("message"),
-        }),
-      });
-
-      const result = (await response.json().catch(() => null)) as
-        | { error?: string }
-        | null;
-
-      if (!response.ok) {
-        throw new Error(result?.error ?? "Unable to send message.");
-      }
-
-      form.reset();
-      setStatus("sent");
-    } catch (error) {
-      setStatus("error");
-      setErrorMessage(
-        error instanceof Error ? error.message : "Unable to send message.",
-      );
-    }
-  }
-
-  return (
-    <PageShell locale={locale} active={contactPage.active}>
-      <InnerHero
-        eyebrow={contactPage.eyebrow[locale]}
-        title={contactPage.title[locale]}
-        description={contactPage.description[locale]}
-      />
-      <section id="contact-form" className="scroll-mt-28 py-24">
-        <div className="jawraa-container grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-          <FadeIn>
-            <div className="rounded-[24px] bg-[#14171c] p-9 text-white shadow-[0_30px_70px_rgb(17_17_17_/_24%)]">
-              <h2 className="text-[30px] font-bold tracking-[-0.03em]">
-                {locale === "ar" ? "معلومات التواصل" : "Contact information"}
-              </h2>
-              <div className="mt-9 space-y-7 text-[15px] leading-7 text-[#d8dce3]">
-                <p className="flex gap-4">
-                  <MapPin className="mt-1 size-5 shrink-0 text-[#f6be15]" />
-                  <span>
-                    {locale === "ar"
-                      ? "شارع عثمان بن عفان، حي النرجس، الرياض 13328، المملكة العربية السعودية"
-                      : "Uthman Ibn Affan Road, Al-Narjis, District 13328 Riyadh, KSA"}
-                  </span>
-                </p>
-                <p className="flex gap-4">
-                  <Mail className="mt-1 size-5 shrink-0 text-[#f6be15]" />
-                  <span>info@jawraa.com</span>
-                </p>
-                <p className="flex gap-4">
-                  <Phone className="mt-1 size-5 shrink-0 text-[#f6be15]" />
-                  <span dir="ltr">+966 11 000 0000</span>
-                </p>
-              </div>
-            </div>
-          </FadeIn>
-          <FadeIn delay={0.05}>
-            <div className="jawraa-lift-card rounded-[24px] border border-[#f6be15] bg-white p-9 shadow-[0_22px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
-              <h2 className="text-[26px] font-bold tracking-[-0.025em]">
-                {locale === "ar" ? "أرسل طلبك" : "Send an inquiry"}
-              </h2>
-              <form className="mt-8 grid gap-4" onSubmit={handleContactSubmit}>
-                {[
-                  { en: "Full name", ar: "الاسم الكامل", type: "text", name: "name" },
-                  { en: "Your email", ar: "بريدك الإلكتروني", type: "email", name: "email" },
-                  { en: "Your number", ar: "رقمك", type: "tel", name: "phone" },
-                ].map((field) => (
-                  <input
-                    key={field.name}
-                    type={field.type}
-                    name={field.name}
-                    required
-                    aria-label={field[locale]}
-                    placeholder={field[locale]}
-                    className="h-12 rounded-[14px] border border-[#e8e5dc] bg-[#fbfbfa] px-5 text-[13px] text-[#15171c] outline-none placeholder:text-[#8a9099]"
-                  />
-                ))}
-                <textarea
-                  name="message"
-                  aria-label={locale === "ar" ? "الرسالة" : "Message"}
-                  placeholder={locale === "ar" ? "اكتب رسالتك هنا ." : "Write your message here ."}
-                  rows={5}
-                  required
-                  className="min-h-[140px] resize-none rounded-[14px] border border-[#e8e5dc] bg-[#fbfbfa] px-5 py-5 text-[13px] text-[#15171c] outline-none placeholder:text-[#8a9099]"
-                />
-                <button
-                  type="submit"
-                  disabled={status === "sending"}
-                  className="jawraa-gold-action mt-2 inline-flex h-12 w-fit items-center rounded-full bg-[#f6be15] px-7 text-[13px] font-black text-white hover:jawraa-gold-action-hover disabled:pointer-events-none disabled:opacity-70"
-                >
-                  {status === "sending"
-                    ? locale === "ar"
-                      ? "جاري الإرسال..."
-                      : "Sending..."
-                    : locale === "ar"
-                      ? "إرسال"
-                      : "send"}
-                </button>
-                {status === "sent" ? (
-                  <p className="text-[13px] font-bold text-[#1f7a43]">
-                    {locale === "ar"
-                      ? "تم إرسال رسالتك بنجاح."
-                      : "Your message has been sent."}
-                  </p>
-                ) : null}
-                {status === "error" ? (
-                  <p className="text-[13px] font-bold text-[#b42318]">
-                    {errorMessage}
-                  </p>
-                ) : null}
-              </form>
-            </div>
-          </FadeIn>
         </div>
       </section>
     </PageShell>

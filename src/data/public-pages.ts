@@ -533,10 +533,3 @@ export const mediaPage = {
     send: { en: "send", ar: "إرسال" },
   },
 };
-
-export const contactPage = {
-  active: "/contact",
-  eyebrow: { en: "Contact Us", ar: "اتصل بنا" },
-  title: { en: "Start a conversation with Jawraa", ar: "ابدأ حوارا مع جوراء" },
-  description: { en: "Connect with our team to discuss your next digital infrastructure, cloud, cybersecurity, or managed services initiative.", ar: "تواصل مع فريقنا لمناقشة مبادرتك القادمة في البنية التحتية أو السحابة أو الأمن السيبراني أو الخدمات المدارة." },
-};

@@ -1,17 +1,17 @@
+import Image from "next/image";
 import type { Locale } from "@/config/site";
 import { FadeIn } from "@/components/motion/fade-in";
+import { homeIdentityCards } from "@/data/home";
 import { aboutPage } from "@/data/public-pages";
 import { Link } from "@/i18n/navigation";
 import {
   BarChart3,
   Cog,
-  Eye,
   Globe2,
   Handshake,
   Lightbulb,
   Search,
   ShieldCheck,
-  Target,
   type LucideIcon,
 } from "lucide-react";
 import { PageShell } from "./page-shell";
@@ -113,7 +113,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
             {aboutPage.identity.map((item, index) => (
               <FadeIn key={item.title.en} delay={index * 0.04}>
                 <article className="jawraa-lift-card h-full rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_20px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
-                  <AboutIcon icon={identityIcons[index]} />
+                  <AboutIcon imageSrc={homeIdentityCards[index]?.image} />
                   <h2 className="text-[20px] font-bold leading-tight tracking-[-0.02em]">
                     {item.title[locale]}
                   </h2>
@@ -183,8 +183,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
   );
 }
 
-const identityIcons: LucideIcon[] = [Search, Target, Eye];
-
 const valueIcons: LucideIcon[] = [
   Handshake,
   Lightbulb,
@@ -196,10 +194,12 @@ const valueIcons: LucideIcon[] = [
 
 function AboutIcon({
   icon: Icon = Search,
+  imageSrc,
   compact = false,
   centered = false,
 }: {
   icon?: LucideIcon;
+  imageSrc?: string;
   compact?: boolean;
   centered?: boolean;
 }) {
@@ -211,7 +211,11 @@ function AboutIcon({
         centered ? "mx-auto" : "",
       ].join(" ")}
     >
-      <Icon className={compact ? "size-4" : "size-5"} strokeWidth={1.9} />
+      {imageSrc ? (
+        <Image src={imageSrc} alt="" width={24} height={24} />
+      ) : (
+        <Icon className={compact ? "size-4" : "size-5"} strokeWidth={1.9} />
+      )}
     </span>
   );
 }

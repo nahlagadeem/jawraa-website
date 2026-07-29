@@ -45,7 +45,11 @@ export function CompactFeatureCard({
   return (
     <article className="jawraa-lift-card min-h-[104px] rounded-[12px] border border-[#ebe4c8] bg-white p-4 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
       <div className="mx-auto mb-3 flex size-8 items-center justify-center rounded-full bg-[#ffd21a] text-black">
-        <Circle className="size-2 fill-current" />
+        {item.image ? (
+          <Image src={item.image} alt="" width={18} height={18} />
+        ) : (
+          <Circle className="size-2 fill-current" />
+        )}
       </div>
       <h3 className="text-[12px] font-black leading-tight tracking-[-0.01em]">
         {item.title[locale]}

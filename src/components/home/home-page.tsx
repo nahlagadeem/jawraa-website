@@ -1,12 +1,5 @@
 import Image from "next/image";
-import {
-  Apple,
-  Cloud,
-  Network,
-  Settings,
-  ShieldCheck,
-  type LucideIcon,
-} from "lucide-react";
+import { Apple } from "lucide-react";
 import type { Locale } from "@/config/site";
 import {
   type CardItem,
@@ -384,11 +377,11 @@ function InfoCard({
   );
 }
 
-const serviceIcons: LucideIcon[] = [
-  Settings,
-  Network,
-  Cloud,
-  ShieldCheck,
+const serviceIconImages = [
+  "/assets/logos/service-managed-services.svg",
+  "/assets/logos/service-infrastructure.svg",
+  "/assets/logos/service-systems-cloud.svg",
+  "/assets/logos/service-cybersecurity.svg",
 ];
 
 function ServiceCard({
@@ -400,16 +393,16 @@ function ServiceCard({
   locale: Locale;
   index: number;
 }) {
-  const Icon = serviceIcons[index] ?? Settings;
+  const iconImage = serviceIconImages[index];
 
   return (
     <article className="jawraa-lift-card h-full min-h-[248px] rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_18px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
       <div className="mb-6 flex size-11 items-center justify-center rounded-[14px] bg-[#fff6df] text-[#8f949c]">
-        {index === 4 ? (
+        {iconImage ? (
+          <Image src={iconImage} alt="" width={24} height={24} />
+        ) : index === 4 ? (
           <AppleCompanyLogo className="size-6 text-black" />
-        ) : (
-          <Icon className="size-5" strokeWidth={1.9} />
-        )}
+        ) : null}
       </div>
       <h3 className="text-[16px] font-extrabold leading-tight tracking-[-0.015em] text-[#17191f]">
         {text(item.title, locale)}

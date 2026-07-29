@@ -139,7 +139,7 @@ export const services: CardItem[] = [
       en: "Operational support models that keep systems stable, efficient, and continuously optimized.",
       ar: "نماذج دعم تشغيلي تحافظ على استقرار الأنظمة وكفاءتها وتحسينها المستمر.",
     },
-    image: "/assets/home/icon-gear.webp",
+    image: "/assets/logos/service-managed-services.svg",
   },
   {
     title: { en: "Infrastructure", ar: "البنية التحتية" },
@@ -147,7 +147,7 @@ export const services: CardItem[] = [
       en: "Enterprise-ready architecture for data centers, connectivity, and critical business environments.",
       ar: "هندسة جاهزة للمؤسسات لمراكز البيانات والاتصال والبيئات التشغيلية الحرجة.",
     },
-    image: "/assets/home/icon-shield.webp",
+    image: "/assets/logos/service-infrastructure.svg",
   },
   {
     title: { en: "Systems & Cloud", ar: "الأنظمة والسحابة" },
@@ -155,7 +155,7 @@ export const services: CardItem[] = [
       en: "Scalable platforms that connect on-premise operations with cloud-first digital ecosystems.",
       ar: "منصات قابلة للتوسع تربط العمليات الداخلية بالمنظومات الرقمية السحابية.",
     },
-    image: "/assets/home/icon-cloud.webp",
+    image: "/assets/logos/service-systems-cloud.svg",
   },
   {
     title: { en: "Cybersecurity", ar: "الأمن السيبراني" },
@@ -163,7 +163,7 @@ export const services: CardItem[] = [
       en: "Protective layers, compliance-focused controls, and resilient digital governance strategies.",
       ar: "طبقات حماية وضوابط امتثال واستراتيجيات حوكمة رقمية مرنة.",
     },
-    image: "/assets/home/icon-shield.webp",
+    image: "/assets/logos/service-cybersecurity.svg",
   },
   {
     title: { en: "Apple Education", ar: "Apple Education" },
@@ -403,7 +403,7 @@ export const homeServices: CardItem[] = [
       en: "Operational support models that keep systems stable, efficient, and continuously optimized.",
       ar: "نماذج دعم تشغيلي تحافظ على استقرار الأنظمة وكفاءتها وتحسينها المستمر.",
     },
-    image: "/assets/home/icon-gear.webp",
+    image: "/assets/logos/service-managed-services.svg",
   },
   {
     title: { en: "Infrastructure", ar: "البنية التحتية" },
@@ -411,7 +411,7 @@ export const homeServices: CardItem[] = [
       en: "Enterprise-ready architecture for data centers, connectivity, and critical business environments.",
       ar: "بنية جاهزة للمؤسسات لمراكز البيانات، والاتصال، وبيئات الأعمال الحرجة.",
     },
-    image: "/assets/home/icon-shield.webp",
+    image: "/assets/logos/service-infrastructure.svg",
   },
   {
     title: { en: "Systems & Cloud", ar: "الأنظمة والسحابة" },
@@ -419,7 +419,7 @@ export const homeServices: CardItem[] = [
       en: "Scalable platforms that connect on-premise operations with cloud-first digital ecosystems.",
       ar: "منصات قابلة للتوسع تربط العمليات المحلية بمنظومات رقمية قائمة على السحابة أولًا.",
     },
-    image: "/assets/home/icon-cloud.webp",
+    image: "/assets/logos/service-systems-cloud.svg",
   },
   {
     title: { en: "Cybersecurity", ar: "الأمن السيبراني" },
@@ -427,7 +427,7 @@ export const homeServices: CardItem[] = [
       en: "Protective layers, compliance-focused controls, and resilient digital governance strategies.",
       ar: "طبقات حماية، وضوابط تركز على الامتثال، واستراتيجيات حوكمة رقمية مرنة.",
     },
-    image: "/assets/home/icon-shield.webp",
+    image: "/assets/logos/service-cybersecurity.svg",
   },
   {
     title: { en: "Apple Education", ar: "تعليم آبل" },

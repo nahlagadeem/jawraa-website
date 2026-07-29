@@ -111,7 +111,7 @@ function HeroSection({ locale }: { locale: Locale }) {
               {homeStats.map((stat) => (
                 <article
                   key={stat.value}
-                  className="min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white px-4 py-3 shadow-[0_16px_32px_rgb(17_17_17_/_7%)]"
+                  className="jawraa-lift-card min-h-[74px] rounded-[12px] border border-[#f6be15] bg-white px-4 py-3 shadow-[0_16px_32px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
                   aria-label={`${stat.value} ${stat.label[locale]}`}
                 >
                   <p dir="ltr" className="text-[24px] font-extrabold leading-none tracking-[-0.025em]">
@@ -124,7 +124,7 @@ function HeroSection({ locale }: { locale: Locale }) {
               ))}
             </div>
             <aside
-              className="min-h-[74px] w-full max-w-[610px] justify-self-center rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm"
+              className="jawraa-lift-card min-h-[74px] w-full max-w-[610px] justify-self-center rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm hover:jawraa-lift-card-hover"
               aria-label={homePageCopy.impactLabel[locale]}
             >
               <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8d949e]">
@@ -236,7 +236,7 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="home-stories-carousel rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] md:p-9">
+          <div className="jawraa-lift-card home-stories-carousel rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] hover:jawraa-lift-card-hover md:p-9">
             {homeSuccessStories.map((story, index) => (
               <input
                 key={story.title.en}
@@ -363,7 +363,7 @@ function InfoCard({
   return (
     <article
       className={[
-        "h-full rounded-[20px] border border-[#f6be15] bg-white shadow-[0_22px_44px_rgb(17_17_17_/_8%)]",
+        "jawraa-lift-card h-full rounded-[20px] border border-[#f6be15] bg-white shadow-[0_22px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover",
         large ? "min-h-[250px] p-8" : "min-h-[275px] p-6",
       ].join(" ")}
     >
@@ -403,7 +403,7 @@ function ServiceCard({
   const Icon = serviceIcons[index] ?? Settings;
 
   return (
-    <article className="h-full min-h-[248px] rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_18px_38px_rgb(17_17_17_/_7%)]">
+    <article className="jawraa-lift-card h-full min-h-[248px] rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_18px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
       <div className="mb-6 flex size-11 items-center justify-center rounded-[14px] bg-[#fff6df] text-[#8f949c]">
         {index === 4 ? (
           <AppleCompanyLogo className="size-6 text-black" />
@@ -443,7 +443,7 @@ function LogoTextCard({
   locale: Locale;
 }) {
   return (
-    <article className="grid min-h-[150px] gap-5 rounded-[20px] border border-[#f6be15] bg-white p-7 shadow-[0_22px_44px_rgb(17_17_17_/_8%)] sm:grid-cols-[158px_1fr]">
+    <article className="jawraa-lift-card grid min-h-[150px] gap-5 rounded-[20px] border border-[#f6be15] bg-white p-7 shadow-[0_22px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover sm:grid-cols-[158px_1fr]">
       <div className="relative flex h-[92px] items-center justify-center rounded-[14px] border border-[#eceff3] bg-white p-5">
         {item.image ? (
           <Image

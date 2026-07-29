@@ -11,7 +11,7 @@ export function TextImageCard({
   locale: Locale;
 }) {
   return (
-    <article className="grid min-h-[138px] gap-7 rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_16px_36px_rgb(17_17_17_/_8%)] md:grid-cols-[1fr_220px]">
+    <article className="jawraa-lift-card grid min-h-[138px] gap-7 rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_16px_36px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_220px]">
       <div>
         <h3 className="text-[17px] font-black leading-tight tracking-[-0.02em]">
           {item.title[locale]}
@@ -43,7 +43,7 @@ export function CompactFeatureCard({
   locale: Locale;
 }) {
   return (
-    <article className="min-h-[104px] rounded-[12px] border border-[#ebe4c8] bg-white p-4 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)]">
+    <article className="jawraa-lift-card min-h-[104px] rounded-[12px] border border-[#ebe4c8] bg-white p-4 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
       <div className="mx-auto mb-3 flex size-8 items-center justify-center rounded-full bg-[#ffd21a] text-black">
         <Circle className="size-2 fill-current" />
       </div>
@@ -65,7 +65,7 @@ export function LogoCard({
   locale: Locale;
 }) {
   return (
-    <article className="flex min-h-[205px] flex-col items-center justify-center rounded-[16px] border border-[#eee7cb] bg-white p-7 text-center shadow-[0_18px_40px_rgb(17_17_17_/_8%)]">
+    <article className="jawraa-lift-card flex min-h-[205px] flex-col items-center justify-center rounded-[16px] border border-[#eee7cb] bg-white p-7 text-center shadow-[0_18px_40px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
       {item.image ? (
         <div className="relative mb-5 h-[60px] w-[170px] rounded-[12px] bg-white shadow-[0_10px_22px_rgb(17_17_17_/_8%)]">
           <Image
@@ -97,7 +97,7 @@ export function SecurityCard({
   locale: Locale;
 }) {
   return (
-    <article className="rounded-[18px] border border-[#ece5c9] bg-white p-6 shadow-[0_16px_34px_rgb(17_17_17_/_7%)]">
+    <article className="jawraa-lift-card rounded-[18px] border border-[#ece5c9] bg-white p-6 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
       <ShieldCheck className="mb-5 size-8 text-[#f6be15]" />
       <h3 className="text-[18px] font-black tracking-[-0.025em]">
         {item.title[locale]}

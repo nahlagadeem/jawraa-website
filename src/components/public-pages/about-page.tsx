@@ -80,7 +80,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
               </span>
             </div>
           </FadeIn>
-          <div className="overflow-x-auto rounded-[18px] border border-[#f6be15] bg-white p-8 shadow-[0_24px_52px_rgb(17_17_17_/_10%)]">
+          <div className="jawraa-lift-card overflow-x-auto rounded-[18px] border border-[#f6be15] bg-white p-8 shadow-[0_24px_52px_rgb(17_17_17_/_10%)] hover:jawraa-lift-card-hover">
             <div className="flex min-w-max gap-0">
               {aboutPage.timeline.map((item, index) => (
                 <FadeIn key={item.year} delay={index * 0.02}>
@@ -112,7 +112,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
           <div className="grid gap-6 lg:grid-cols-3">
             {aboutPage.identity.map((item, index) => (
               <FadeIn key={item.title.en} delay={index * 0.04}>
-                <article className="h-full rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
+                <article className="jawraa-lift-card h-full rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_20px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
                   <AboutIcon icon={identityIcons[index]} />
                   <h2 className="text-[20px] font-bold leading-tight tracking-[-0.02em]">
                     {item.title[locale]}
@@ -130,7 +130,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
       <section className="py-[56px]">
         <div className="jawraa-container max-w-[760px]">
           <FadeIn>
-            <div className="mx-auto mb-8 max-w-[420px] rounded-[16px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
+            <div className="jawraa-lift-card mx-auto mb-8 max-w-[420px] rounded-[16px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
               <div className="mb-4 flex items-center justify-center gap-3">
                 <span className="h-px w-8 bg-[#f6be15]" />
                 <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8b919b]">
@@ -145,7 +145,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
           <div className="grid gap-5 md:grid-cols-2">
             {aboutPage.values.map((item, index) => (
               <FadeIn key={item.title.en} delay={index * 0.03}>
-                <div className="rounded-[15px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_7%)]">
+                <div className="jawraa-lift-card rounded-[15px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
                   <AboutIcon icon={valueIcons[index]} compact centered />
                   <h3 className="text-[16px] font-black">{item.title[locale]}</h3>
                   <p className="mt-2 text-[12px] leading-5 text-[#737a85]">

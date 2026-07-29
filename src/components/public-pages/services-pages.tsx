@@ -362,7 +362,7 @@ function CybersecurityPage({
       </section>
       <section className="pb-[46px]">
         <div className="jawraa-container max-w-[1060px]">
-          <div className="rounded-[20px] border border-[#f6be15] bg-[#f8fafc] p-10 shadow-[0_20px_44px_rgb(17_17_17_/_7%)]">
+          <div className="jawraa-lift-card rounded-[20px] border border-[#f6be15] bg-[#f8fafc] p-10 shadow-[0_20px_44px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
             <div className="space-y-12">
               {page.featureCards.map((item) => (
                 <div key={item.title.en}>
@@ -403,7 +403,7 @@ function ManagedWideCard({ item, locale }: { item: SimpleCard; locale: Locale })
   const eyebrow = getManagedWideCardEyebrow(item, locale);
 
   return (
-    <article className="grid min-h-[168px] gap-8 rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_22px_48px_rgb(17_17_17_/_8%)] md:grid-cols-[1fr_410px]">
+    <article className="jawraa-lift-card grid min-h-[168px] gap-8 rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_22px_48px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_410px]">
       <div>
         <p className="mb-4 text-[9px] font-bold uppercase tracking-[0.26em] text-[#8b919b]">
           {eyebrow}
@@ -487,7 +487,7 @@ function ManagedMiniCard({
   icon?: LucideIcon;
 }) {
   return (
-    <article className="min-h-[166px] rounded-[14px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_18px_34px_rgb(17_17_17_/_8%)]">
+    <article className="jawraa-lift-card min-h-[166px] rounded-[14px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_18px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
       <div className="mx-auto mb-5 flex size-11 items-center justify-center rounded-[12px] bg-[#fff4c7] text-[#8d97a3]">
         {Icon ? <Icon className="size-5" /> : <Cog className="size-5" />}
       </div>
@@ -528,7 +528,7 @@ function InfrastructureRow({
   image?: string;
 }) {
   return (
-    <article className="grid min-h-[104px] items-center gap-5 rounded-[14px] border border-[#f6be15] bg-white px-6 py-5 shadow-[0_14px_30px_rgb(17_17_17_/_7%)] md:grid-cols-[1fr_76px]">
+    <article className="jawraa-lift-card grid min-h-[104px] items-center gap-5 rounded-[14px] border border-[#f6be15] bg-white px-6 py-5 shadow-[0_14px_30px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_76px]">
       <div>
         <h3 className="text-[15px] font-black">{title}</h3>
         <p className="mt-2 text-[12px] leading-5 text-[#68707c]">{description}</p>
@@ -552,7 +552,7 @@ function CloudRow({
   image?: string;
 }) {
   return (
-    <article className="grid min-h-[105px] items-center gap-5 rounded-[14px] border border-[#f6be15] bg-white px-6 py-5 shadow-[0_14px_30px_rgb(17_17_17_/_7%)] md:grid-cols-[1fr_70px]">
+    <article className="jawraa-lift-card grid min-h-[105px] items-center gap-5 rounded-[14px] border border-[#f6be15] bg-white px-6 py-5 shadow-[0_14px_30px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_70px]">
       <div>
         <h3 className="text-[15px] font-black">{title}</h3>
         <p className="mt-2 text-[12px] leading-5 text-[#68707c]">{description}</p>
@@ -628,7 +628,7 @@ function SystemsCloudIncludedGrid({
             return (
             <article
               key={item.title.en}
-              className="min-h-[122px] rounded-[12px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)]"
+              className="jawraa-lift-card min-h-[122px] rounded-[12px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
             >
               <span className="relative mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#f6be15]">
                 <Image
@@ -674,7 +674,7 @@ function CybersecurityIncludedGrid({
             return (
               <article
                 key={item.title.en}
-                className="flex min-h-[156px] flex-col items-center justify-center rounded-[12px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_8%)]"
+                className="jawraa-lift-card flex min-h-[156px] flex-col items-center justify-center rounded-[12px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover"
               >
                 <span className="mb-5 flex size-14 items-center justify-center rounded-full bg-[#f6be15] text-white shadow-[0_12px_22px_rgb(246_190_21_/_28%)]">
                   <Icon className="size-5" />
@@ -701,7 +701,7 @@ function IncludedCell({
   icon?: LucideIcon;
 }) {
   return (
-    <article className="-ml-px -mt-px min-h-[152px] border border-[#f6be15] bg-white p-6">
+    <article className="jawraa-lift-card -ml-px -mt-px min-h-[152px] border border-[#f6be15] bg-white p-6 hover:jawraa-lift-card-hover">
       <span className="mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
         {Icon ? <Icon className="size-4" /> : <Cog className="size-4" />}
       </span>

@@ -138,7 +138,7 @@ function PartnerLogoCard({
   locale: Locale;
 }) {
   return (
-    <article className="relative flex min-h-[228px] flex-col items-center justify-center overflow-hidden rounded-[18px] border border-[#f6be15] bg-white px-9 py-7 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)]">
+    <article className="jawraa-lift-card relative flex min-h-[228px] flex-col items-center justify-center overflow-hidden rounded-[18px] border border-[#f6be15] bg-white px-9 py-7 text-center shadow-[0_20px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
       <span className="pointer-events-none absolute bottom-[-32px] right-[-28px] size-24 rounded-full bg-[#f6be15]/15 blur-2xl rtl:left-[-28px] rtl:right-auto" />
       {item.image ? (
         <div className="relative mb-5 h-[76px] w-[214px] rounded-[14px] bg-white shadow-[0_12px_26px_rgb(17_17_17_/_10%)]">
@@ -195,14 +195,14 @@ function PartnerLogoStrip() {
   return (
     <section className="pb-[62px]">
       <div className="jawraa-container">
-        <div className="relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_18px_42px_rgb(17_17_17_/_8%)]">
+        <div className="jawraa-lift-card relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_18px_42px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-white/0" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-white/0" />
           <div className="partner-logo-strip flex w-max items-center gap-5">
             {logos.map((logo, index) => (
               <div
                 key={`${logo.name}-${index}`}
-                className="relative flex h-[52px] w-[150px] shrink-0 items-center justify-center rounded-[12px] border border-[#eceff3] bg-white px-5 shadow-[0_10px_22px_rgb(17_17_17_/_5%)]"
+                className="jawraa-lift-card relative flex h-[52px] w-[150px] shrink-0 items-center justify-center rounded-[12px] border border-[#eceff3] bg-white px-5 shadow-[0_10px_22px_rgb(17_17_17_/_5%)] hover:jawraa-lift-card-hover"
               >
                 <Image
                   src={logo.src}
@@ -274,14 +274,14 @@ function ClientLogoStrip() {
   return (
     <section className="pb-[62px]">
       <div className="jawraa-container">
-        <div className="relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_18px_42px_rgb(17_17_17_/_8%)]">
+        <div className="jawraa-lift-card relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-4 shadow-[0_18px_42px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-white/0" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-white/0" />
           <div className="client-logo-strip flex w-max items-center gap-5">
             {logos.map((logo, index) => (
               <div
                 key={`${logo.name}-${index}`}
-                className="relative flex h-[52px] w-[150px] shrink-0 items-center justify-center rounded-[12px] border border-[#eceff3] bg-white px-5 shadow-[0_10px_22px_rgb(17_17_17_/_5%)]"
+                className="jawraa-lift-card relative flex h-[52px] w-[150px] shrink-0 items-center justify-center rounded-[12px] border border-[#eceff3] bg-white px-5 shadow-[0_10px_22px_rgb(17_17_17_/_5%)] hover:jawraa-lift-card-hover"
               >
                 <Image
                   src={logo.src}

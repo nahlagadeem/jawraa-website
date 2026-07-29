@@ -95,7 +95,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
           <div className="space-y-4">
             {visibleNews.map((item, index) => (
               <FadeIn key={`${item.title.en}-${index}`} delay={index * 0.025}>
-                <article className="grid overflow-hidden rounded-[14px] border border-[#f6be15] bg-white shadow-[0_16px_34px_rgb(17_17_17_/_7%)] md:grid-cols-[196px_1fr]">
+                <article className="jawraa-lift-card grid overflow-hidden rounded-[14px] border border-[#f6be15] bg-white shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[196px_1fr]">
                   <div className="relative min-h-[150px] bg-[#f4f4f2] md:min-h-[118px]">
                     <Image
                       src={item.image}
@@ -123,7 +123,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
             className="mt-6 grid scroll-mt-24 items-stretch gap-6 md:grid-cols-[1fr_1fr]"
           >
             <FadeIn className="h-full">
-              <div className="relative h-full min-h-[300px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-[#edf1f5] shadow-[0_16px_34px_rgb(17_17_17_/_7%)] md:min-h-[430px]">
+              <div className="jawraa-lift-card relative h-full min-h-[300px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-[#edf1f5] shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:min-h-[430px]">
                 <iframe
                   title={locale === "ar" ? "موقع جوراء" : "Jawraa location"}
                   src="https://maps.google.com/maps?q=24.8374125,46.6785469&z=17&iwloc=&output=embed"
@@ -135,7 +135,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
             </FadeIn>
             <FadeIn className="h-full" delay={0.04}>
               <div className="flex h-full flex-col gap-4 md:min-h-[430px]">
-                <div className="flex flex-1 flex-col rounded-[16px] border border-[#f6be15] bg-white px-8 py-8 shadow-[0_16px_34px_rgb(17_17_17_/_7%)]">
+                <div className="jawraa-lift-card flex flex-1 flex-col rounded-[16px] border border-[#f6be15] bg-white px-8 py-8 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
                   <h2 className="max-w-[390px] text-[22px] font-bold leading-[1.12] tracking-[-0.025em] text-[#151922] md:text-[26px]">
                     {mediaPage.contact.title[locale]}
                   </h2>
@@ -176,7 +176,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                     </button>
                   </form>
                 </div>
-                <div className="grid min-h-[72px] items-center gap-4 rounded-[16px] border border-[#f6be15] bg-white px-8 py-4 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] sm:grid-cols-[auto_1fr]">
+                <div className="jawraa-lift-card grid min-h-[72px] items-center gap-4 rounded-[16px] border border-[#f6be15] bg-white px-8 py-4 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover sm:grid-cols-[auto_1fr]">
                   <p className="text-[24px] font-semibold leading-tight tracking-[-0.025em] text-[#151922]">
                     {locale === "ar" ? "التواصل المباشر:" : "Direct contact:"}
                   </p>
@@ -273,7 +273,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
             </div>
           </FadeIn>
           <FadeIn delay={0.05}>
-            <div className="rounded-[24px] border border-[#f6be15] bg-white p-9 shadow-[0_22px_44px_rgb(17_17_17_/_8%)]">
+            <div className="jawraa-lift-card rounded-[24px] border border-[#f6be15] bg-white p-9 shadow-[0_22px_44px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
               <h2 className="text-[26px] font-bold tracking-[-0.025em]">
                 {locale === "ar" ? "أرسل طلبك" : "Send an inquiry"}
               </h2>

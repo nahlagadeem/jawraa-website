@@ -270,6 +270,17 @@
   box-shadow: 0 10px 22px rgb(246 190 21 / 14%);
 }
 
+@utility jawraa-lift-card {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease;
+}
+
+@utility jawraa-lift-card-hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 54px rgb(17 17 17 / 12%);
+}
+
 main :is(article, div):where([class*="border-[#f6be15]"]):not(nav *):not(header *):not(footer *) {
   transition:
     transform 220ms ease,

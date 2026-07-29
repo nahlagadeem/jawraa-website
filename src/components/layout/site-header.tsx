@@ -145,15 +145,13 @@ export function SiteHeader({
               <ChevronDown className="size-3" aria-hidden="true" />
             </Link>
           </Button>
-          <Button
-            asChild
-            size="sm"
-            className="jawraa-gold-action h-[30px] rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:jawraa-gold-action-hover sm:px-5 sm:text-[12px]"
+          <Link
+            href="/contact#contact-form"
+            locale={locale}
+            className="jawraa-gold-action inline-flex h-[30px] items-center justify-center rounded-full bg-[#f6be15] px-3 text-[11px] font-bold text-black shadow-[0_10px_22px_rgb(246_190_21_/_28%)] hover:jawraa-gold-action-hover sm:px-5 sm:text-[12px]"
           >
-            <Link href="/contact#contact-form" locale={locale}>
-              {locale === "ar" ? "تواصل معنا" : "Contact us"}
-            </Link>
-          </Button>
+            {locale === "ar" ? "تواصل معنا" : "Contact us"}
+          </Link>
           <Button
             type="button"
             variant="outline"

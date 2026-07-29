@@ -401,6 +401,7 @@ function Eyebrow({ text, className }: { text: string; className?: string }) {
 
 function ManagedWideCard({ item, locale }: { item: SimpleCard; locale: Locale }) {
   const eyebrow = getManagedWideCardEyebrow(item, locale);
+  const isManagedLogoVisual = item.image?.startsWith("/assets/logos/managed-services-");
 
   return (
     <article className="jawraa-lift-card grid min-h-[168px] gap-8 rounded-[18px] border border-[#f6be15] bg-white p-7 shadow-[0_22px_48px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_410px]">
@@ -417,7 +418,13 @@ function ManagedWideCard({ item, locale }: { item: SimpleCard; locale: Locale })
       </div>
       {item.image ? (
         <div className="relative min-h-[140px] overflow-hidden rounded-[16px] bg-[#f4f7fa]">
-          <Image src={item.image} alt="" fill sizes="410px" className="object-contain p-3" />
+          <Image
+            src={item.image}
+            alt=""
+            fill
+            sizes="410px"
+            className={isManagedLogoVisual ? "object-contain p-0" : "object-contain p-3"}
+          />
         </div>
       ) : null}
     </article>

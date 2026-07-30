@@ -68,7 +68,7 @@ export function SiteFooter({ locale }: { locale: Locale }) {
         </div>
         <nav
           aria-label={locale === "ar" ? "روابط التذييل" : "Footer navigation"}
-          className="grid grid-cols-2 gap-x-16 gap-y-3 self-start text-[12px] leading-6 md:pt-8"
+          className="grid grid-flow-col grid-rows-3 gap-x-16 gap-y-3 self-start text-[12px] leading-6 md:pt-8"
         >
           {footerLinks.map((link) => (
             <Link

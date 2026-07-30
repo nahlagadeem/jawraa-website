@@ -146,7 +146,13 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
           <div className="space-y-4">
             {visibleNews.map((item, index) => (
               <FadeIn key={`${item.title.en}-${index}`} delay={index * 0.025}>
-                <article className="jawraa-lift-card grid overflow-hidden rounded-[14px] border border-[#f6be15] bg-white shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[196px_1fr]">
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="jawraa-lift-card grid overflow-hidden rounded-[14px] border border-[#f6be15] bg-white shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[196px_1fr]"
+                  aria-label={item.title[locale]}
+                >
                   <div className="relative min-h-[150px] bg-[#f4f4f2] md:min-h-[118px]">
                     <Image
                       src={item.image}
@@ -164,7 +170,7 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
                       {item.description[locale]}
                     </p>
                   </div>
-                </article>
+                </a>
               </FadeIn>
             ))}
           </div>

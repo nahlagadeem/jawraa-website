@@ -7,6 +7,7 @@ export type SimpleCard = {
   title: Text;
   description: Text;
   image?: string;
+  link?: string;
 };
 
 export type ServicePageData = {
@@ -476,6 +477,7 @@ export const mediaPage = {
         ar: "في ذكرى #يوم_التأسيس، نستذكر قصة البداية قبل ثلاثة قرون؛ قصة لم تكن فقط عن بناء دولة، بل عن وضع الأساس لهوية وطنية راسخة وقيم مهنية نعتز بها اليوم.",
       },
       image: "/assets/pages/media-11.webp",
+      link: "https://www.linkedin.com/posts/jawraa_aeyaewaetabraepaesaesaelaebaeyaeb-aeyaewaetabraeqaexaeyaeuaep-activity-7431084557032001537-hd5Y?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFhHsKMBIIBHf9Il6j6MgWIbhYPRqn9rc_0",
     },
     {
       title: { en: "Ramadan Kareem from Jawraa", ar: "رمضان كريم من جوراء" },
@@ -484,6 +486,7 @@ export const mediaPage = {
         ar: "تتقدم جوراء بأصدق التهاني لشركائنا وعملائنا ومجتمعنا بمناسبة شهر رمضان المبارك. عسى أن يحمل هذا الشهر الفضيل السلام والازدهار والنجاح المستمر. ونتطلع إلى تعزيز روح التعاون والنمو معًا.",
       },
       image: "/assets/pages/media-10.webp",
+      link: "https://www.linkedin.com/posts/jawraa_aezaetaeeaepaeuabraeraezaeyaet-jawraa-aesaeyaesaerabraezaetaeeaepaeu-activity-7429555137238519811-6i80?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFhHsKMBIIBHf9Il6j6MgWIbhYPRqn9rc_0",
     },
     {
       title: {
@@ -495,6 +498,7 @@ export const mediaPage = {
         ar: "وقعت جوراء اتفاقية شراكة استراتيجية مع وسيلة خلال جيتكس 2025 لتعزيز التعاون في حلول التقنية والتكامل الرقمي، ودعم الابتكار وتوسيع الخدمات الرقمية في أنحاء المملكة.",
       },
       image: "/assets/pages/media-12.webp",
+      link: "https://www.linkedin.com/posts/jawraa_gitex2025-gitex2025-gitex2025-activity-7390650570778382336-ky-Z?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFhHsKMBIIBHf9Il6j6MgWIbhYPRqn9rc_0",
     },
     {
       title: {
@@ -506,6 +510,7 @@ export const mediaPage = {
         ar: "وقعت جوراء مذكرة تفاهم مع APPSWAVE لتعزيز التعاون في حلول التحول الرقمي والذكاء الاصطناعي، دعمًا لرؤية المملكة نحو اقتصاد رقمي قوي.",
       },
       image: "/assets/pages/media-13.webp",
+      link: "https://www.linkedin.com/posts/jawraa_gitex2025-gitex2025-gitex2025-activity-7391737056844087297-e7PQ?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFhHsKMBIIBHf9Il6j6MgWIbhYPRqn9rc_0",
     },
     {
       title: {
@@ -517,6 +522,7 @@ export const mediaPage = {
         ar: "تم تكريم جوراء خلال معرض NABH 2025 للتوعية بالأمن السيبراني نظير إسهاماتها في التحول الرقمي وتطوير المعرفة بالتعاون مع الشركاء الأكاديميين والصناعيين.",
       },
       image: "/assets/pages/media-02.webp",
+      link: "https://www.linkedin.com/posts/jawraa_nabh2025-aeuafcaeqaffaev-jawraa-activity-7386825167907209217-ZWci?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFhHsKMBIIBHf9Il6j6MgWIbhYPRqn9rc_0",
     },
   ],
   contact: {

@@ -5,6 +5,8 @@ const socialLinks = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/jawraa/posts/?feedView=all" },
   { label: "X", href: "https://x.com/jawraa" },
   { label: "Facebook", href: "https://www.facebook.com/jawraa" },
+  { label: "Instagram", href: "https://www.instagram.com/jawraasa/" },
+  { label: "TikTok", href: "https://www.tiktok.com/@jawraa.sa" },
 ];
 
 const footerLinks = [

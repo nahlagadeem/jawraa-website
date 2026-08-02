@@ -236,12 +236,12 @@ export const servicePages: Record<string, ServicePageData> = {
       ar: "البنية التحتية غير النشطة (Passive Infrastructure)",
     },
     included: [
-      { title: { en: "Data Connectivity (LAN/WAN)", ar: "اتصال البيانات (LAN/WAN)" }, description: { en: "", ar: "" } },
-      { title: { en: "Data Center & Site Preparation", ar: "مركز البيانات وتجهيز الموقع" }, description: { en: "", ar: "" } },
-      { title: { en: "Computers for Business", ar: "أجهزة الكمبيوتر للأعمال" }, description: { en: "", ar: "" } },
-      { title: { en: "Security & Surveillance", ar: "الأمن والمراقبة" }, description: { en: "", ar: "" } },
-      { title: { en: "Access Control Systems", ar: "أنظمة التحكم بالوصول" }, description: { en: "", ar: "" } },
-      { title: { en: "Integration System Architecture", ar: "بنية أنظمة التكامل" }, description: { en: "", ar: "" } },
+      { title: { en: "Data Connectivity (LAN/WAN)", ar: "اتصال البيانات (LAN/WAN)" }, description: { en: "", ar: "" }, image: "/assets/logos/infra-data-connectivity.svg" },
+      { title: { en: "Data Center & Site Preparation", ar: "مركز البيانات وتجهيز الموقع" }, description: { en: "", ar: "" }, image: "/assets/logos/infra-data-center-site-preparation.svg" },
+      { title: { en: "Computers for Business", ar: "أجهزة الكمبيوتر للأعمال" }, description: { en: "", ar: "" }, image: "/assets/logos/infra-computers-for-business.svg" },
+      { title: { en: "Security & Surveillance", ar: "الأمن والمراقبة" }, description: { en: "", ar: "" }, image: "/assets/logos/infra-security-surveillance.svg" },
+      { title: { en: "Access Control Systems", ar: "أنظمة التحكم بالوصول" }, description: { en: "", ar: "" }, image: "/assets/logos/infra-access-control-systems.svg" },
+      { title: { en: "Integration System Architecture", ar: "بنية أنظمة التكامل" }, description: { en: "", ar: "" }, image: "/assets/logos/infra-integration-system-architecture.svg" },
     ],
   },
   "systems-cloud": {

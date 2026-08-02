@@ -571,8 +571,12 @@ function InfrastructureIncludedGrid({
               key={item.title.en}
               className="jawraa-lift-card min-h-[104px] rounded-[12px] border border-[#ebe4c8] bg-white p-5 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
             >
-              <span className="mx-auto mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
-                <Icon className="size-4" />
+              <span className="relative mx-auto mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
+                {item.image ? (
+                  <Image src={item.image} alt="" fill sizes="36px" className="object-contain p-2" />
+                ) : (
+                  <Icon className="size-4" />
+                )}
               </span>
               <h3 className="text-[13px] font-black leading-tight tracking-[-0.01em]">
                 {item.title[locale]}

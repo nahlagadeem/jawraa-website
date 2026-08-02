@@ -70,7 +70,7 @@ export const aboutPage = {
     {
       title: { en: "Vision", ar: "الرؤية" },
       description: {
-        en: "Our vision at Jawraa is to be the preferred partner for digital transformation in Saudi Arabia by delivering innovative solutions, leveraging our expertise, and committing fully to our clients’ success.",
+        en: "Our vision at Jawraa is to be the preferred partner for digital transformation in Saudi Arabia by delivering innovative solutions, leveraging our expertise, and committing fully to our clients success.",
         ar: "رؤيتنا في Jawraa هي أن نكون الشريك المفضل للتحول الرقمي في المملكة العربية السعودية من خلال تقديم حلول مبتكرة، والاستفادة من خبراتنا، والالتزام الكامل بنجاح عملائنا.",
       },
     },
@@ -95,12 +95,12 @@ export const aboutPage = {
     ar: "ست قيم أساسية تشكل ثقافة Jawraa وصناعة القرار فيها.",
   },
   values: [
-    { title: { en: "Customer-Centric Focus", ar: "التركيز على العميل" }, description: { en: "We are keen on understanding our clients’ needs and providing solutions that exceed their expectations.", ar: "نحرص على فهم احتياجات عملائنا وتقديم حلول تتجاوز توقعاتهم." } },
-    { title: { en: "Innovation", ar: "الابتكار" }, description: { en: "We embrace forward-thinking ideas and transform them into real digital progress.", ar: "نتبنى الأفكار المستقبلية ونحولها إلى تقدم رقمي حقيقي." } },
-    { title: { en: "Reliability", ar: "الموثوقية" }, description: { en: "We build trust through stable systems, responsible delivery, and consistent support.", ar: "نبني الثقة من خلال أنظمة مستقرة، وتنفيذ مسؤول، ودعم مستمر." } },
-    { title: { en: "Growth Mindset", ar: "عقلية النمو" }, description: { en: "We continuously improve capabilities, services, and solutions to stay ahead.", ar: "نحسّن باستمرار القدرات والخدمات والحلول للبقاء في المقدمة." } },
-    { title: { en: "Operational Excellence", ar: "التميز التشغيلي" }, description: { en: "We focus on precision, structure, and execution quality across every project.", ar: "نركز على الدقة، والتنظيم، وجودة التنفيذ في كل مشروع." } },
-    { title: { en: "Regional Impact", ar: "الأثر الإقليمي" }, description: { en: "We deliver solutions that strengthen the digital future of organizations across the region.", ar: "نقدم حلولًا تعزز المستقبل الرقمي للمؤسسات في أنحاء المنطقة." } },
+    { title: { en: "Customer-Centric Focus", ar: "التركيز على العميل" }, description: { en: "We are keen on understanding our clients needs and providing solutions that exceed their expectations.", ar: "نحرص على فهم احتياجات عملائنا وتقديم حلول تتجاوز توقعاتهم." }, image: "/assets/logos/value-customer-centric-focus.svg" },
+    { title: { en: "Innovation", ar: "الابتكار" }, description: { en: "We embrace forward-thinking ideas and transform them into real digital progress.", ar: "نتبنى الأفكار المستقبلية ونحولها إلى تقدم رقمي حقيقي." }, image: "/assets/logos/value-innovation.svg" },
+    { title: { en: "Reliability", ar: "الموثوقية" }, description: { en: "We build trust through stable systems, responsible delivery, and consistent support.", ar: "نبني الثقة من خلال أنظمة مستقرة، وتنفيذ مسؤول، ودعم مستمر." }, image: "/assets/logos/value-reliability.svg" },
+    { title: { en: "Growth Mindset", ar: "عقلية النمو" }, description: { en: "We continuously improve capabilities, services, and solutions to stay ahead.", ar: "نحسّن باستمرار القدرات والخدمات والحلول للبقاء في المقدمة." }, image: "/assets/logos/value-growth-mindset.svg" },
+    { title: { en: "Operational Excellence", ar: "التميز التشغيلي" }, description: { en: "We focus on precision, structure, and execution quality across every project.", ar: "نركز على الدقة، والتنظيم، وجودة التنفيذ في كل مشروع." }, image: "/assets/logos/value-operational-excellence.svg" },
+    { title: { en: "Regional Impact", ar: "الأثر الإقليمي" }, description: { en: "We deliver solutions that strengthen the digital future of organizations across the region.", ar: "نقدم حلولًا تعزز المستقبل الرقمي للمؤسسات في أنحاء المنطقة." }, image: "/assets/logos/value-regional-impact.svg" },
   ],
   ctaTitle: {
     en: "Ready to explore Jawraa’s next chapter?",

@@ -362,7 +362,7 @@ function InfoCard({
     >
       <div className="mb-7 flex size-12 items-center justify-center rounded-[15px] bg-[#fff6df]">
         {item.image ? (
-          <Image src={item.image} alt="" width={24} height={24} />
+          <Image src={item.image} alt="" width={32} height={32} />
         ) : (
           <Apple className="size-7 fill-black text-black" />
         )}

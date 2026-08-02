@@ -5,13 +5,7 @@ import { homeIdentityCards } from "@/data/home";
 import { aboutPage } from "@/data/public-pages";
 import { Link } from "@/i18n/navigation";
 import {
-  BarChart3,
-  Cog,
-  Globe2,
-  Handshake,
-  Lightbulb,
   Search,
-  ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import { PageShell } from "./page-shell";
@@ -146,7 +140,7 @@ export function AboutPage({ locale }: { locale: Locale }) {
             {aboutPage.values.map((item, index) => (
               <FadeIn key={item.title.en} delay={index * 0.03}>
                 <div className="jawraa-lift-card rounded-[15px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-                  <AboutIcon icon={valueIcons[index]} compact centered />
+                  <AboutIcon imageSrc={item.image} compact centered />
                   <h3 className="text-[16px] font-black">{item.title[locale]}</h3>
                   <p className="mt-2 text-[12px] leading-5 text-[#737a85]">
                     {item.description[locale]}
@@ -183,15 +177,6 @@ export function AboutPage({ locale }: { locale: Locale }) {
   );
 }
 
-const valueIcons: LucideIcon[] = [
-  Handshake,
-  Lightbulb,
-  ShieldCheck,
-  BarChart3,
-  Cog,
-  Globe2,
-];
-
 function AboutIcon({
   icon: Icon = Search,
   imageSrc,
@@ -212,7 +197,12 @@ function AboutIcon({
       ].join(" ")}
     >
       {imageSrc ? (
-        <Image src={imageSrc} alt="" width={24} height={24} />
+        <Image
+          src={imageSrc}
+          alt=""
+          width={compact ? 26 : 32}
+          height={compact ? 26 : 32}
+        />
       ) : (
         <Icon className={compact ? "size-4" : "size-5"} strokeWidth={1.9} />
       )}

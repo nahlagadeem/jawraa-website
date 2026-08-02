@@ -112,7 +112,7 @@ export const identityCards: CardItem[] = [
       en: "To lead digital transformation by building innovative, scalable, and future-ready technology ecosystems.",
       ar: "قيادة التحول الرقمي من خلال بناء منظومات تقنية مبتكرة وقابلة للتوسع وجاهزة للمستقبل.",
     },
-    image: "/assets/home/icon-eye.webp",
+    image: "/assets/logos/vision.svg",
   },
   {
     title: { en: "Mission", ar: "الرسالة" },
@@ -120,7 +120,7 @@ export const identityCards: CardItem[] = [
       en: "Deliver reliable infrastructure, cloud, cybersecurity, and managed services that empower organizations.",
       ar: "تقديم بنية تحتية وسحابة وأمن سيبراني وخدمات مدارة موثوقة تمكّن المؤسسات.",
     },
-    image: "/assets/home/icon-target.webp",
+    image: "/assets/logos/mission.svg",
   },
   {
     title: { en: "Ambition", ar: "الطموح" },
@@ -128,7 +128,7 @@ export const identityCards: CardItem[] = [
       en: "Build impactful digital environments that help enterprises and public institutions grow and innovate.",
       ar: "بناء بيئات رقمية مؤثرة تساعد المؤسسات والجهات العامة على النمو والابتكار.",
     },
-    image: "/assets/home/icon-rocket.webp",
+    image: "/assets/logos/ambition.svg",
   },
 ];
 
@@ -376,7 +376,7 @@ export const homeIdentityCards: CardItem[] = [
       en: "To lead digital transformation by building innovative, scalable, and future-ready technology ecosystems.",
       ar: "قيادة التحول الرقمي من خلال بناء منظومات تقنية مبتكرة، وقابلة للتوسع، وجاهزة للمستقبل.",
     },
-    image: "/assets/home/icon-eye.webp",
+    image: "/assets/logos/vision.svg",
   },
   {
     title: { en: "Mission", ar: "الرسالة" },
@@ -384,7 +384,7 @@ export const homeIdentityCards: CardItem[] = [
       en: "Deliver reliable infrastructure, cloud, cybersecurity, and managed services that empower organizations.",
       ar: "تقديم بنية تحتية موثوقة، وخدمات سحابية، وأمن سيبراني، وخدمات مُدارة تمكّن المؤسسات.",
     },
-    image: "/assets/home/icon-target.webp",
+    image: "/assets/logos/mission.svg",
   },
   {
     title: { en: "Ambition", ar: "طموحنا" },
@@ -392,7 +392,7 @@ export const homeIdentityCards: CardItem[] = [
       en: "Build impactful digital environments that help enterprises and public institutions grow and innovate.",
       ar: "بناء بيئات رقمية مؤثرة تساعد الشركات والمؤسسات العامة على النمو والابتكار.",
     },
-    image: "/assets/home/icon-rocket.webp",
+    image: "/assets/logos/ambition.svg",
   },
 ];
 

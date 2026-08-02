@@ -1,29 +1,17 @@
 import Image from "next/image";
 import {
-  BadgeDollarSign,
   BadgeQuestionMark,
-  BarChart3,
-  BriefcaseBusiness,
   Cable,
   ChartNetwork,
-  ClipboardCheck,
-  Clock3,
   Cog,
   FileText,
   FingerprintPattern,
-  Handshake,
   House,
-  Landmark,
   LockKeyhole,
   Monitor,
-  Package,
-  Rocket,
-  Search,
   Server,
   ShieldAlert,
-  Target,
   Umbrella,
-  Users,
   Zap,
   type LucideIcon,
 } from "lucide-react";
@@ -152,7 +140,7 @@ function ManagedServicesPage({
           <div className="grid gap-5 md:grid-cols-4">
             {strengths.map((item, index) => (
               <FadeIn key={item.title.en} delay={index * 0.03}>
-                <ManagedMiniCard item={item} locale={locale} icon={managedStrengthIcons[index]} />
+                <ManagedMiniCard item={item} locale={locale} />
               </FadeIn>
             ))}
           </div>
@@ -182,7 +170,6 @@ function ManagedServicesPage({
                 <ManagedMiniCard
                   locale={locale}
                   item={item}
-                  icon={managedOutcomeIcons[index]}
                 />
               </FadeIn>
             ))}
@@ -204,7 +191,6 @@ function ManagedServicesPage({
                 key={`${item.title.en}-${index}`}
                 item={item}
                 locale={locale}
-                icon={managedIncludedIcons[index]}
               />
             ))}
           </div>
@@ -442,20 +428,6 @@ function getManagedWideCardEyebrow(item: SimpleCard, locale: Locale) {
   return locale === "ar" ? "لماذا جوراء" : "WHY JAWRAA";
 }
 
-const managedStrengthIcons: LucideIcon[] = [Users, Clock3, BadgeDollarSign, Cog];
-const managedOutcomeIcons: LucideIcon[] = [BarChart3, FileText, Handshake, Rocket];
-const managedIncludedIcons: LucideIcon[] = [
-  Monitor,
-  Users,
-  BriefcaseBusiness,
-  Cog,
-  Target,
-  Search,
-  Landmark,
-  Package,
-  ClipboardCheck,
-  FileText,
-];
 const infrastructureIncludedIcons: LucideIcon[] = [
   Cable,
   Server,
@@ -487,16 +459,18 @@ const cybersecurityIncludedIcons: LucideIcon[] = [
 function ManagedMiniCard({
   item,
   locale,
-  icon: Icon,
 }: {
   item: SimpleCard;
   locale: Locale;
-  icon?: LucideIcon;
 }) {
   return (
     <article className="jawraa-lift-card min-h-[166px] rounded-[14px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_18px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
-      <div className="mx-auto mb-5 flex size-11 items-center justify-center rounded-[12px] bg-[#fff4c7] text-[#8d97a3]">
-        {Icon ? <Icon className="size-5" /> : <Cog className="size-5" />}
+      <div className="relative mx-auto mb-5 flex size-11 items-center justify-center rounded-[12px] bg-[#fff4c7] text-[#8d97a3]">
+        {item.image ? (
+          <Image src={item.image} alt="" fill sizes="44px" className="object-contain p-2" />
+        ) : (
+          <Cog className="size-5" />
+        )}
       </div>
       <h3 className="text-[12px] font-black leading-tight tracking-[-0.01em] text-[#161922]">
         {item.title[locale]}
@@ -701,16 +675,18 @@ function CybersecurityIncludedGrid({
 function IncludedCell({
   item,
   locale,
-  icon: Icon,
 }: {
   item: SimpleCard;
   locale: Locale;
-  icon?: LucideIcon;
 }) {
   return (
     <article className="jawraa-lift-card -ml-px -mt-px min-h-[152px] border border-[#f6be15] bg-white p-6 hover:jawraa-lift-card-hover">
-      <span className="mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
-        {Icon ? <Icon className="size-4" /> : <Cog className="size-4" />}
+      <span className="relative mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
+        {item.image ? (
+          <Image src={item.image} alt="" fill sizes="36px" className="object-contain p-2" />
+        ) : (
+          <Cog className="size-4" />
+        )}
       </span>
       <h3 className="max-w-[250px] text-[14px] font-black leading-tight text-[#161922]">
         {item.title[locale]}

@@ -73,10 +73,10 @@ function HeroSection({ locale }: { locale: Locale }) {
                 {homePageCopy.eyebrow[locale]}
               </span>
             </div>
-            <h1 className="max-w-full text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#15171c] sm:max-w-[520px] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
+            <h1 className="max-w-full text-[34px] font-bold leading-[1.08] tracking-[-0.035em] text-[#15171c] sm:max-w-[520px] sm:text-[48px] md:text-[68px] md:leading-[1.04]">
               {homePageCopy.heroTitle[locale]}
             </h1>
-            <p className="mt-6 max-w-full text-[21px] font-semibold leading-[1.18] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.05]">
+            <p className="mt-8 max-w-full text-[21px] font-semibold leading-[1.24] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.18]">
               {homePageCopy.heroLead[locale]}
             </p>
             <p className="mt-6 max-w-full text-[13px] leading-6 text-[#777d88] sm:max-w-[555px]">

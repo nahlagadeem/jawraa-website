@@ -62,14 +62,14 @@ export function InnerHero({
         </div>
         <h1
           className={[
-            "text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#17191f] sm:text-[48px] md:text-[68px] md:leading-[0.94]",
+            "text-[34px] font-bold leading-[1.08] tracking-[-0.035em] text-[#17191f] sm:text-[48px] md:text-[68px] md:leading-[1.04]",
             compact ? "max-w-[760px]" : "max-w-[720px]",
             titleClassName,
           ].join(" ")}
         >
           {title}
         </h1>
-        <p className="mt-5 max-w-[540px] text-[13px] font-medium leading-6 text-[#68707c]">
+        <p className="mt-7 max-w-[540px] text-[13px] font-medium leading-6 text-[#68707c]">
           {description}
         </p>
       </div>

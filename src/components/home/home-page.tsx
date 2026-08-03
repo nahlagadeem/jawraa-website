@@ -1,5 +1,8 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Image from "next/image";
-import { Apple } from "lucide-react";
+import { Apple, ChevronLeft, ChevronRight } from "lucide-react";
 import type { Locale } from "@/config/site";
 import {
   type CardItem,
@@ -41,21 +44,6 @@ const groupedSuccessStories = homeSuccessStories.reduce<
 
 const storyGroupKey = (group: (typeof groupedSuccessStories)[number]) =>
   group.stories.map((story) => story.title.en).join("-");
-
-const storyCarouselStyles = groupedSuccessStories
-  .map(
-    (_, index) => `
-      .home-stories-carousel #home-story-${index}:checked ~ .story-panels .story-panel-${index} {
-        display: grid;
-      }
-
-      .home-stories-carousel #home-story-${index}:checked ~ .story-panels .story-dot-${index} {
-        background: #f6be15;
-        transform: scale(1.25);
-      }
-    `,
-  )
-  .join("\n");
 
 export function HomePage({ locale }: { locale: Locale }) {
   return (
@@ -234,6 +222,57 @@ function PartnersSection({ locale }: { locale: Locale }) {
 }
 
 function SuccessStoriesSection({ locale }: { locale: Locale }) {
+  const [activeStoryIndex, setActiveStoryIndex] = useState(0);
+  const dragStartX = useRef<number | null>(null);
+  const dragDeltaX = useRef(0);
+  const isRtl = locale === "ar";
+
+  const goToStory = (index: number) => {
+    const boundedIndex =
+      (index + groupedSuccessStories.length) % groupedSuccessStories.length;
+    setActiveStoryIndex(boundedIndex);
+  };
+
+  const showPreviousStory = () => goToStory(activeStoryIndex - 1);
+  const showNextStory = () => goToStory(activeStoryIndex + 1);
+
+  const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    dragStartX.current = event.clientX;
+    dragDeltaX.current = 0;
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const handlePointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (dragStartX.current === null) {
+      return;
+    }
+
+    dragDeltaX.current = event.clientX - dragStartX.current;
+  };
+
+  const handlePointerEnd = () => {
+    if (dragStartX.current === null) {
+      return;
+    }
+
+    const swipeThreshold = 48;
+
+    if (Math.abs(dragDeltaX.current) > swipeThreshold) {
+      const swipedForward = isRtl
+        ? dragDeltaX.current > 0
+        : dragDeltaX.current < 0;
+
+      if (swipedForward) {
+        showNextStory();
+      } else {
+        showPreviousStory();
+      }
+    }
+
+    dragStartX.current = null;
+    dragDeltaX.current = 0;
+  };
+
   return (
     <section className="py-[44px] md:py-[64px]">
       <div className="jawraa-container">
@@ -252,37 +291,87 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
           </div>
         </FadeIn>
         <FadeIn>
-          <div className="jawraa-lift-card home-stories-carousel rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] hover:jawraa-lift-card-hover md:p-9">
-            {groupedSuccessStories.map((group, index) => (
-              <input
-                key={storyGroupKey(group)}
-                id={`home-story-${index}`}
-                type="radio"
-                name="home-success-story"
-                className="sr-only"
-                defaultChecked={index === 0}
-              />
-            ))}
+          <div
+            className="jawraa-lift-card home-stories-carousel rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] hover:jawraa-lift-card-hover md:p-9"
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerEnd}
+            onPointerCancel={handlePointerEnd}
+            onKeyDown={(event) => {
+              if (event.key === "ArrowLeft") {
+                event.preventDefault();
+                if (isRtl) {
+                  showNextStory();
+                } else {
+                  showPreviousStory();
+                }
+              }
 
-            <div className="story-panels">
+              if (event.key === "ArrowRight") {
+                event.preventDefault();
+                if (isRtl) {
+                  showPreviousStory();
+                } else {
+                  showNextStory();
+                }
+              }
+            }}
+            role="region"
+            aria-roledescription="carousel"
+            tabIndex={0}
+          >
+            <div className="story-panels select-none touch-pan-y">
               {groupedSuccessStories.map((group, index) => (
                 <article
                   key={storyGroupKey(group)}
-                  className={`story-panel story-panel-${index} hidden gap-10 md:grid-cols-[320px_1fr]`}
+                  aria-hidden={activeStoryIndex !== index}
+                  className={`story-panel gap-10 md:grid-cols-[320px_1fr] ${
+                    activeStoryIndex === index ? "grid" : "hidden"
+                  }`}
                 >
                   <StoryVisual story={group.stories[0]} locale={locale} />
                   <div className="flex min-h-[290px] flex-col justify-center">
                     <StoryText group={group} locale={locale} />
                     <div className="story-controls mt-7 flex items-center justify-between gap-4">
-                      <div className="flex gap-2">
+                      <div className="flex items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={showPreviousStory}
+                          aria-label={locale === "ar" ? "القصة السابقة" : "Previous story"}
+                          className="flex size-9 items-center justify-center rounded-full border border-[#e4e7eb] text-[#17191f] transition hover:border-[#f6be15] hover:bg-[#fff8df]"
+                        >
+                          {isRtl ? (
+                            <ChevronRight aria-hidden className="size-4" />
+                          ) : (
+                            <ChevronLeft aria-hidden className="size-4" />
+                          )}
+                        </button>
                         {groupedSuccessStories.map((dotGroup, dotIndex) => (
-                          <label
+                          <button
+                            type="button"
                             key={storyGroupKey(dotGroup)}
-                            htmlFor={`home-story-${dotIndex}`}
                             aria-label={`${homePageCopy.storiesEyebrow[locale]} ${dotIndex + 1}`}
-                            className={`story-dot story-dot-${dotIndex} size-2 cursor-pointer rounded-full bg-[#d8dde5] transition duration-200`}
+                            aria-current={activeStoryIndex === dotIndex}
+                            onClick={() => goToStory(dotIndex)}
+                            className={`size-2 rounded-full transition duration-200 ${
+                              activeStoryIndex === dotIndex
+                                ? "scale-125 bg-[#f6be15]"
+                                : "bg-[#d8dde5]"
+                            }`}
                           />
                         ))}
+                        <button
+                          type="button"
+                          onClick={showNextStory}
+                          aria-label={locale === "ar" ? "القصة التالية" : "Next story"}
+                          className="flex size-9 items-center justify-center rounded-full border border-[#e4e7eb] text-[#17191f] transition hover:border-[#f6be15] hover:bg-[#fff8df]"
+                        >
+                          {isRtl ? (
+                            <ChevronLeft aria-hidden className="size-4" />
+                          ) : (
+                            <ChevronRight aria-hidden className="size-4" />
+                          )}
+                        </button>
                       </div>
                       <Link
                         href="/clients"
@@ -296,14 +385,6 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
                 </article>
               ))}
             </div>
-
-            <style>{`
-              .home-stories-carousel .story-panel {
-                display: none;
-              }
-
-              ${storyCarouselStyles}
-            `}</style>
           </div>
         </FadeIn>
       </div>

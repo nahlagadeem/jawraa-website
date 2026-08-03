@@ -274,6 +274,8 @@ function SystemsCloudPage({
   locale: Locale;
   page: ServicePageData;
 }) {
+  const introCard = page.introCards?.[0];
+
   return (
     <PageShell locale={locale} active="/services">
       <InnerHero
@@ -290,9 +292,9 @@ function SystemsCloudPage({
           </h2>
           <div className="space-y-5">
             <CloudRow
-              title={page.introTitle[locale]}
-              description={page.introBody[locale]}
-              image="/assets/pages/cloud-03.webp"
+              title={(introCard?.title ?? page.introTitle)[locale]}
+              description={(introCard?.description ?? page.introBody)[locale]}
+              image={introCard?.image}
             />
             {page.featureCards.map((item) => (
               <CloudRow
@@ -435,17 +437,6 @@ const infrastructureIncludedIcons: LucideIcon[] = [
   LockKeyhole,
   FingerprintPattern,
   ChartNetwork,
-];
-const systemsCloudIncludedIcons = [
-  "/assets/pages/cloud-23.webp",
-  "/assets/pages/cloud-18.webp",
-  "/assets/pages/cloud-11.webp",
-  "/assets/pages/cloud-08.webp",
-  "/assets/pages/cloud-17.webp",
-  "/assets/pages/cloud-19.webp",
-  "/assets/pages/cloud-13.webp",
-  "/assets/pages/cloud-01.webp",
-  "/assets/pages/cloud-03.webp",
 ];
 const cybersecurityIncludedIcons: LucideIcon[] = [
   ShieldAlert,
@@ -603,21 +594,17 @@ function SystemsCloudIncludedGrid({
     <section className="pb-[52px] pt-[22px]">
       <div className="jawraa-container max-w-[980px]">
         <h2 className="mb-8 flex items-center gap-3 text-[20px] font-bold tracking-[-0.02em]">
-          <span className="size-4 rounded-full bg-[#f6be15]" />
           {title}
         </h2>
         <div className="grid gap-4 md:grid-cols-3">
-          {items.map((item, index) => {
-            const icon = systemsCloudIncludedIcons[index] ?? "/assets/pages/cloud-03.webp";
-
-            return (
+          {items.map((item) => (
             <article
               key={item.title.en}
               className="jawraa-lift-card min-h-[122px] rounded-[12px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
             >
               <span className="relative mx-auto mb-4 flex size-12 items-center justify-center rounded-full bg-[#f6be15]">
                 <Image
-                  src={icon}
+                  src={item.image ?? "/assets/pages/cloud-03.webp"}
                   alt=""
                   fill
                   sizes="48px"
@@ -628,8 +615,7 @@ function SystemsCloudIncludedGrid({
                 {item.title[locale]}
               </h3>
             </article>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>

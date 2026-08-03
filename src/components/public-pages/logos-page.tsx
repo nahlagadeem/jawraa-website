@@ -170,29 +170,29 @@ function PartnerLogoCard({
 
 const partnerStripLogos = [
   {
-    name: "Jamf",
-    src: "/assets/pages/partners-strip-jamf.png",
-    width: 98,
+    name: "Partner logo 1",
+    src: "/assets/logos/partner-slider-1.svg",
+    width: 159,
   },
   {
-    name: "Sphero",
-    src: "/assets/pages/partners-strip-sphero.png",
-    width: 118,
+    name: "Partner logo 2",
+    src: "/assets/logos/partner-slider-2.svg",
+    width: 149,
   },
   {
-    name: "Adobe",
-    src: "/assets/pages/partners-strip-adobe.png",
-    width: 112,
+    name: "Partner logo 3",
+    src: "/assets/logos/partner-slider-3.svg",
+    width: 197,
   },
   {
-    name: "Logitech for education",
-    src: "/assets/pages/partners-06.png",
-    width: 168,
+    name: "Partner logo 4",
+    src: "/assets/logos/partner-slider-4.svg",
+    width: 188,
   },
   {
-    name: "Microsoft 365",
-    src: "/assets/pages/partners-02.png",
-    width: 156,
+    name: "Partner logo 5",
+    src: "/assets/logos/partner-slider-5.svg",
+    width: 189,
   },
 ];
 
@@ -249,29 +249,29 @@ function PartnerLogoStrip() {
 
 const clientStripLogos = [
   {
-    name: "Ministry of Education",
-    src: "/assets/home/client-education.webp",
-    width: 150,
+    name: "Client logo 6",
+    src: "/assets/logos/client-slider-6.svg",
+    width: 138,
   },
   {
-    name: "Ministry of Culture",
-    src: "/assets/logos/client-ministry-culture.svg",
-    width: 152,
+    name: "Client logo 7",
+    src: "/assets/logos/client-slider-7.svg",
+    width: 112,
   },
   {
-    name: "EXPRO",
-    src: "/assets/home/client-expo.webp",
-    width: 146,
+    name: "Client logo 8",
+    src: "/assets/logos/client-slider-8.svg",
+    width: 192,
   },
   {
-    name: "Ministry of Health",
-    src: "/assets/home/client-health.webp",
-    width: 150,
+    name: "Client logo 9",
+    src: "/assets/logos/client-slider-9.svg",
+    width: 206,
   },
   {
-    name: "Princess Nourah bint Abdulrahman University",
-    src: "/assets/logos/client-pnu.svg",
-    width: 142,
+    name: "Client logo 10",
+    src: "/assets/logos/client-slider-10.svg",
+    width: 145,
   },
 ];
 

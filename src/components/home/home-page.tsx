@@ -19,7 +19,30 @@ import { SectionHeading } from "./section-heading";
 
 const text = (value: Record<Locale, string>, locale: Locale) => value[locale];
 
-const storyCarouselStyles = homeSuccessStories
+const groupedSuccessStories = homeSuccessStories.reduce<
+  {
+    organization?: (typeof homeSuccessStories)[number]["organization"];
+    stories: (typeof homeSuccessStories)[number][];
+  }[]
+>((groups, story) => {
+  const previousGroup = groups.at(-1);
+
+  if (
+    story.organization &&
+    previousGroup?.organization?.en === story.organization.en
+  ) {
+    previousGroup.stories.push(story);
+    return groups;
+  }
+
+  groups.push({ organization: story.organization, stories: [story] });
+  return groups;
+}, []);
+
+const storyGroupKey = (group: (typeof groupedSuccessStories)[number]) =>
+  group.stories.map((story) => story.title.en).join("-");
+
+const storyCarouselStyles = groupedSuccessStories
   .map(
     (_, index) => `
       .home-stories-carousel #home-story-${index}:checked ~ .story-panels .story-panel-${index} {
@@ -230,9 +253,9 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
         </FadeIn>
         <FadeIn>
           <div className="jawraa-lift-card home-stories-carousel rounded-[24px] border border-[#f6be15] bg-white p-8 shadow-[0_34px_70px_rgb(17_17_17_/_12%)] hover:jawraa-lift-card-hover md:p-9">
-            {homeSuccessStories.map((story, index) => (
+            {groupedSuccessStories.map((group, index) => (
               <input
-                key={story.title.en}
+                key={storyGroupKey(group)}
                 id={`home-story-${index}`}
                 type="radio"
                 name="home-success-story"
@@ -242,19 +265,19 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
             ))}
 
             <div className="story-panels">
-              {homeSuccessStories.map((story, index) => (
+              {groupedSuccessStories.map((group, index) => (
                 <article
-                  key={story.title.en}
+                  key={storyGroupKey(group)}
                   className={`story-panel story-panel-${index} hidden gap-10 md:grid-cols-[320px_1fr]`}
                 >
-                  <StoryVisual story={story} locale={locale} />
+                  <StoryVisual story={group.stories[0]} locale={locale} />
                   <div className="flex min-h-[290px] flex-col justify-center">
-                    <StoryText story={story} locale={locale} />
+                    <StoryText group={group} locale={locale} />
                     <div className="story-controls mt-7 flex items-center justify-between gap-4">
                       <div className="flex gap-2">
-                        {homeSuccessStories.map((dotStory, dotIndex) => (
+                        {groupedSuccessStories.map((dotGroup, dotIndex) => (
                           <label
-                            key={dotStory.title.en}
+                            key={storyGroupKey(dotGroup)}
                             htmlFor={`home-story-${dotIndex}`}
                             aria-label={`${homePageCopy.storiesEyebrow[locale]} ${dotIndex + 1}`}
                             className={`story-dot story-dot-${dotIndex} size-2 cursor-pointer rounded-full bg-[#d8dde5] transition duration-200`}
@@ -508,35 +531,66 @@ function StoryVisual({
 }
 
 function StoryText({
-  story,
+  group,
   locale,
 }: {
-  story: (typeof homeSuccessStories)[number];
+  group: (typeof groupedSuccessStories)[number];
   locale: Locale;
 }) {
+  const showOrganization =
+    group.organization &&
+    group.organization.en !== "MINISTRY OF ECONOMY & PLANNING";
+
   return (
     <div>
-      {story.organization ? (
+      {showOrganization ? (
         <p className="mb-2 text-[12px] font-black uppercase tracking-[0.18em] text-[#8b919b]">
-          {story.organization[locale]}
+          {group.organization?.[locale]}
         </p>
       ) : null}
-      <h3 className="text-[21px] font-black tracking-[-0.025em]">
-        {story.title[locale]}
-      </h3>
-      <p className="mt-3 text-[13px] font-bold text-[#5f6671]">
-        {story.scope[locale]}
-      </p>
-      <p className="mt-2 text-[13px] font-bold text-[#5f6671]">
-        {story.duration[locale]}
-      </p>
-      <div className="mt-3 space-y-2">
-        {story.body.map((paragraph) => (
-          <p key={paragraph.en} className="text-[13px] leading-6 text-[#68707c]">
-            {paragraph[locale]}
-          </p>
+      <div className="space-y-6">
+        {group.stories.map((story) => (
+          <div key={story.title.en}>
+            <h3 className="text-[21px] font-black tracking-[-0.025em]">
+              {story.title[locale]}
+            </h3>
+            <StoryMetaLine className="mt-3" value={story.scope[locale]} />
+            <StoryMetaLine className="mt-2" value={story.duration[locale]} />
+            <div className="mt-3 space-y-2">
+              {story.body.map((paragraph) => (
+                <p key={paragraph.en} className="text-[13px] leading-6 text-[#68707c]">
+                  {paragraph[locale]}
+                </p>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </div>
+  );
+}
+
+function StoryMetaLine({
+  value,
+  className = "",
+}: {
+  value: string;
+  className?: string;
+}) {
+  const separatorIndex = value.indexOf(":");
+
+  if (separatorIndex === -1) {
+    return (
+      <p className={`${className} text-[13px] font-normal text-[#5f6671]`}>
+        {value}
+      </p>
+    );
+  }
+
+  return (
+    <p className={`${className} text-[13px] font-normal text-[#5f6671]`}>
+      <span className="font-bold">{value.slice(0, separatorIndex + 1)}</span>
+      {value.slice(separatorIndex + 1)}
+    </p>
   );
 }

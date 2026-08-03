@@ -360,9 +360,9 @@ function InfoCard({
         large ? "min-h-[250px] p-8" : "min-h-[275px] p-6",
       ].join(" ")}
     >
-      <div className="mb-7 flex size-12 items-center justify-center rounded-[15px] bg-[#fff6df]">
+      <div className="mb-7 flex size-14 items-center justify-center rounded-[15px] bg-[#fff6df]">
         {item.image ? (
-          <Image src={item.image} alt="" width={32} height={32} />
+          <Image src={item.image} alt="" width={42} height={42} />
         ) : (
           <Apple className="size-7 fill-black text-black" />
         )}
@@ -397,9 +397,9 @@ function ServiceCard({
 
   return (
     <article className="jawraa-lift-card h-full min-h-[248px] rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_18px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-      <div className="mb-6 flex size-11 items-center justify-center rounded-[14px] bg-[#fff6df] text-[#8f949c]">
+      <div className="mb-6 flex size-14 items-center justify-center rounded-[14px] bg-[#fff6df] text-[#8f949c]">
         {iconImage ? (
-          <Image src={iconImage} alt="" width={24} height={24} />
+          <Image src={iconImage} alt="" width={40} height={40} />
         ) : index === 4 ? (
           <AppleCompanyLogo className="size-6 text-black" />
         ) : null}

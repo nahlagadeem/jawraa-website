@@ -192,7 +192,7 @@ function AboutIcon({
     <span
       className={[
         "mb-5 flex items-center justify-center rounded-[10px] bg-[#fff8df] text-[#7c8794]",
-        compact ? "size-9" : "size-12",
+        compact ? "size-12" : "size-14",
         centered ? "mx-auto" : "",
       ].join(" ")}
     >
@@ -200,8 +200,8 @@ function AboutIcon({
         <Image
           src={imageSrc}
           alt=""
-          width={compact ? 26 : 32}
-          height={compact ? 26 : 32}
+          width={compact ? 38 : 42}
+          height={compact ? 38 : 42}
         />
       ) : (
         <Icon className={compact ? "size-4" : "size-5"} strokeWidth={1.9} />

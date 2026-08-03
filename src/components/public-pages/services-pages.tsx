@@ -442,9 +442,9 @@ function ManagedMiniCard({
 }) {
   return (
     <article className="jawraa-lift-card min-h-[166px] rounded-[14px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_18px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
-      <div className="relative mx-auto mb-5 flex size-11 items-center justify-center rounded-[12px] bg-[#fff4c7] text-[#8d97a3]">
+      <div className="relative mx-auto mb-5 flex size-14 items-center justify-center rounded-[12px] bg-[#fff4c7] text-[#8d97a3]">
         {item.image ? (
-          <Image src={item.image} alt="" fill sizes="44px" className="object-contain p-2" />
+          <Image src={item.image} alt="" fill sizes="56px" className="object-contain p-1.5" />
         ) : (
           <Cog className="size-5" />
         )}
@@ -517,7 +517,7 @@ function CloudRow({
       </div>
       {image ? (
         <div className="relative size-[62px] rounded-[12px] bg-[#fff4c7]">
-          <Image src={image} alt="" fill sizes="62px" className="object-contain p-3" />
+          <Image src={image} alt="" fill sizes="62px" className="object-contain p-1.5" />
         </div>
       ) : null}
     </article>
@@ -548,9 +548,9 @@ function InfrastructureIncludedGrid({
               key={item.title.en}
               className="jawraa-lift-card min-h-[104px] rounded-[12px] border border-[#ebe4c8] bg-white p-5 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
             >
-              <span className="relative mx-auto mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
+              <span className="relative mx-auto mb-4 flex size-12 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
                 {item.image ? (
-                  <Image src={item.image} alt="" fill sizes="36px" className="object-contain p-2" />
+                  <Image src={item.image} alt="" fill sizes="48px" className="object-contain p-1.5" />
                 ) : (
                   <Icon className="size-4" />
                 )}
@@ -588,13 +588,13 @@ function SystemsCloudIncludedGrid({
               key={item.title.en}
               className="jawraa-lift-card min-h-[122px] rounded-[12px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_12px_26px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
             >
-              <span className="relative mx-auto mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7]">
+              <span className="relative mx-auto mb-4 flex size-12 items-center justify-center rounded-[10px] bg-[#fff4c7]">
                 <Image
                   src={item.image ?? "/assets/pages/cloud-03.webp"}
                   alt=""
                   fill
-                  sizes="36px"
-                  className="object-contain p-2"
+                  sizes="48px"
+                  className="object-contain p-1.5"
                 />
               </span>
               <h3 className="text-[13px] font-black leading-tight tracking-[-0.01em]">
@@ -621,13 +621,13 @@ function CybersecurityIncludedGrid({
     <section className="pb-[52px] pt-[22px]">
       <div className="jawraa-container max-w-[820px]">
         <h2 className="mb-8 flex items-center justify-center gap-3 text-center text-[22px] font-bold tracking-[-0.02em]">
-          <span className="relative flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7]">
+          <span className="relative flex size-10 items-center justify-center">
             <Image
               src="/assets/logos/cyber-services-include.svg"
               alt=""
               fill
-              sizes="36px"
-              className="object-contain p-2"
+              sizes="40px"
+              className="object-contain"
             />
           </span>
           {title}
@@ -636,22 +636,22 @@ function CybersecurityIncludedGrid({
           {items.map((item) => (
               <article
                 key={item.title.en}
-                className="jawraa-lift-card flex min-h-[156px] flex-col items-center justify-center rounded-[12px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover"
+                className="jawraa-lift-card flex min-h-[170px] flex-col items-center rounded-[12px] border border-[#f6be15] bg-white p-6 pt-7 text-center shadow-[0_16px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover"
               >
-                <span className="relative mb-5 flex size-14 items-center justify-center rounded-[14px] bg-[#fff4c7]">
+                <span className="relative mb-5 flex size-16 shrink-0 items-center justify-center rounded-[14px] bg-[#fff4c7]">
                   {item.image ? (
                     <Image
                       src={item.image}
                       alt=""
                       fill
-                      sizes="56px"
-                      className="object-contain p-3"
+                      sizes="64px"
+                      className="object-contain p-2"
                     />
                   ) : (
                     <ShieldAlert className="size-5 text-[#8d97a3]" />
                   )}
                 </span>
-                <h3 className="max-w-[190px] text-[18px] font-black leading-tight tracking-[-0.02em] text-[#161922]">
+                <h3 className="flex min-h-[48px] max-w-[190px] items-center justify-center text-[18px] font-black leading-tight tracking-[-0.02em] text-[#161922]">
                   {item.title[locale]}
                 </h3>
               </article>
@@ -671,9 +671,9 @@ function IncludedCell({
 }) {
   return (
     <article className="jawraa-lift-card -ml-px -mt-px min-h-[152px] border border-[#f6be15] bg-white p-6 hover:jawraa-lift-card-hover">
-      <span className="relative mb-4 flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
+      <span className="relative mb-4 flex size-12 items-center justify-center rounded-[10px] bg-[#fff4c7] text-[#8d97a3]">
         {item.image ? (
-          <Image src={item.image} alt="" fill sizes="36px" className="object-contain p-2" />
+          <Image src={item.image} alt="" fill sizes="48px" className="object-contain p-1.5" />
         ) : (
           <Cog className="size-4" />
         )}

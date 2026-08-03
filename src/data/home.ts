@@ -483,6 +483,7 @@ export const homePartners: CardItem[] = [
 
 export const homeSuccessStories: SuccessStory[] = [
   {
+    organization: { en: "National Water Company", ar: "شركة المياه الوطنية" },
     title: {
       en: "NWC IT Staff Augmentation",
       ar: "تعزيز كوادر تقنية المعلومات لدى شركة المياه الوطنية",

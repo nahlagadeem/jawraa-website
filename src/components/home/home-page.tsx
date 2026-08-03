@@ -401,7 +401,7 @@ function ServiceCard({
         {iconImage ? (
           <Image src={iconImage} alt="" width={40} height={40} />
         ) : index === 4 ? (
-          <AppleCompanyLogo className="size-6 text-black" />
+          <AppleCompanyLogo className="size-10 text-black" />
         ) : null}
       </div>
       <h3 className="text-[16px] font-extrabold leading-tight tracking-[-0.015em] text-[#17191f]">
@@ -509,6 +509,11 @@ function StoryText({
 }) {
   return (
     <div>
+      {story.organization ? (
+        <p className="mb-2 text-[12px] font-black uppercase tracking-[0.18em] text-[#8b919b]">
+          {story.organization[locale]}
+        </p>
+      ) : null}
       <h3 className="text-[21px] font-black tracking-[-0.025em]">
         {story.title[locale]}
       </h3>

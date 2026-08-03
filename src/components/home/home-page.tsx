@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
-import { Apple, ChevronLeft, ChevronRight } from "lucide-react";
+import { Apple } from "lucide-react";
 import type { Locale } from "@/config/site";
 import {
   type CardItem,
@@ -334,18 +334,6 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
                     <StoryText group={group} locale={locale} />
                     <div className="story-controls mt-7 flex items-center justify-between gap-4">
                       <div className="flex items-center gap-2">
-                        <button
-                          type="button"
-                          onClick={showPreviousStory}
-                          aria-label={locale === "ar" ? "القصة السابقة" : "Previous story"}
-                          className="flex size-9 items-center justify-center rounded-full border border-[#e4e7eb] text-[#17191f] transition hover:border-[#f6be15] hover:bg-[#fff8df]"
-                        >
-                          {isRtl ? (
-                            <ChevronRight aria-hidden className="size-4" />
-                          ) : (
-                            <ChevronLeft aria-hidden className="size-4" />
-                          )}
-                        </button>
                         {groupedSuccessStories.map((dotGroup, dotIndex) => (
                           <button
                             type="button"
@@ -356,22 +344,10 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
                             className={`size-2 rounded-full transition duration-200 ${
                               activeStoryIndex === dotIndex
                                 ? "scale-125 bg-[#f6be15]"
-                                : "bg-[#d8dde5]"
+                              : "bg-[#d8dde5]"
                             }`}
                           />
                         ))}
-                        <button
-                          type="button"
-                          onClick={showNextStory}
-                          aria-label={locale === "ar" ? "القصة التالية" : "Next story"}
-                          className="flex size-9 items-center justify-center rounded-full border border-[#e4e7eb] text-[#17191f] transition hover:border-[#f6be15] hover:bg-[#fff8df]"
-                        >
-                          {isRtl ? (
-                            <ChevronLeft aria-hidden className="size-4" />
-                          ) : (
-                            <ChevronRight aria-hidden className="size-4" />
-                          )}
-                        </button>
                       </div>
                       <Link
                         href="/clients"
@@ -618,17 +594,8 @@ function StoryText({
   group: (typeof groupedSuccessStories)[number];
   locale: Locale;
 }) {
-  const showOrganization =
-    group.organization &&
-    group.organization.en !== "MINISTRY OF ECONOMY & PLANNING";
-
   return (
     <div>
-      {showOrganization ? (
-        <p className="mb-2 text-[12px] font-black uppercase tracking-[0.18em] text-[#8b919b]">
-          {group.organization?.[locale]}
-        </p>
-      ) : null}
       <div className="space-y-6">
         {group.stories.map((story) => (
           <div key={story.title.en}>

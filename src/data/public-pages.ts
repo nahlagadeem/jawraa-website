@@ -320,12 +320,12 @@ export const servicePages: Record<string, ServicePageData> = {
     ],
     includedTitle: { en: "Our Cybersecurity Services Include:", ar: "تشمل خدماتنا في الأمن السيبراني:" },
     included: [
-      { title: { en: "Threat Assessment", ar: "تقييم التهديدات" }, description: { en: "", ar: "" } },
-      { title: { en: "Incident Response", ar: "الاستجابة للحوادث" }, description: { en: "", ar: "" } },
-      { title: { en: "Compliance & Governance", ar: "الامتثال والحوكمة" }, description: { en: "", ar: "" } },
-      { title: { en: "Security Architecture Design", ar: "تصميم البنية الأمنية" }, description: { en: "", ar: "" } },
-      { title: { en: "Training & Awareness", ar: "التدريب والتوعية" }, description: { en: "", ar: "" } },
-      { title: { en: "Managed Security Services", ar: "خدمات الأمن المُدارة" }, description: { en: "", ar: "" } },
+      { title: { en: "Threat Assessment", ar: "تقييم التهديدات" }, description: { en: "", ar: "" }, image: "/assets/logos/cyber-threat-assessment.svg" },
+      { title: { en: "Incident Response", ar: "الاستجابة للحوادث" }, description: { en: "", ar: "" }, image: "/assets/logos/cyber-incident-response.svg" },
+      { title: { en: "Compliance & Governance", ar: "الامتثال والحوكمة" }, description: { en: "", ar: "" }, image: "/assets/logos/cyber-compliance-governance.svg" },
+      { title: { en: "Security Architecture Design", ar: "تصميم البنية الأمنية" }, description: { en: "", ar: "" }, image: "/assets/logos/cyber-security-architecture-design.svg" },
+      { title: { en: "Training & Awareness", ar: "التدريب والتوعية" }, description: { en: "", ar: "" }, image: "/assets/logos/cyber-training-awareness.svg" },
+      { title: { en: "Managed Security Services", ar: "خدمات الأمن المُدارة" }, description: { en: "", ar: "" }, image: "/assets/logos/cyber-managed-security-services.svg" },
     ],
   },
 };

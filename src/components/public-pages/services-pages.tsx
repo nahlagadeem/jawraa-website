@@ -1,18 +1,13 @@
 import Image from "next/image";
 import {
-  BadgeQuestionMark,
   Cable,
   ChartNetwork,
   Cog,
-  FileText,
   FingerprintPattern,
-  House,
   LockKeyhole,
   Monitor,
   Server,
   ShieldAlert,
-  Umbrella,
-  Zap,
   type LucideIcon,
 } from "lucide-react";
 import type { Locale } from "@/config/site";
@@ -438,15 +433,6 @@ const infrastructureIncludedIcons: LucideIcon[] = [
   FingerprintPattern,
   ChartNetwork,
 ];
-const cybersecurityIncludedIcons: LucideIcon[] = [
-  ShieldAlert,
-  Zap,
-  Umbrella,
-  House,
-  BadgeQuestionMark,
-  FileText,
-];
-
 function ManagedMiniCard({
   item,
   locale,
@@ -530,7 +516,7 @@ function CloudRow({
         <p className="mt-2 text-[12px] leading-5 text-[#68707c]">{description}</p>
       </div>
       {image ? (
-        <div className="relative size-[62px] rounded-[12px] bg-[#f6f1e3]">
+        <div className="relative size-[62px] rounded-[12px] bg-[#fff4c7]">
           <Image src={image} alt="" fill sizes="62px" className="object-contain p-3" />
         </div>
       ) : null}
@@ -635,27 +621,41 @@ function CybersecurityIncludedGrid({
     <section className="pb-[52px] pt-[22px]">
       <div className="jawraa-container max-w-[820px]">
         <h2 className="mb-8 flex items-center justify-center gap-3 text-center text-[22px] font-bold tracking-[-0.02em]">
-          <FileText className="size-4 text-[#8b919b]" />
+          <span className="relative flex size-9 items-center justify-center rounded-[10px] bg-[#fff4c7]">
+            <Image
+              src="/assets/logos/cyber-services-include.svg"
+              alt=""
+              fill
+              sizes="36px"
+              className="object-contain p-2"
+            />
+          </span>
           {title}
         </h2>
         <div className="grid gap-5 md:grid-cols-3">
-          {items.map((item, index) => {
-            const Icon = cybersecurityIncludedIcons[index] ?? ShieldAlert;
-
-            return (
+          {items.map((item) => (
               <article
                 key={item.title.en}
                 className="jawraa-lift-card flex min-h-[156px] flex-col items-center justify-center rounded-[12px] border border-[#f6be15] bg-white p-6 text-center shadow-[0_16px_34px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover"
               >
-                <span className="mb-5 flex size-14 items-center justify-center rounded-full bg-[#f6be15] text-white shadow-[0_12px_22px_rgb(246_190_21_/_28%)]">
-                  <Icon className="size-5" />
+                <span className="relative mb-5 flex size-14 items-center justify-center rounded-[14px] bg-[#fff4c7]">
+                  {item.image ? (
+                    <Image
+                      src={item.image}
+                      alt=""
+                      fill
+                      sizes="56px"
+                      className="object-contain p-3"
+                    />
+                  ) : (
+                    <ShieldAlert className="size-5 text-[#8d97a3]" />
+                  )}
                 </span>
                 <h3 className="max-w-[190px] text-[18px] font-black leading-tight tracking-[-0.02em] text-[#161922]">
                   {item.title[locale]}
                 </h3>
               </article>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>

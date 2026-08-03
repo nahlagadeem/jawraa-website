@@ -237,6 +237,13 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
   const showNextStory = () => goToStory(activeStoryIndex + 1);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
+    if (
+      event.target instanceof Element &&
+      event.target.closest("a, button")
+    ) {
+      return;
+    }
+
     dragStartX.current = event.clientX;
     dragDeltaX.current = 0;
     event.currentTarget.setPointerCapture(event.pointerId);
@@ -341,12 +348,16 @@ function SuccessStoriesSection({ locale }: { locale: Locale }) {
                             aria-label={`${homePageCopy.storiesEyebrow[locale]} ${dotIndex + 1}`}
                             aria-current={activeStoryIndex === dotIndex}
                             onClick={() => goToStory(dotIndex)}
-                            className={`size-2 rounded-full transition duration-200 ${
-                              activeStoryIndex === dotIndex
-                                ? "scale-125 bg-[#f6be15]"
-                              : "bg-[#d8dde5]"
-                            }`}
-                          />
+                            className="flex size-7 items-center justify-center rounded-full"
+                          >
+                            <span
+                              className={`size-2 rounded-full transition duration-200 ${
+                                activeStoryIndex === dotIndex
+                                  ? "scale-125 bg-[#f6be15]"
+                                  : "bg-[#d8dde5]"
+                              }`}
+                            />
+                          </button>
                         ))}
                       </div>
                       <Link

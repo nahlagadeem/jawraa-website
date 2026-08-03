@@ -498,22 +498,19 @@ export const homeSuccessStories: SuccessStory[] = [
     },
     body: [
       {
-        en: "Jawraa successfully provided highly skilled IT professionals to NWC, ensuring seamless operations and project execution.",
+        en: "Jawraa successfully provided highly skilled IT professionals to NWC, ensuring seamless operations and project execution. Our comprehensive managed services ensured the effective management and supervision of IT staff throughout the project.",
         ar: "نجحت جوراء في توفير متخصصين ذوي مهارات عالية في تقنية المعلومات لشركة المياه الوطنية، مما ضمن سلاسة العمليات وتنفيذ المشاريع.",
-      },
-      {
-        en: "Our comprehensive managed services ensured the effective management and supervision of IT staff throughout the project.",
-        ar: "ضمنت خدماتنا المُدارة الشاملة الإدارة والإشراف الفعال على كوادر تقنية المعلومات طوال فترة المشروع.",
       },
     ],
   },
   {
+    organization: { en: "National Water Company", ar: "شركة المياه الوطنية" },
     title: {
       en: "NWC Hayat Transformation Business Enablement",
       ar: "تمكين أعمال تحول حياة لدى شركة المياه الوطنية",
     },
     scope: {
-      en: "Project Scope: Change management program for standard used processes across directorates.",
+      en: "Project Scope: Change management program for standardized processes across directorates",
       ar: "نطاق المشروع: برنامج إدارة التغيير للعمليات القياسية المستخدمة عبر الإدارات.",
     },
     duration: {
@@ -534,13 +531,13 @@ export const homeSuccessStories: SuccessStory[] = [
       ar: "مشروع بوابة المستقبل لوزارة التعليم وTETCO",
     },
     scope: {
-      en: "Project Scope: Digital transformation project to create interactive transformation framework",
+      en: "Project Scope: Digital transformation project to create an education transformation framework",
       ar: "نطاق المشروع: مشروع تحول رقمي لإنشاء إطار تحول تفاعلي",
     },
     duration: { en: "Duration: On-going", ar: "المدة: مستمر" },
     body: [
       {
-        en: "Jawraa is actively involved in Ministry of Education's TETCO's Future Gate Project, driving digital transformation and creating a modern learning environment.",
+        en: "Jawraa is actively involved in the Ministry of Education's TETCO Future Gate Project, driving digital transformation and creating a modern learning environment.",
         ar: "تشارك Jawraa بفعالية في مشروع بوابة المستقبل التابع لوزارة التعليم وTETCO، من خلال قيادة التحول الرقمي وإنشاء بيئة تعليمية حديثة.",
       },
     ],
@@ -570,21 +567,25 @@ export const homeSuccessStories: SuccessStory[] = [
       ar: "تنفيذ بنية MEPICT التحتية والخدمات المُدارة",
     },
     scope: {
-      en: "Project Scope: Comprehensive ICT infrastructure implementation and managed services.",
+      en: "Project Scope: Comprehensive ICT infrastructure implementation and managed services",
       ar: "نطاق المشروع: تنفيذ شامل للبنية التحتية لـ ICT والخدمات المُدارة.",
     },
     duration: {
-      en: "Duration: Three to five-year renewal",
+      en: "Duration: 19 months (with a one-year renewal)",
       ar: "المدة: تجديد من ثلاث إلى خمس سنوات",
     },
     body: [
       {
-        en: "Jawraa delivered successful ICT infrastructure projects for MEP, encompassing data center facilities, network infrastructure, security and systems applications. Our managed services ensured ongoing support and optimization of the infrastructure.",
+        en: "Jawraa delivered successful ICT infrastructure project for MEP, encompassing data center facilities, network infrastructure, security, and various applications. Our managed services ensured ongoing support and optimization of the infrastructure.",
         ar: "قدّمت Jawraa مشاريع ناجحة في البنية التحتية لـ ICT لصالح MEP، وتشمل مرافق مراكز البيانات، والبنية التحتية للشبكات، والأمن، وتطبيقات الأنظمة. وقد ضمنت خدماتنا المُدارة الدعم المستمر وتحسين البنية التحتية.",
       },
     ],
   },
   {
+    organization: {
+      en: "MINISTRY OF ECONOMY & PLANNING",
+      ar: "وزارة الاقتصاد والتخطيط",
+    },
     title: { en: "MEP E-Morasalat", ar: "MEP E-Morasalat" },
     scope: {
       en: "Project Scope: Supply and implementation of administrative communication system",
@@ -593,7 +594,7 @@ export const homeSuccessStories: SuccessStory[] = [
     duration: { en: "Duration: One year", ar: "المدة: سنة واحدة" },
     body: [
       {
-        en: "Jawraa provides comprehensive solution for administrative communications at MEP, automating document management processes and improving efficiency.",
+        en: "Jawraa provided a comprehensive solution for administrative communications at MEP, automating document management processes and improving efficiency.",
         ar: "توفّر Jawraa حلًا شاملًا للاتصالات الإدارية في MEP، من خلال أتمتة عمليات إدارة الوثائق وتحسين الكفاءة.",
       },
     ],

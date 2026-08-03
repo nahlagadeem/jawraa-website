@@ -472,11 +472,18 @@ function StoryVisual({
   const title = story.title.en.toLowerCase();
   const visual =
     title.includes("nwc") || title.includes("water")
-      ? { src: "/assets/home/client-nwc.webp", alt: "National Water Company" }
+      ? { src: "/assets/logos/client-national-water-company.svg", alt: "National Water Company" }
+      : title.includes("zain")
+        ? { src: "/assets/logos/client-zain.svg", alt: "Zain" }
       : title.includes("education") ||
           title.includes("tetco") ||
-          title.includes("zain")
-        ? { src: "/assets/home/client-education.webp", alt: "Ministry of Education" }
+          title.includes("future gate")
+        ? { src: "/assets/logos/client-tetco.svg", alt: "TETCO" }
+        : title.includes("mep") || title.includes("morasalat")
+          ? {
+              src: "/assets/logos/client-ministry-economy-planning.svg",
+              alt: "Ministry of Economy and Planning",
+            }
         : null;
 
   return (

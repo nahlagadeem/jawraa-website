@@ -95,15 +95,15 @@ function HeroSection({ locale }: { locale: Locale }) {
               className="object-contain"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%), linear-gradient(180deg, black 0%, black 88%, transparent 100%)",
+                  "linear-gradient(90deg, rgb(0 0 0 / 25%) 0%, black 4%, black 96%, rgb(0 0 0 / 25%) 100%), linear-gradient(180deg, black 0%, black 91%, rgb(0 0 0 / 25%) 100%)",
                 WebkitMaskComposite: "source-in",
                 maskImage:
-                  "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%), linear-gradient(180deg, black 0%, black 88%, transparent 100%)",
+                  "linear-gradient(90deg, rgb(0 0 0 / 25%) 0%, black 4%, black 96%, rgb(0 0 0 / 25%) 100%), linear-gradient(180deg, black 0%, black 91%, rgb(0 0 0 / 25%) 100%)",
                 maskComposite: "intersect",
               }}
               priority
             />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgb(255_255_255_/_0)_7%,rgb(255_255_255_/_0)_93%,#fff_100%),linear-gradient(180deg,rgb(255_255_255_/_0)_86%,#fff_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgb(255_255_255_/_0.55)_0%,rgb(255_255_255_/_0)_5%,rgb(255_255_255_/_0)_95%,rgb(255_255_255_/_0.55)_100%),linear-gradient(180deg,rgb(255_255_255_/_0)_90%,rgb(255_255_255_/_0.55)_100%)]" />
           </figure>
         </FadeIn>
 

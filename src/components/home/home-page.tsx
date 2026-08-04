@@ -79,7 +79,7 @@ function HeroSection({ locale }: { locale: Locale }) {
             <p className="mt-8 max-w-full text-[21px] font-semibold leading-[1.24] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.18]">
               {homePageCopy.heroLead[locale]}
             </p>
-            <p className="mt-6 max-w-full text-[13px] leading-6 text-[#777d88] sm:max-w-[555px]">
+            <p className="mb-8 mt-6 max-w-full text-[13px] leading-6 text-[#777d88] sm:max-w-[555px]">
               {homePageCopy.heroBody[locale]}
             </p>
           </header>
@@ -106,7 +106,7 @@ function HeroSection({ locale }: { locale: Locale }) {
           </figure>
         </FadeIn>
 
-        <FadeIn delay={0.1} className="relative z-10 min-w-0 lg:col-span-2 lg:-mt-5">
+        <FadeIn delay={0.1} className="relative z-10 min-w-0 lg:col-span-2">
           <div
             className="grid gap-3 lg:grid-cols-[0.94fr_1.06fr]"
             aria-label={locale === "ar" ? "إحصاءات جوراء" : "Jawraa statistics"}

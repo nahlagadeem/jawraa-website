@@ -106,7 +106,7 @@ function HeroSection({ locale }: { locale: Locale }) {
           </figure>
         </FadeIn>
 
-        <FadeIn delay={0.1} className="relative z-10 min-w-0 lg:col-span-2">
+        <FadeIn delay={0.1} className="relative z-10 min-w-0 lg:col-span-2 lg:-mt-5">
           <div
             className="grid gap-3 lg:grid-cols-[0.94fr_1.06fr]"
             aria-label={locale === "ar" ? "إحصاءات جوراء" : "Jawraa statistics"}

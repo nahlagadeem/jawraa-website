@@ -76,7 +76,7 @@ function HeroSection({ locale }: { locale: Locale }) {
             <h1 className="max-w-full text-[34px] font-bold leading-[1.08] tracking-[-0.035em] text-[#15171c] sm:max-w-[520px] sm:text-[48px] md:text-[68px] md:leading-[1.04]">
               {homePageCopy.heroTitle[locale]}
             </h1>
-            <p className="mt-8 max-w-full text-[21px] font-semibold leading-[1.24] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[28px] md:text-[35px] md:leading-[1.18]">
+            <p className="mt-5 max-w-full text-[23px] font-semibold leading-[1.2] tracking-[-0.025em] text-[#666d79] sm:max-w-[500px] sm:text-[30px] md:text-[38px] md:leading-[1.14]">
               {homePageCopy.heroLead[locale]}
             </p>
             <p className="mb-8 mt-6 max-w-full text-[13px] leading-6 text-[#777d88] sm:max-w-[555px]">
@@ -95,14 +95,15 @@ function HeroSection({ locale }: { locale: Locale }) {
               className="object-contain"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 45%) 5%, black 14%, black 86%, rgb(0 0 0 / 45%) 95%, transparent 100%), linear-gradient(180deg, black 0%, black 78%, rgb(0 0 0 / 55%) 88%, transparent 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 35%) 7%, black 20%, black 80%, rgb(0 0 0 / 35%) 93%, transparent 100%), linear-gradient(180deg, black 0%, black 70%, rgb(0 0 0 / 45%) 84%, transparent 100%)",
                 WebkitMaskComposite: "source-in",
                 maskImage:
-                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 45%) 5%, black 14%, black 86%, rgb(0 0 0 / 45%) 95%, transparent 100%), linear-gradient(180deg, black 0%, black 78%, rgb(0 0 0 / 55%) 88%, transparent 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 35%) 7%, black 20%, black 80%, rgb(0 0 0 / 35%) 93%, transparent 100%), linear-gradient(180deg, black 0%, black 70%, rgb(0 0 0 / 45%) 84%, transparent 100%)",
                 maskComposite: "intersect",
               }}
               priority
             />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgb(255_255_255_/_0)_16%,rgb(255_255_255_/_0)_84%,#fff_100%),linear-gradient(180deg,rgb(255_255_255_/_0)_58%,#fff_100%)]" />
           </figure>
         </FadeIn>
 

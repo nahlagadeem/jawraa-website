@@ -85,8 +85,8 @@ function HeroSection({ locale }: { locale: Locale }) {
           </header>
         </FadeIn>
 
-        <FadeIn delay={0.08} className="relative min-w-0">
-          <figure className="relative mx-auto aspect-[1.48] w-full max-w-[610px]">
+        <FadeIn delay={0.08} className="relative min-w-0 lg:pt-8">
+          <figure className="relative mx-auto aspect-[1.48] w-full max-w-[610px] lg:-mb-8">
             <Image
               src="/assets/home/hero-building.webp"
               alt={locale === "ar" ? "مبنى جوراء" : "Jawraa corporate building"}
@@ -95,10 +95,10 @@ function HeroSection({ locale }: { locale: Locale }) {
               className="object-contain"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(90deg, rgb(0 0 0 / 25%) 0%, black 8%, black 92%, rgb(0 0 0 / 25%) 100%), linear-gradient(180deg, black 0%, black 86%, rgb(0 0 0 / 35%) 96%, rgb(0 0 0 / 20%) 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 45%) 5%, black 14%, black 86%, rgb(0 0 0 / 45%) 95%, transparent 100%), linear-gradient(180deg, black 0%, black 78%, rgb(0 0 0 / 55%) 88%, transparent 100%)",
                 WebkitMaskComposite: "source-in",
                 maskImage:
-                  "linear-gradient(90deg, rgb(0 0 0 / 25%) 0%, black 8%, black 92%, rgb(0 0 0 / 25%) 100%), linear-gradient(180deg, black 0%, black 86%, rgb(0 0 0 / 35%) 96%, rgb(0 0 0 / 20%) 100%)",
+                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 45%) 5%, black 14%, black 86%, rgb(0 0 0 / 45%) 95%, transparent 100%), linear-gradient(180deg, black 0%, black 78%, rgb(0 0 0 / 55%) 88%, transparent 100%)",
                 maskComposite: "intersect",
               }}
               priority

@@ -395,7 +395,7 @@ function ManagedWideCard({ item, locale }: { item: SimpleCard; locale: Locale })
         <h3 className="max-w-[520px] text-[24px] font-black leading-[0.98] tracking-[-0.035em] text-[#161922]">
           {item.title[locale]}
         </h3>
-        <p className="mt-4 max-w-[520px] text-[11px] leading-[1.65] text-[#68707c]">
+        <p className="mt-4 max-w-[520px] text-[13px] leading-[1.75] text-[#68707c]">
           {item.description[locale]}
         </p>
       </div>

@@ -86,24 +86,24 @@ function HeroSection({ locale }: { locale: Locale }) {
         </FadeIn>
 
         <FadeIn delay={0.08} className="relative min-w-0 lg:pt-8">
-          <figure className="relative mx-auto aspect-[1.48] w-full max-w-[610px] lg:-mb-8">
+          <figure className="relative mx-auto aspect-[1.48] w-full max-w-[660px] lg:-mb-8">
             <Image
               src="/assets/home/hero-building.webp"
               alt={locale === "ar" ? "مبنى جوراء" : "Jawraa corporate building"}
               fill
-              sizes="(min-width: 1024px) 600px, 90vw"
+              sizes="(min-width: 1024px) 660px, 90vw"
               className="object-contain"
               style={{
                 WebkitMaskImage:
-                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 35%) 7%, black 20%, black 80%, rgb(0 0 0 / 35%) 93%, transparent 100%), linear-gradient(180deg, black 0%, black 70%, rgb(0 0 0 / 45%) 84%, transparent 100%)",
+                  "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%), linear-gradient(180deg, black 0%, black 88%, transparent 100%)",
                 WebkitMaskComposite: "source-in",
                 maskImage:
-                  "linear-gradient(90deg, transparent 0%, rgb(0 0 0 / 35%) 7%, black 20%, black 80%, rgb(0 0 0 / 35%) 93%, transparent 100%), linear-gradient(180deg, black 0%, black 70%, rgb(0 0 0 / 45%) 84%, transparent 100%)",
+                  "linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%), linear-gradient(180deg, black 0%, black 88%, transparent 100%)",
                 maskComposite: "intersect",
               }}
               priority
             />
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgb(255_255_255_/_0)_16%,rgb(255_255_255_/_0)_84%,#fff_100%),linear-gradient(180deg,rgb(255_255_255_/_0)_58%,#fff_100%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#fff_0%,rgb(255_255_255_/_0)_7%,rgb(255_255_255_/_0)_93%,#fff_100%),linear-gradient(180deg,rgb(255_255_255_/_0)_86%,#fff_100%)]" />
           </figure>
         </FadeIn>
 
@@ -129,13 +129,13 @@ function HeroSection({ locale }: { locale: Locale }) {
               ))}
             </div>
             <aside
-              className="jawraa-lift-card min-h-[74px] w-full max-w-[610px] justify-self-center rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm hover:jawraa-lift-card-hover"
+              className="jawraa-lift-card min-h-[74px] w-full max-w-[660px] justify-self-center rounded-[12px] border border-[#f6be15] bg-white/95 px-5 py-4 shadow-[0_20px_42px_rgb(17_17_17_/_10%)] backdrop-blur-sm hover:jawraa-lift-card-hover"
               aria-label={homePageCopy.impactLabel[locale]}
             >
               <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.24em] text-[#8d949e]">
                 {homePageCopy.impactLabel[locale]}
               </p>
-              <p className="max-w-[520px] text-[13px] font-extrabold leading-5 text-[#16191e]">
+              <p className="text-[13px] font-extrabold leading-5 text-[#16191e]">
                 {homePageCopy.impactText[locale]}
               </p>
             </aside>

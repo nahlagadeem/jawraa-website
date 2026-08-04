@@ -400,7 +400,12 @@ function ManagedWideCard({ item, locale }: { item: SimpleCard; locale: Locale })
         </p>
       </div>
       {item.image ? (
-        <div className="relative min-h-[140px] overflow-hidden rounded-[16px] bg-[#f4f7fa]">
+        <div
+          className={[
+            "relative w-full overflow-hidden rounded-[16px] bg-[#f4f7fa]",
+            isManagedWideVisual ? "aspect-[496/260]" : "min-h-[140px]",
+          ].join(" ")}
+        >
           <Image
             src={item.image}
             alt=""

@@ -85,7 +85,7 @@ function HeroSection({ locale }: { locale: Locale }) {
           </header>
         </FadeIn>
 
-        <FadeIn delay={0.08} className="relative min-w-0 lg:pt-8">
+        <FadeIn delay={0.08} className="relative min-w-0 lg:pt-4">
           <figure className="relative mx-auto aspect-[1.48] w-full max-w-[660px] lg:-mb-8">
             <Image
               src="/assets/home/hero-building.webp"

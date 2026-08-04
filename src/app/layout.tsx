@@ -36,7 +36,7 @@ const ibmPlexArabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.jawraa.sa"),
+  metadataBase: new URL("https://jawraa.com"),
   title: {
     default: "Jawraa",
     template: "%s | Jawraa",

@@ -38,6 +38,14 @@ const serviceItems = [
   },
 ] satisfies NavItem[];
 
+const iotItems = [
+  { label: { en: "IOT", ar: "IOT" }, href: "/iot" },
+  { label: { en: "AI", ar: "AI" }, href: "/iot/ai" },
+  { label: { en: "DT", ar: "DT" }, href: "/iot/dt" },
+  { label: { en: "VSAT", ar: "VSAT" }, href: "/iot/vsat" },
+  { label: { en: "LOW CURRENT", ar: "LOW CURRENT" }, href: "/iot/low-current" },
+] satisfies NavItem[];
+
 const secondaryItems = [
   { label: { en: "Media Center", ar: "المركز الإعلامي" }, href: "/media-center" },
   { label: { en: "Partners", ar: "الشركاء" }, href: "/partners" },
@@ -67,6 +75,7 @@ export function SiteHeader({
     ...primaryItems,
     ...serviceItems,
     ...secondaryItems,
+    ...iotItems,
   ];
 
   function handleContactClick(event: MouseEvent<HTMLAnchorElement>) {
@@ -144,6 +153,36 @@ export function SiteHeader({
           {secondaryItems.map((item) => (
             <HeaderLink key={item.href} item={item} locale={locale} active={currentPath} />
           ))}
+
+          <div className="group relative">
+            <button
+              type="button"
+              className={[
+                "inline-flex h-[22px] items-center gap-1 whitespace-nowrap rounded-full transition-colors hover:text-black",
+                currentPath.startsWith("/iot")
+                  ? "border border-[#f6be15] px-2 text-black"
+                  : "text-[#191b20]",
+              ].join(" ")}
+            >
+              IOT
+              <ChevronDown className="size-3 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
+            </button>
+            <div className="invisible absolute left-1/2 top-full z-40 mt-3 w-[236px] -translate-x-1/2 rounded-[14px] border border-[#f6be15] bg-white p-2 opacity-0 shadow-[0_22px_46px_rgb(17_17_17_/_12%)] transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 rtl:left-auto rtl:right-1/2 rtl:translate-x-1/2">
+              {iotItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  locale={locale}
+                  className={[
+                    "block rounded-[10px] px-4 py-3 text-[12px] font-semibold hover:bg-[#fff7dc] hover:text-black",
+                    currentPath === item.href ? "bg-[#fff7dc] text-black" : "text-[#59616d]",
+                  ].join(" ")}
+                >
+                  {item.label[locale]}
+                </Link>
+              ))}
+            </div>
+          </div>
         </nav>
 
         <div className="flex items-center gap-2">

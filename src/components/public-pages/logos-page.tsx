@@ -196,13 +196,24 @@ const partnerStripLogos = [
   },
 ];
 
-function PartnerLogoStrip() {
+export function PartnerLogoStrip({
+  maxWidthClass = "max-w-[980px]",
+  sectionClassName = "pb-[62px]",
+}: {
+  maxWidthClass?: string;
+  sectionClassName?: string;
+} = {}) {
   const logos = [...partnerStripLogos, ...partnerStripLogos];
 
   return (
-    <section className="pb-[62px]">
+    <section className={sectionClassName}>
       <div className="jawraa-container">
-        <div className="jawraa-lift-card relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-5 shadow-[0_18px_42px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
+        <div
+          className={[
+            "jawraa-lift-card relative mx-auto overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-5 shadow-[0_18px_42px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover",
+            maxWidthClass,
+          ].join(" ")}
+        >
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-white/0" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-white/0" />
           <div className="partner-logo-strip flex w-max items-center gap-5">
@@ -275,13 +286,24 @@ const clientStripLogos = [
   },
 ];
 
-function ClientLogoStrip() {
+export function ClientLogoStrip({
+  maxWidthClass = "max-w-[980px]",
+  sectionClassName = "pb-[62px]",
+}: {
+  maxWidthClass?: string;
+  sectionClassName?: string;
+} = {}) {
   const logos = [...clientStripLogos, ...clientStripLogos];
 
   return (
-    <section className="pb-[62px]">
+    <section className={sectionClassName}>
       <div className="jawraa-container">
-        <div className="jawraa-lift-card relative mx-auto max-w-[980px] overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-5 shadow-[0_18px_42px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover">
+        <div
+          className={[
+            "jawraa-lift-card relative mx-auto overflow-hidden rounded-[16px] border border-[#f6be15] bg-white px-5 py-5 shadow-[0_18px_42px_rgb(17_17_17_/_8%)] hover:jawraa-lift-card-hover",
+            maxWidthClass,
+          ].join(" ")}
+        >
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-gradient-to-r from-white to-white/0" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-white to-white/0" />
           <div className="client-logo-strip flex w-max items-center gap-5">

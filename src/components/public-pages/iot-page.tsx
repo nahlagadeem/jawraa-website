@@ -458,7 +458,7 @@ export function IotPage({ locale }: { locale: Locale }) {
                   key={card.title}
                   className="min-h-[216px] rounded-[12px] border border-[#f6be15] bg-white p-5"
                 >
-                  <p className="text-[9px] font-bold uppercase tracking-[0.16em] text-[#b18408]">
+                  <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
                     {card.eyebrow}
                   </p>
                   <h3 className="mt-3 text-[15px] font-black leading-tight text-[#161922]">
@@ -509,7 +509,7 @@ function Eyebrow({ text, plain = false }: { text: string; plain?: boolean }) {
       <span
         className={[
           "text-[10px] font-bold text-[#8b919b]",
-          plain ? "tracking-[-0.01em]" : "uppercase tracking-[0.28em]",
+          plain ? "tracking-[-0.01em]" : "tracking-[-0.01em]",
         ].join(" ")}
       >
         {text}
@@ -583,7 +583,7 @@ function ImageStoryCard({
     <FadeIn>
       <article className="jawraa-lift-card grid min-h-[230px] gap-6 rounded-[16px] border border-[#f6be15] bg-white p-5 shadow-[0_16px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_470px] md:items-center">
         <div className="px-1 md:px-3">
-          <p className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#b18408]">
+          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
             {eyebrow}
           </p>
           <h3 className="mt-3 text-[20px] font-bold leading-[1.08] tracking-[-0.02em] text-[#161922] md:text-[24px]">

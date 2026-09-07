@@ -128,62 +128,93 @@
       transform: translateY(0);
     }
   }
-  @keyframes jawraa-logo-fill {
+  @keyframes jawraa-logo-breathe {
     0% {
-      transform: scaleX(0);
-      opacity: 0.72;
-    }
-    45% {
-      transform: scaleX(0.68);
-      opacity: 1;
-    }
-    100% {
-      transform: scaleX(1);
-      opacity: 1;
-    }
-  }
-  @keyframes jawraa-loading-line {
-    0% {
-      transform: translateX(-110%) scaleX(0.4);
+      transform: translateY(0) scale(1);
     }
     50% {
-      transform: translateX(0%) scaleX(0.72);
+      transform: translateY(-3px) scale(1.025);
     }
     100% {
-      transform: translateX(110%) scaleX(0.4);
+      transform: translateY(0) scale(1);
     }
   }
-  .jawraa-loading-logo {
+  @keyframes jawraa-logo-bubble {
+    0% {
+      opacity: 0;
+      transform: translateY(-42px) scale(0.84);
+    }
+    18% {
+      opacity: 0.72;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(54px) scale(1);
+    }
+  }
+  @keyframes jawraa-logo-triangle-settle {
+    0% {
+      opacity: 0;
+      transform: translateY(-46px) scale(0.86);
+    }
+    24% {
+      opacity: 0.78;
+    }
+    58% {
+      opacity: 1;
+      transform: translateY(18px) scale(1);
+    }
+    74% {
+      opacity: 1;
+      transform: translateY(18px) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(38px) scale(0.95);
+    }
+  }
+  .jawraa-loading-mark {
     position: relative;
-    width: min(260px, 62vw);
-    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.4rem 1.8rem;
   }
-  .jawraa-loading-logo-base,
-  .jawraa-loading-logo-fill {
+  .jawraa-loading-triangle {
     position: absolute;
-    inset: 0;
-    background-color: currentColor;
-    mask-image: url("/assets/logos/jawraa-logo.svg");
-    mask-position: center;
-    mask-repeat: no-repeat;
-    mask-size: contain;
-    -webkit-mask-image: url("/assets/logos/jawraa-logo.svg");
-    -webkit-mask-position: center;
-    -webkit-mask-repeat: no-repeat;
-    -webkit-mask-size: contain;
+    top: 0.25rem;
+    width: 0;
+    height: 0;
+    border-left: 0.42rem solid transparent;
+    border-right: 0.42rem solid transparent;
+    border-top: 0.72rem solid rgb(246 190 21 / 66%);
+    animation: jawraa-logo-bubble 1.45s ease-in-out infinite;
   }
-  .jawraa-loading-logo-base {
-    color: rgb(255 255 255 / 22%);
+  .jawraa-loading-triangle-1 {
+    left: 16%;
+    animation-duration: 1.3s;
   }
-  .jawraa-loading-logo-fill {
-    color: #f6be15;
-    transform: scaleX(0);
-    transform-origin: left center;
-    animation: jawraa-logo-fill 1.75s ease-in-out infinite alternate;
+  .jawraa-loading-triangle-2 {
+    left: calc(41.8% - 0.39rem);
+    border-left-width: 0.39rem;
+    border-right-width: 0.39rem;
+    border-top-width: 0.66rem;
+    animation-name: jawraa-logo-triangle-settle;
+    animation-delay: 0.12s;
+    animation-duration: 1.55s;
   }
-  .jawraa-loading-line {
-    transform-origin: center;
-    animation: jawraa-loading-line 1.15s ease-in-out infinite;
+  .jawraa-loading-triangle-3 {
+    right: 32%;
+    animation-delay: 0.28s;
+    animation-duration: 1.38s;
+  }
+  .jawraa-loading-triangle-4 {
+    right: 13%;
+    animation-delay: 0.48s;
+    animation-duration: 1.42s;
+  }
+  .jawraa-loading-logo-image {
+    animation: jawraa-logo-breathe 1.35s ease-in-out infinite;
   }
   .jawraa-fade-in {
     animation: jawraa-fade-in 0.55s ease-out both;
@@ -192,16 +223,13 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .jawraa-fade-in,
-    .jawraa-loading-logo-fill,
-    .jawraa-loading-line {
+    .jawraa-loading-logo-image,
+    .jawraa-loading-triangle {
       animation: none;
     }
     .jawraa-fade-in {
       opacity: 1;
       transform: none;
-    }
-    .jawraa-loading-logo-fill {
-      transform: scaleX(1);
     }
   }
   html {

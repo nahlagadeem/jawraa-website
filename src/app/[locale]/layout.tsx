@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "next-intl";
 import { localeDirections } from "@/config/site";
 import { HtmlLocaleSync } from "@/components/layout/html-locale-sync";
+import { RouteLoadingOverlay } from "@/components/layout/route-loading-overlay";
 import { routing } from "@/i18n/routing";
 
 type LocaleLayoutProps = {
@@ -33,6 +34,7 @@ export default async function LocaleLayout({
       <HtmlLocaleSync locale={locale as keyof typeof localeDirections} direction={direction} />
       <div lang={locale} dir={direction} className="min-h-screen">
         {children}
+        <RouteLoadingOverlay />
       </div>
     </NextIntlClientProvider>
   );

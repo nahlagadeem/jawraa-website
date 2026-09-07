@@ -152,27 +152,6 @@
       transform: translateY(54px) scale(1);
     }
   }
-  @keyframes jawraa-logo-triangle-settle {
-    0% {
-      opacity: 0;
-      transform: translateY(-46px) scale(0.86);
-    }
-    24% {
-      opacity: 0.78;
-    }
-    58% {
-      opacity: 1;
-      transform: translateY(18px) scale(1);
-    }
-    74% {
-      opacity: 1;
-      transform: translateY(18px) scale(1);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(38px) scale(0.95);
-    }
-  }
   .jawraa-loading-mark {
     position: relative;
     display: flex;
@@ -185,31 +164,27 @@
     top: 0.25rem;
     width: 0;
     height: 0;
-    border-left: 0.42rem solid transparent;
-    border-right: 0.42rem solid transparent;
-    border-top: 0.72rem solid rgb(246 190 21 / 66%);
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 0.86rem solid rgb(246 190 21 / 66%);
     animation: jawraa-logo-bubble 1.45s ease-in-out infinite;
   }
   .jawraa-loading-triangle-1 {
-    left: 16%;
+    left: 10%;
     animation-duration: 1.3s;
   }
   .jawraa-loading-triangle-2 {
-    left: calc(41.8% - 0.39rem);
-    border-left-width: 0.39rem;
-    border-right-width: 0.39rem;
-    border-top-width: 0.66rem;
-    animation-name: jawraa-logo-triangle-settle;
+    left: calc(41.8% - 0.5rem);
     animation-delay: 0.12s;
-    animation-duration: 1.55s;
+    animation-duration: 1.5s;
   }
   .jawraa-loading-triangle-3 {
-    right: 32%;
+    left: 58%;
     animation-delay: 0.28s;
     animation-duration: 1.38s;
   }
   .jawraa-loading-triangle-4 {
-    right: 13%;
+    right: 14%;
     animation-delay: 0.48s;
     animation-duration: 1.42s;
   }

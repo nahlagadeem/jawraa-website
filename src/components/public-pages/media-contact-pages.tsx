@@ -89,7 +89,14 @@ export function MediaCenterPage({ locale }: { locale: Locale }) {
         <div className="jawraa-container">
           <div className="max-w-[710px] md:pl-[24px]">
             <FadeIn>
-              <h1 className="text-[28px] font-bold leading-[1.02] tracking-[-0.03em] text-[#161922] sm:text-[38px] md:text-[48px] md:leading-[0.98]">
+              <h1
+                className={[
+                  "text-[28px] font-bold text-[#161922] sm:text-[38px] md:text-[48px]",
+                  locale === "ar"
+                    ? "leading-[1.18] tracking-[0] md:leading-[1.16]"
+                    : "leading-[1.02] tracking-[-0.03em] md:leading-[0.98]",
+                ].join(" ")}
+              >
                 {mediaPage.title[locale]}
               </h1>
               <p className="mt-7 max-w-[470px] text-[12px] leading-6 text-[#818894] md:text-[13px]">

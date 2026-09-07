@@ -468,7 +468,7 @@ function ImageStoryCard({
     <FadeIn>
       <article className="jawraa-lift-card grid min-h-[230px] gap-6 rounded-[16px] border border-[#f6be15] bg-white p-5 shadow-[0_16px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_486px] md:items-center">
         <div className="px-1 md:px-3">
-          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
+          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#635217]">
             {eyebrow}
           </p>
           <h3 className="mt-3 text-[20px] font-bold leading-[1.08] tracking-[-0.02em] text-[#161922] md:text-[24px]">
@@ -503,7 +503,7 @@ function IconCard({
 }) {
   return (
     <article className="jawraa-lift-card flex h-full min-h-[166px] flex-col rounded-[14px] border border-[#f6be15] bg-white p-5 text-start shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-      <span className="relative mb-4 flex size-10 shrink-0 items-center justify-center rounded-[9px] border border-[#f6be15] bg-[#fff4c7]">
+      <span className="relative mb-4 flex size-10 shrink-0 items-center justify-center rounded-[9px] border border-[#efd284] bg-[#fbf2d7]">
         <Image src={image} alt="" fill sizes="40px" className="object-contain p-2" />
       </span>
       <h3 className="text-[12px] font-bold leading-tight text-[#161922]">
@@ -540,7 +540,7 @@ function StepCard({
 }) {
   return (
     <article className="jawraa-lift-card flex h-full min-h-[232px] flex-col rounded-[14px] border border-[#f6be15] bg-white p-5 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-      <span className="inline-flex size-9 items-center justify-center rounded-[9px] border border-[#f6be15] bg-[#fff4c7] text-[10px] font-bold text-[#b18408]">
+      <span className="inline-flex size-9 items-center justify-center rounded-[9px] border border-[#efd284] bg-[#fbf2d7] text-[10px] font-bold text-[#635217]">
         {number}
       </span>
       <h3 className="mt-4 text-[13px] font-bold leading-tight text-[#161922]">

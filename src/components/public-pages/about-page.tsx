@@ -22,7 +22,14 @@ export function AboutPage({ locale }: { locale: Locale }) {
                 {aboutPage.eyebrow[locale]}
               </span>
             </div>
-            <h1 className="max-w-[590px] text-[34px] font-bold leading-[0.98] tracking-[-0.035em] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
+            <h1
+              className={[
+                "max-w-[590px] text-[34px] font-bold sm:text-[48px] md:text-[68px]",
+                locale === "ar"
+                  ? "leading-[1.18] tracking-[0] md:leading-[1.16]"
+                  : "leading-[0.98] tracking-[-0.035em] md:leading-[0.94]",
+              ].join(" ")}
+            >
               {aboutPage.title[locale]}
             </h1>
             <p className="mt-6 max-w-[570px] text-[20px] font-medium leading-tight tracking-[-0.035em] text-[#626a75] sm:text-[27px]">

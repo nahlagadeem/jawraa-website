@@ -284,7 +284,7 @@ export function IotPage({ locale }: { locale: Locale }) {
             {pillars.map((item, index) => (
               <FadeIn key={item.title} delay={index * 0.03}>
                 <article className="jawraa-lift-card min-h-[154px] rounded-[14px] border border-[#f6be15] bg-white p-5 text-center shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-                  <span className="relative mx-auto mb-4 flex size-10 items-center justify-center rounded-[9px] border border-[#f6be15] bg-[#fff4c7]">
+                  <span className="relative mx-auto mb-4 flex size-10 items-center justify-center rounded-[9px] border border-[#efd284] bg-[#fbf2d7]">
                     <Image src={item.image} alt="" fill sizes="40px" className="object-contain p-2" />
                   </span>
                   <h3 className="text-[12px] font-bold leading-tight text-[#161922]">
@@ -318,7 +318,7 @@ export function IotPage({ locale }: { locale: Locale }) {
                 {platformTags.map((tag) => (
                   <div
                     key={tag}
-                    className="rounded-full border border-[#f6be15] bg-white px-4 py-2 text-[11px] font-semibold text-[#747b86]"
+                    className="rounded-full border border-[#efd284] bg-[#fbf2d7] px-4 py-2 text-[11px] font-semibold text-[#635217]"
                   >
                     {tag}
                   </div>
@@ -391,7 +391,7 @@ export function IotPage({ locale }: { locale: Locale }) {
                 key={step.number}
                 className="jawraa-lift-card min-h-[254px] rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover"
               >
-                <span className="inline-flex size-9 items-center justify-center rounded-[9px] border border-[#f6be15] bg-[#fff4c7] text-[10px] font-bold text-[#b18408]">
+                <span className="inline-flex size-9 items-center justify-center rounded-[9px] border border-[#efd284] bg-[#fbf2d7] text-[10px] font-bold text-[#635217]">
                   {step.number}
                 </span>
                 <h3 className="mt-5 min-h-[42px] text-[17px] font-black leading-tight text-[#161922]">
@@ -458,7 +458,7 @@ export function IotPage({ locale }: { locale: Locale }) {
                   key={card.title}
                   className="min-h-[216px] rounded-[12px] border border-[#f6be15] bg-white p-5"
                 >
-                  <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
+                  <p className="text-[9px] font-bold tracking-[-0.01em] text-[#635217]">
                     {card.eyebrow}
                   </p>
                   <h3 className="mt-3 text-[15px] font-black leading-tight text-[#161922]">
@@ -583,7 +583,7 @@ function ImageStoryCard({
     <FadeIn>
       <article className="jawraa-lift-card grid min-h-[230px] gap-6 rounded-[16px] border border-[#f6be15] bg-white p-5 shadow-[0_16px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_470px] md:items-center">
         <div className="px-1 md:px-3">
-          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
+          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#635217]">
             {eyebrow}
           </p>
           <h3 className="mt-3 text-[20px] font-bold leading-[1.08] tracking-[-0.02em] text-[#161922] md:text-[24px]">

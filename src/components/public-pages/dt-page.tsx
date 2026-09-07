@@ -281,7 +281,7 @@ export function DtPage({ locale }: { locale: Locale }) {
             {manufacturingSteps.map((step) => (
               <FadeIn key={step.number} delay={Number(step.number) * 0.03}>
                 <article className="jawraa-lift-card flex h-full min-h-[260px] flex-col rounded-[16px] border border-[#f6be15] bg-white p-6 shadow-[0_16px_34px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-                  <span className="inline-flex size-9 items-center justify-center rounded-[9px] border border-[#f6be15] bg-[#fff4c7] text-[10px] font-bold text-[#b18408]">
+                  <span className="inline-flex size-9 items-center justify-center rounded-[9px] border border-[#efd284] bg-[#fbf2d7] text-[10px] font-bold text-[#635217]">
                     {step.number}
                   </span>
                   <h3 className="mt-5 text-[15px] font-bold leading-tight text-[#161922]">
@@ -433,7 +433,7 @@ function ImageStoryCard({
     <FadeIn>
       <article className="jawraa-lift-card grid min-h-[230px] gap-6 rounded-[16px] border border-[#f6be15] bg-white p-5 shadow-[0_16px_38px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover md:grid-cols-[1fr_486px] md:items-center">
         <div className="px-1 md:px-3">
-          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
+          <p className="text-[9px] font-bold tracking-[-0.01em] text-[#635217]">
             {eyebrow}
           </p>
           <h3 className="mt-3 text-[20px] font-bold leading-[1.08] tracking-[-0.02em] text-[#161922] md:text-[24px]">
@@ -482,7 +482,7 @@ function IconCard({
     >
       <span
         className={[
-          "relative mb-4 flex size-10 shrink-0 items-center justify-center rounded-[9px] border border-[#f6be15] bg-[#fff4c7]",
+          "relative mb-4 flex size-10 shrink-0 items-center justify-center rounded-[9px] border border-[#efd284] bg-[#fbf2d7]",
           isStart ? "" : "mx-auto",
         ].join(" ")}
       >
@@ -515,7 +515,7 @@ function ValueCard({
   return (
     <FadeIn>
       <article className="jawraa-lift-card h-full min-h-[260px] rounded-[16px] border border-[#f6be15] bg-white p-7 shadow-[0_16px_36px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-        <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
+        <p className="text-[9px] font-bold tracking-[-0.01em] text-[#635217]">
           {eyebrow}
         </p>
         <h3 className="mt-3 text-[22px] font-bold tracking-[-0.02em] text-[#161922]">
@@ -543,7 +543,7 @@ function PillGroup({
   return (
     <FadeIn>
       <article className="jawraa-lift-card h-full min-h-[260px] rounded-[16px] border border-[#f6be15] bg-white p-7 shadow-[0_16px_36px_rgb(17_17_17_/_7%)] hover:jawraa-lift-card-hover">
-        <p className="text-[9px] font-bold tracking-[-0.01em] text-[#b18408]">
+        <p className="text-[9px] font-bold tracking-[-0.01em] text-[#635217]">
           {eyebrow}
         </p>
         <h3 className="mt-3 text-[22px] font-bold tracking-[-0.02em] text-[#161922]">
@@ -553,7 +553,7 @@ function PillGroup({
           {items.map((item) => (
             <span
               key={item}
-              className="rounded-full border border-[#efd284] bg-[#fbfaf6] px-4 py-2 text-[11px] font-semibold text-[#747b86]"
+              className="rounded-full border border-[#efd284] bg-[#fbf2d7] px-4 py-2 text-[11px] font-semibold text-[#635217]"
             >
               {item}
             </span>

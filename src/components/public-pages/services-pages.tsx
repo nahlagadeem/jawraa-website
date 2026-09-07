@@ -94,7 +94,7 @@ function ManagedServicesPage({
               </span>
             </h1>
           ) : (
-            <h1 className="mt-7 max-w-[660px] text-[34px] font-bold leading-[0.98] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[68px] md:leading-[0.94]">
+            <h1 className="mt-7 max-w-[680px] text-[32px] font-bold leading-[1.18] tracking-[0] text-[#161922] sm:text-[44px] md:text-[56px] md:leading-[1.16]">
               {page.title[locale]}
             </h1>
           )}
@@ -218,7 +218,11 @@ function InfrastructurePage({
         title={page.title[locale]}
         description={page.description[locale]}
         compact
-        titleClassName="!text-[30px] sm:!text-[42px] md:!text-[56px]"
+        titleClassName={
+          locale === "ar"
+            ? "!text-[30px] !leading-[1.18] !tracking-[0] sm:!text-[40px] md:!text-[52px] md:!leading-[1.16]"
+            : "!text-[30px] sm:!text-[42px] md:!text-[56px]"
+        }
       />
 
       <section className="py-[44px]">
@@ -278,7 +282,11 @@ function SystemsCloudPage({
         title={page.title[locale]}
         description={page.description[locale]}
         compact
-        titleClassName="!text-[30px] sm:!text-[42px] md:!text-[56px]"
+        titleClassName={
+          locale === "ar"
+            ? "!text-[30px] !leading-[1.18] !tracking-[0] sm:!text-[40px] md:!text-[52px] md:!leading-[1.16]"
+            : "!text-[30px] sm:!text-[42px] md:!text-[56px]"
+        }
       />
       <section className="py-[30px]">
         <div className="jawraa-container max-w-[980px]">

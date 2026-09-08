@@ -97,10 +97,6 @@ export function RouteLoadingOverlay() {
           priority
           className="jawraa-loading-logo-image h-auto w-[236px] max-w-[58vw]"
         />
-        <span className="jawraa-loading-triangle jawraa-loading-triangle-1" />
-        <span className="jawraa-loading-triangle jawraa-loading-triangle-2" />
-        <span className="jawraa-loading-triangle jawraa-loading-triangle-3" />
-        <span className="jawraa-loading-triangle jawraa-loading-triangle-4" />
       </div>
     </div>
   );

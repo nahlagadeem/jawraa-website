@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
-const CONTACT_TO_EMAIL = "nahla.gadeem@gmail.com";
+const CONTACT_TO_EMAIL =
+  process.env.CONTACT_TO_EMAIL ?? "nahla.abubaker@jawraa.com";
 const CONTACT_FROM_EMAIL =
   process.env.CONTACT_FROM_EMAIL ?? "Jawraa Website <onboarding@resend.dev>";
 

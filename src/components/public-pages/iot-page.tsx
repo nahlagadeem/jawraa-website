@@ -3,6 +3,7 @@ import type { Locale } from "@/config/site";
 import { FadeIn } from "@/components/motion/fade-in";
 import { ClientLogoStrip, PartnerLogoStrip } from "./logos-page";
 import { PageShell } from "./page-shell";
+import { LocalizedIotContent } from "./localized-iot-content";
 
 const heroBullets = [
   "Real-time monitoring and decision support",
@@ -190,12 +191,19 @@ const iotContainerClass = "jawraa-container max-w-[1080px]";
 export function IotPage({ locale }: { locale: Locale }) {
   return (
     <PageShell locale={locale} active="/iot">
+      <LocalizedIotContent locale={locale}>
       <section className="bg-white pb-[66px] pt-[112px] md:pb-[76px] md:pt-[132px]">
         <div className={`${iotContainerClass} grid gap-7 lg:grid-cols-[1fr_486px] lg:items-start lg:gap-2`}>
           <FadeIn>
             <div className="max-w-[570px]">
               <Eyebrow text="Internet of Things" plain />
-              <h1 className="mt-4 max-w-[560px] text-[34px] font-bold leading-[1.08] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[68px] md:leading-[1.04]">
+              <h1
+                className={
+                  locale === "ar"
+                    ? "mt-4 max-w-[560px] text-[32px] font-bold leading-[1.24] tracking-[0] text-[#161922] sm:text-[42px] md:text-[56px] md:leading-[1.2]"
+                    : "mt-4 max-w-[560px] text-[34px] font-bold leading-[1.08] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[68px] md:leading-[1.04]"
+                }
+              >
                 JAWRAA IoT designed for intelligent, connected operations.
               </h1>
               <p className="mt-6 max-w-[520px] text-[13px] leading-6 text-[#7a828e]">
@@ -498,6 +506,7 @@ export function IotPage({ locale }: { locale: Locale }) {
           </article>
         </div>
       </section>
+      </LocalizedIotContent>
     </PageShell>
   );
 }

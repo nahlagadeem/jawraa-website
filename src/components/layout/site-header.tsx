@@ -39,11 +39,17 @@ const serviceItems = [
 ] satisfies NavItem[];
 
 const iotItems = [
-  { label: { en: "IOT", ar: "IOT" }, href: "/iot" },
-  { label: { en: "AI", ar: "AI" }, href: "/iot/ai" },
-  { label: { en: "DT", ar: "DT" }, href: "/iot/dt" },
-  { label: { en: "VSAT", ar: "VSAT" }, href: "/iot/vsat" },
-  { label: { en: "LOW CURRENT", ar: "LOW CURRENT" }, href: "/iot/low-current" },
+  { label: { en: "IOT", ar: "إنترنت الأشياء (IOT)" }, href: "/iot" },
+  { label: { en: "AI", ar: "الذكاء الاصطناعي (AI)" }, href: "/iot/ai" },
+  { label: { en: "DT", ar: "التوأم الرقمي (DT)" }, href: "/iot/dt" },
+  {
+    label: {
+      en: "VSAT",
+      ar: "الاتصالات عبر الأقمار الصناعية (VSAT)",
+    },
+    href: "/iot/vsat",
+  },
+  { label: { en: "LOW CURRENT", ar: "التيار المنخفض (LOW CURRENT)" }, href: "/iot/low-current" },
 ] satisfies NavItem[];
 
 const secondaryItems = [
@@ -164,7 +170,7 @@ export function SiteHeader({
                   : "text-[#191b20]",
               ].join(" ")}
             >
-              IOT
+              {locale === "ar" ? "إنترنت الأشياء" : "IOT"}
               <ChevronDown className="size-3 transition-transform group-hover:rotate-180 group-focus-within:rotate-180" />
             </button>
             <div className="invisible absolute left-1/2 top-full z-40 mt-3 w-[236px] -translate-x-1/2 rounded-[14px] border border-[#f6be15] bg-white p-2 opacity-0 shadow-[0_22px_46px_rgb(17_17_17_/_12%)] transition-all duration-150 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100 rtl:left-auto rtl:right-1/2 rtl:translate-x-1/2">

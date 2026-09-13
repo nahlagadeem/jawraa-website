@@ -21,3 +21,5 @@ services:
         sync: false
       - key: CONTACT_FROM_EMAIL
         sync: false
+      - key: CONTACT_TO_EMAIL
+        sync: false

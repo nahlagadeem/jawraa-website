@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { Locale } from "@/config/site";
 import { FadeIn } from "@/components/motion/fade-in";
 import { PageShell } from "./page-shell";
+import { LocalizedIotContent } from "./localized-iot-content";
 
 const vsatContainerClass = "jawraa-container max-w-[1080px]";
 
@@ -189,12 +190,19 @@ const whyJawraa = [
 export function VsatPage({ locale }: { locale: Locale }) {
   return (
     <PageShell locale={locale} active="/iot">
+      <LocalizedIotContent locale={locale}>
       <section className="bg-white pb-[62px] pt-[112px] md:pb-[70px] md:pt-[132px]">
         <div className={`${vsatContainerClass} grid gap-7 lg:grid-cols-[1fr_486px] lg:items-stretch lg:gap-2`}>
           <FadeIn className="h-full">
             <div className="flex h-full max-w-[570px] flex-col">
               <Eyebrow text="VSAT & SATCOM" />
-              <h1 className="mt-4 max-w-[540px] text-[34px] font-bold leading-[1.04] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[66px] md:leading-[0.96]">
+              <h1
+                className={
+                  locale === "ar"
+                    ? "mt-4 max-w-[560px] text-[32px] font-bold leading-[1.24] tracking-[0] text-[#161922] sm:text-[42px] md:text-[56px] md:leading-[1.2]"
+                    : "mt-4 max-w-[540px] text-[34px] font-bold leading-[1.04] tracking-[-0.035em] text-[#161922] sm:text-[48px] md:text-[66px] md:leading-[0.96]"
+                }
+              >
                 End-to-end VSAT deployment and support for demanding environments.
               </h1>
               <p className="mt-6 max-w-[528px] text-[13px] leading-6 text-[#7a828e]">
@@ -396,6 +404,7 @@ export function VsatPage({ locale }: { locale: Locale }) {
           </article>
         </div>
       </section>
+      </LocalizedIotContent>
     </PageShell>
   );
 }
